@@ -45,7 +45,7 @@ DISPLAY_PAGES_ON_MENU = True
 
 DISPLAY_TAGS_INLINE = True
 
-SHOW_ARTICLE_AUTHOR = True
+SHOW_ARTICLE_AUTHOR = False
 DISPLAY_ARTICLE_INFO_ON_INDEX = True
 
 AUTHOR_SAVE_AS = ''
@@ -111,7 +111,7 @@ IGNORE_FILES = ['.#*',
         ]
 
 THEME = 'theme/'
-PYGMENTS_STYLE = 'monokai'
+PYGMENTS_STYLE = 'solarizedlight'
 
 PLUGIN_PATHS = ['/home/minio/sources/pelican-plugins']
 PLUGINS = [

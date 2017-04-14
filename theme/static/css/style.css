@@ -171,6 +171,10 @@ pre {
 	display: block;
 }
 
+footer.post-info {
+    margin-bottom: 2em;
+}
+
 .post-info .label {
 	margin-left: 1em;
 }
@@ -179,12 +183,19 @@ pre {
 	margin-left: 0;
 }
 
-.article .entry-content .well + p:first-of-type {
+.cr {
+    margin: 6px 0 32px 0;
+}
+
+.cr a {
+    border-bottom: none;
+}
+
+.article .entry-content .post-info + p:first-of-type {
 	font-weight: bold;
 }
 
-section#content, 
-article div.summary {
+.container {
 	font-size: 16px;
 }
 
@@ -199,7 +210,6 @@ article div.summary {
 .read-next li > a {
 	padding: 0;
 	border: none;
-	text-align: left;
 }
 
 .read-next li > a:hover {
@@ -208,6 +218,12 @@ article div.summary {
 
 .read-next li.previous {
 	padding-left: 0;
+    text-align: left;
+}
+
+.read-next li.next {
+	padding-left: 0;
+    text-align: right;
 }
 
 .read-next p {
