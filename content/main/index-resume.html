@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta charset="UTF-8">
+	<title>Mirosław Zalewski — Professional business card and résumé</title>
+	<meta name="description" content="Mirosław Zalewski, Poznań, Poland - Software quality assurance, open source, data science, sociology">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.5.0/d3.min.js" charset="utf-8"></script>
+	<script src="dagre-d3.js"></script>
+	<style>
+		html {
+			margin: 0;
+			height: 100%;
+			font-family: sans-serif;
+		}
+		body {
+			margin: 0;
+			min-height: 100%;
+		}
+
+		body.graph #resume {
+			display: none;
+		}
+
+		body #resume {
+			max-width: 720px;
+			margin: 0 auto;
+		}
+
+		body.basic svg {
+			display: none;
+		}
+
+		body.basic #resume {
+			display: block;
+		}
+
+		body.basic #changeview,
+		body.basic #popup, 
+		body.basic #instructions {
+			display: none;
+		}
+
+		body.graph #changeview,
+		body.graph #instructions {
+			display: block;
+		}
+
+		body.basic h2 {
+			display: none;
+		}
+
+		body.basic #resume > p {
+			display: none;
+		}
+
+		#instructions {
+			position: absolute;
+			top: 1em;
+			left: 0;
+			width: 100%;
+			text-align: center;
+			font-size: 1.5em;
+			opacity: 0;
+			display: none;
+		}
+
+		#changeview {
+			position: absolute;
+			top: 0;
+			left: 0;
+			cursor: pointer;
+			display: none;
+		}
+
+		#popup {
+			background: white;
+			border-radius: 50%;
+			width: 0;
+			height: 0;
+			margin: 0;
+			padding: 0;
+			position: absolute;
+			text-align: center;
+			float: left;
+			overflow: hidden;
+		}
+		#popup.visible {
+			border: #60C0B5 solid 7px;
+		}
+
+		#popup > div {
+			display: table-cell;
+			vertical-align: middle;
+			width: 0;
+			height: 0;
+			margin: 0;
+			padding: 0;
+		}
+
+		#popup li {
+			text-align: left;
+		}
+
+		ul.skills li {
+			display: inline;
+		}
+
+		ul.skills li:after {
+			content: ", ";
+		}
+
+		ul.skills li:last-child:after {
+			content: "";
+		}
+
+		div.extended {
+			display: none;
+		}
+
+		svg {
+			background-color: #F7F7F7;
+		}
+
+		.node {
+		  font: 10px sans-serif;
+		}
+
+		.node circle {
+		  fill: #fff;
+		  stroke: #60C0B5;
+		  stroke-width: 1.5px;
+		}
+
+		.link {
+		  fill: none;
+		  stroke: #ccc;
+		  stroke-width: 1.5px;
+		}
+
+		.edgePath path {
+			stroke: #333;
+			fill: #333;
+			stroke-width: 3px;
+		}
+	</style>
+</head>
+<body>
+	<!-- 
+<div id="popup"></div>
+<div id="instructions">
+	<p>Click and drag to navigate graph; scroll to zoom; click node to read description.</p>
+</div>
+<div id="changeview">
+	<p>Trouble reading?</p>
+</div>
+<div id="resume">
+<p>Below you can find my résumé in readable, but not very pleasant-looking form. If you can read this it means your browser does not support SVG, JavaScript, or something went wrong. Feel free to continue reading, but be aware that this is not presentation form that I have intended.</p>
+<ul>
+	<li><span>Mirosław Zalewski</span>
+		<ul>
+			<li><span>Sociology</span>
+				<ul>
+					<li><span>Education</span>
+						<div>
+							<h2>Education</h2>
+							<ul>
+								<li>Bachelor's Degree in Sociology, Adam Mickiewicz University, Poznań, 2008‒2011</li>
+								<li>Master's Degree in Sociology, Adam Mickiewicz University, Poznań, 2011‒2013</li>
+							</ul>
+						</div>
+					</li>
+					<li><span>Research projects</span>
+						<div>
+							<h2>Research projects</h2>
+							<p>As a member of AMU Sociology Students Scientific Club I was engaged in numerous research projects with various level of responsibility - from data gathering, through questionnaire design, data analysis and writing final report up to project management.</p>
+							<p>In chronological order:</p>
+							<ul>
+								<li><em>Sociology students self-image</em>: April - May 2009</li>
+								<li><em>Economic activity of sociology students at AMU</em>: November 2009</li>
+								<li><em>International Young Audience Film Festival "Ale Kino!" in young people consciousness</em>: July - October 2010</li>
+								<li><em>Public of International Young Audience Film Festival "Ale Kino!"</em>: November 2010 - January 2011</li>
+								<li><em>"The Castle" Cultural Center in the eyes of Poznań and Poznań agglomeration residents</em>: July - August 2011</li>
+								<li><em>Sociology first year's students at Adam Mickiewicz Univeristy</em>: March - May 2012</li>
+								<li><em>Evaluation of "Volkswagen Poznań Mini Handball Trophy" and "Volkswagen Poznań Handball Player Academy" within the "Volkswagen Poznań Mini Handball"</em>: July - August 2012</li>
+							</ul>
+						</div>
+					</li>
+					<li><span>Conferences</span>
+						<div>
+							<h2>Conferences and talks</h2>
+							<p>All talks and conference details are translated from Polish</p>
+							<ul>
+								<li>Talk title; conference name; date; place</li>
+								<li><em>AMU sociology students - freshmen self-image</em>; <em>Who are sociology students? Our passions and hobbies</em>; May 22 2009; Warsaw, Poland</li>
+								<li><em>Economic activity of sociology students at AMU</em>; <em>Active student? Academic and non-academic activity of students</em>; December 4 2009; Łódź, Poland</li>
+								<li><em>Place for chosen ones - analysis of urban ghetto</em>; <em>CITYMANIA. Are we sentenced to city?</em>; April 19‒22 2010; Lublin, Poland</li>
+								<li><em>Not just us! Presentation of AMU Sociology Students Scientific Club activities in academic year 2009/2010</em>; <em>Socioagora 2010</em>; May 22 2010; Warsaw, Poland</li>
+								<li><em>HYPErreality, or between real world and media world - phenomenon of hype</em>; <em>Media in Poland - who manupulates who?</em>; June 11-12 2010; Cracow, Poland</li>
+								<li><em>Model of discourse on suicide, or how to tame suicidal chaos</em>; <em>Death through a glass of humanities</em>; April 17 2012; Poznań, Poland</li>
+							</ul>
+						</div>
+					</li>
+					<li><span>Awards and honors</span>
+						<div>
+							<h2>Awards and honors</h2>
+							<ul>
+								<li>Minister of Science and Higher Education Scholarship in academic year 2011/12</li>
+								<li>Florian Znaniecki Award, Second degree, granted by Polish Sociological Association for the best master theses in sociology</li>
+							</ul>
+						</div>
+					</li>
+				</ul>
+			</li>
+			<li><span>Open source</span>
+				<ul>
+					<li><span>Activities</span>
+						<ul>
+							<li><span>Support</span>
+								<div>
+									<p>My first and primary role in open source communities is helping other users in getting their issues resolved. I am active on forums (bulletin boards), mailing lists and news groups since 2006, although my activity decreased in 2014. I usually hang out on forums related to software that I use, which includes <a href="https://forum.dug.net.pl/profile.php?id=2880">Debian</a>, <a href="https://forum.kde.org/memberlist.php?mode=viewprofile&amp;u=43339">KDE</a>, <a href="http://www.kadu.im/forum/memberlist.php?mode=viewprofile&amp;u=7467">Kadu</a> and LibreOffice.</p>
+								</div>
+							</li>
+							<li><span>Training</span>
+								<div>
+									<p>I like sharing knowledge, and providing user training is one way of doing so. In case of open source software, this usually takes form of writing and publishing tutorials, howtos and FAQs. The most prominent example of that activity is <a href="http://przepis-na-lo.pl">Przepis na LibreOffice</a>, my blog dedicated to LibreOffice tutorials. There are also my older articles available at <a href="https://dug.net.pl/autor/2880/">DUG</a> and <a href="http://fluxboxpl.org/">FluxboxPL</a>.</p>
+								</div>
+							</li>
+							<li><span>Translation</span>
+								<div>
+									<p>English is first language for open source software, but many people in my country don't understand it. I decided to help some open source projects become more accessible by contributing translation files for my native Polish. Among these projects are <a href="https://www.zotero.org/">Zotero</a>, <a href="http://www.libreoffice.org/">LibreOffice</a>, <a href="https://github.com/CDrummond/cantata">Cantata</a> and Debian (in scope of <a href="https://wiki.debian.org/DDTP">Debian Description Translation Project</a>).</p>
+								</div>
+							</li>
+							<li><span>Quality assurance</span>
+								<div>
+									<p>I try to improve quality of open source software by reporting found bugs, triaging existing bug reports and verifying fixes. I am mainly involved in bug trackers of <a href="https://bugs.documentfoundation.org/buglist.cgi?bug_status=UNCONFIRMED&amp;bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;bug_status=RESOLVED&amp;bug_status=VERIFIED&amp;bug_status=CLOSED&amp;bug_status=NEEDINFO&amp;bug_status=PLEASETEST&amp;email1=miniopl%40poczta.onet.pl&amp;emailassigned_to1=1&amp;emailcc1=1&amp;emaillongdesc1=1&amp;emailreporter1=1&amp;emailtype1=substring&amp;list_id=555772&amp;product=LibreOffice">LibreOffice</a> and <a href="https://bugs.debian.org/cgi-bin/pkgreport.cgi?archive=both;correspondent=miniopl%40poczta.onet.pl">Debian</a>, but also Cantata and KDE to lesser extent. I try to send reproducible bug report to developers every time I encounter some issue in software that I use.</p>
+								</div>
+							</li>
+						</ul>
+					</li>
+					<li><span>Projects</span>
+						<ul>
+							<li><span>Debian</span>
+								<div>
+									<p><a href="https://www.debian.org/">Debian</a> is my operating system of choice, so it's no wonder that I became involved in community. My attention is mainly focused on supporting other users; my contributions in that regard were recognized on Polish Debian users forum, where <a href="https://forum.dug.net.pl/profile.php?id=2880">I earned honorary status of moderator</a>. I also help Debian Description Translation Project by providing translations and reviewing work of other project members. Occasionally, I <a href="https://bugs.debian.org/cgi-bin/pkgreport.cgi?archive=both;correspondent=miniopl%40poczta.onet.pl">report issues with Debian packages</a> on BTS.</p>
+								</div>
+							</li>
+							<li><span>KDE</span>
+								<div>
+									<p>I use <span title="Technically, that was KDE SC in 4.x times and Frameworks/Plasma/Applications from 5.0 onwards, but everyone uses just 'KDE' anyway">KDE</span> as my main desktop environment since mid-2011. I try to <a href="https://forum.kde.org/memberlist.php?mode=viewprofile&amp;u=43339">help other users on forums</a> and <a href="https://bugs.kde.org/buglist.cgi?bug_status=UNCONFIRMED&amp;bug_status=CONFIRMED&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;bug_status=RESOLVED&amp;bug_status=NEEDSINFO&amp;bug_status=VERIFIED&amp;bug_status=CLOSED&amp;email1=miniopl%40poczta.onet.pl&amp;emailassigned_to1=1&amp;emailcc1=1&amp;emaillongdesc1=1&amp;emailreporter1=1&amp;emailtype1=substring&amp;query_format=advanced">send bug reports</a> when I encounter some issue.</p>
+								</div>
+							</li>
+							<li><span>LibreOffice</span>
+								<div>
+									<p>I heavily used LibreOffice in my university years. In 2012 I decided to share my knowledge about suite on personal blog called <a href="http://przepis-na-lo.pl/">Przepis na LibreOffice</a> (<i>LibreOffice recipes</i>). I have published almost 100 articles before putting blog on hold in December 2013. I was active user of <a href="http://www.mail-archive.com/search?q=miniopl%40poczta.onet.pl&amp;l=users%40global.libreoffice.org">LibreOffice mailing list</a> and <a href="https://forum.openoffice.org/pl/forum">Polish OpenOffice and LibreOffice forum</a>; on latter, <a href="https://forum.openoffice.org/pl/forum/memberlist.php?mode=viewprofile&amp;u=1575">I earned title of moderator</a>. I was <a href="https://bugs.documentfoundation.org/buglist.cgi?bug_status=UNCONFIRMED&amp;bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;bug_status=RESOLVED&amp;bug_status=VERIFIED&amp;bug_status=CLOSED&amp;bug_status=NEEDINFO&amp;bug_status=PLEASETEST&amp;email1=miniopl%40poczta.onet.pl&amp;emailassigned_to1=1&amp;emailcc1=1&amp;emaillongdesc1=1&amp;emailreporter1=1&amp;emailtype1=substring&amp;list_id=555772&amp;product=LibreOffice">involved in LibreOffice Quality Assurance team</a>, frequently posting new bug reports, triaging bugs reported by other users and hanging out on QA mailing list.</p>
+								</div>
+							</li>
+							<li><span>Fluxbox</span>
+								<div>
+									<p><a href="http://fluxbox.org/">Fluxbox</a> was my window manager of choice and basis of my custom desktop environment between 2006 and 2011. I was founding member of Polish Fluxbox users community; I have regularly <a href="http://forum.fluxboxpl.org/profile.php?id=10">posted on our forum</a> and <a href="http://fluxboxpl.org/portal/Specjalna:Wk%C5%82ad/Minio">contributed quite a lot to our wiki</a>.</p>
+								</div>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+			<li><span>About me</span>
+				<ul>
+					<li><span>Contact</span>
+						<div>
+							<p>E-mail me at:</p>
+							<p style="white-space: pre">mz @ miroslaw-zalewski.eu</p>
+						</div>
+					</li>
+					<li data-href="/blog/"><a href="/blog/"><span>Blog</span></a></li>
+					<li><span>Social media</span>
+						<div>
+							<h2>Social media profiles</h2>
+							<ul>
+								<li><a href="https://twitter.com/mszalewski">Twitter</a></li>
+								<li><a href="https://github.com/mirzal/">GitHub</a></li>
+								<li><a href="https://bitbucket.org/mirzal/">BitBucket</a></li>
+								<li><a href="http://stackexchange.com/users/4352116/miros%C5%82aw-zalewski?tab=accounts">StackExchange</a></li>
+								<li><a href="http://www.linkedin.com/in/miroslawzalewski">LinkedIn</a></li>
+							</ul>
+						</div>
+					</li>
+					<!- -<li><span>Hire me</span>
+						<div>
+							<p>I am currently employed as software quality assurance engineer. I am looking at opportunities related to data science (data analysis, data manipulation, data visualization, web scraping), research and software quality assurance.</p>
+							<p>I am based in Poznań, Poland (UTC+2 between April and October, inclusive, UTC+1 otherwise).</p>
+							<p>Please note that due to my current employment, my freelance capacity does not exceed 20 hours a week.</p>
+							<p>If you are interested in working with me, you can reach me at mz (at) miroslaw-zalewski (dot) eu</p>
+						</div>
+						</li>- ->
+				</ul>
+			</li>
+			<li><span>Data science</span>
+				<ul>
+					<li><span>&nbsp;Education&nbsp;</span>
+						<div>
+							<h2>Education and courses</h2>
+							<ul>
+								<li><em>Statistical data analysis in business and public administration</em>, Postgraduate studies at Poznań University of Economics, 2013-2014 (without diploma - est. completion 2016)</li>
+								<li><a href="/certyfikaty/pogromcy-danych-1.pdf"><em>Data busters - Data processing in R</em></a>, Warsaw School of Data Analysis, University of Warsaw, 2015</li>
+								<li><a href="/certyfikaty/pogromcy-danych-2.pdf"><em>Data busters - Data visualization and modeling</em></a>, Warsaw School of Data Analysis, University of Warsaw, 2015</li>
+							</ul>
+						</div>
+					</li>
+					<li><span>&nbsp;Projects&nbsp;</span>
+						<ul>
+							<li><span>Civic Engagement in Europe</span>
+								<div>
+									<p>R Shiny application that allows user to explore changes to civic engagement index in various European countries over time.</p>
+									<p>I have created entire application from scratch, including transformation and aggregation of source data, data visualisation and theoretical development of civic engagement index.</p>
+									<p>Technologies used: R, ggplot2, Shiny (HTML, CSS).</p>
+									<p><a href="https://mzalewski.shinyapps.io/ESS-civic-engagement">Application</a>; <a href="https://bitbucket.org/mirzal/ess-civic-engagement">Source code</a>.</p>
+								</div>
+							</li>
+							<li><span>Allegro &amp; OLX scraper</span>
+								<div>
+									<p>Custom, closed-source software that aided <a href="http://www.aida-online.pl/">AIDA online</a> in market research. Main purpose of software was obtaining data from advertisements posted on Allegro.pl (Polish equivalent of eBay) and OLX.pl (Polish equivalent of Craigslist). Ads were processed two times at an interval of 2 weeks. About 10&nbsp;000 ads from each site were sampled.</p>
+									<p>Application that I have written from scratch performed following steps: (1) download categories metadata; (2) use metadata to reconstruct sampling frame; (3) use systematic sampling method to construct sample; (4) download ads in sample; (5) extract variables of interest from raw web pages; (6) prepare summary tables. Company requested that conclusions are drawn by their employee.</p>
+									<p>Technologies used: R (httr, XML, dplyr, reshape2, RSQLite, stringr), Python (lxml, sqlite3), SQLite, rudimentary shell scripts.</p>
+									<p>Source code: non-free.</p>
+								</div>
+							</li>
+						</ul>
+					</li>
+					<li><span>&nbsp;Skills&nbsp;</span>
+						<div>
+							<h2>Skills</h2>
+							<ul class="skills">
+								<li>R</li>
+								<li>shell scripting</li>
+								<li>Python</li>
+								<li>web scraping</li>
+								<li>data manipulation</li>
+								<li>SQL</li>
+								<li>web technologies</li>
+								<li>Linux</li>
+							</ul>
+						</div>
+					</li>
+				</ul>
+			</li>
+			<li><span>Software quality assurance</span>
+				<ul>
+					<li><span>Work experience</span>
+						<div>
+							<h2>Work experience</h2>
+							<ul>
+								<li>Junior Software Quality and Data Analysis Engineer, <a href="http://sii.pl/en/">Sii Sp. z o.o.</a>, Poznań, since November 2013</li>
+							</ul>
+						</div>
+					</li>
+					<li><span>Skills</span>
+						<div>
+							<h2>Skills</h2>
+							<ul class="skills">
+								<li>test planning</li>
+								<li>test estimation</li>
+								<li>test script designing</li>
+								<li>manual testing</li>
+								<li>integration testing</li>
+								<li>system testing</li>
+								<li>functional testing</li>
+								<li>black-box testing techniques</li>
+								<li>white-box testing techniques</li>
+								<li>defect reporting</li>
+								<li>exploratory testing</li>
+								<li>regression testing</li>
+								<li>root cause analysis</li>
+								<li>technical documentation</li>
+								<li>clear and concise communication</li>
+							</ul>
+						</div>
+					</li>
+					<li><span>Toolset</span>
+						<div>
+							<h2>Toolset</h2>
+							<p>I am familiar with following QA-related tools</p>
+							<ul>
+								<li>Atlassian JIRA, Bamboo, Confluence</li>
+								<li>FogBugz</li>
+								<li>HP ALM (Application Lifecycle Management)</li>
+								<li>Bugzilla</li>
+								<li>XCode</li>
+							</ul>
+						</div>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</li>
+</ul>
+</div>
+	-->
+
+<!--
+<svg><g/></svg>
+<script type="text/javascript" src="resume-graph.js"></script>
+-->
+</body>
+</html>

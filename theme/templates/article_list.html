@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block content %}
+    {% if articles %}
+        {% for article in (articles_page.object_list if articles_page else articles) %}
+            <article>
+                <h2><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h2>
+                {% if DISPLAY_ARTICLE_INFO_ON_INDEX %}
+					{% include "includes/article_info.html" %}
+                {% endif %}
+                <div class="summary">
+					<p>{{ article.summary }}</p>
+					<p><a class="btn btn-default btn-xs" href="{{ SITEURL }}/{{ article.url }}">Continue reading…</a></p>
+                </div>
+            </article>
+            <hr/>
+        {% endfor %}
+    {% endif %}
+
+	{% if articles_page and articles_paginator.num_pages > 1 %}
+		<ul class="pager">
+			{% if articles_page.has_previous() %}
+				<li class="previous"><a href="{{ SITEURL }}/{{ articles_previous_page.url }}">&larr; Newer</a></li>
+			{% endif %}
+			{% if articles_page.has_next() %}
+				<li class="next"><a href="{{ SITEURL }}/{{ articles_next_page.url }}">Older &rarr;</a></li>
+			{% endif %}
+		</ul>
+	{% endif %}
+{% endblock content %}
+
+{% block scripts %}
+{% if DISQUS_SITENAME %}
+    <!-- Disqus -->
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = '{{ DISQUS_SITENAME }}'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script');
+            s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    </script>
+    <!-- End Disqus Code -->
+{% endif %}
+{% endblock %}

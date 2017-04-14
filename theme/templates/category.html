@@ -1,0 +1,18 @@
+{% extends "article_list.html" %}
+{% block title %}{{ category }} - {{ SITENAME }}{% endblock %}
+{% block meta %}
+    <meta name="author" content="{{ AUTHOR }}" />
+    <meta name="keywords" content="{{ category }}" />
+{% endblock %}
+
+{% block feeds %}
+{{ super() }}
+{% if CATEGORY_FEED_ATOM %}
+	<link href="{{ SITEURL }}/{{ CATEGORY_FEED_ATOM % category.slug }}" type="application/atom+xml" rel="alternate"
+		  title="{{ category.name }} ATOM Feed"/>
+{% endif %}
+{% if CATEGORY_FEED_RSS %}
+	<link href="{{ SITEURL }}/{{ CATEGORY_FEED_RSS % category.slug }}" type="application/rss+xml" rel="alternate"
+		  title="{{ category.name }} RSS Feed"/>
+{% endif %}
+{% endblock %}
