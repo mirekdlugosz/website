@@ -207,6 +207,10 @@ footer.post-info {
     padding-left: 0.3em;
 }
 
+#social-media-links a {
+    border-bottom: none;
+}
+
 /*
  * Read next article
  */
