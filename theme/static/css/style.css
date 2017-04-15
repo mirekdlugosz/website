@@ -203,6 +203,14 @@ footer.post-info {
     margin-right: 0.2em;
 }
 
+#archives h2 {
+    margin-top: 1em;
+}
+
+#archives h2:first-child {
+    margin-top: 0;
+}
+
 #archives ul .fa-rss {
     padding-left: 0.3em;
 }
