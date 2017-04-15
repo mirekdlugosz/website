@@ -12,14 +12,14 @@ body {
 
 /* for list-groups nested within a list-group-item, reset the bottom margin */
 .list-group-item > .list-group {
-    margin-bottom: 0px;
+    margin-bottom: 0;
 }
 
 /* for list-group-items nested within a list-group-item, reset the bottom
    padding of the last item, b/c the containing item has paddimg already 
  */
 .list-group-item .list-group-item:last-child {
-    padding-bottom: 0px;
+    padding-bottom: 0;
 }
 
 .list-group-item {
@@ -197,6 +197,14 @@ footer.post-info {
 
 .container {
 	font-size: 16px;
+}
+
+#archives input[placeholder] {
+    margin-right: 0.2em;
+}
+
+#archives ul .fa-rss {
+    padding-left: 0.3em;
 }
 
 /*

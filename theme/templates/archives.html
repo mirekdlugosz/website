@@ -2,15 +2,39 @@
 {% block title %}Archives - {{ SITENAME }}{% endblock %}
 
 {% block content %}
-    <section id="content">
-        <h1>Archive</h1>
-        <div id="archives">
-            {% for article in dates %}
-                <p>
-                    <span class="categories-timestamp"><time datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time></span>
-                    <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}{% if article.subtitle %} - {{ article.subtitle }}{% endif %}</a>
-                </p>
-            {% endfor %}
-        </div>
-    </section>
+<section id="content">
+	<h1>Site archives</h1>
+	<div id="archives">
+		<h2>Search</h2>
+		<form action="https://www.google.com/search" method="get">
+			<input type="hidden" name="ie" value="UTF-8">
+			<input type="hidden" name="sitesearch" value="{{ SITEURL[7:] }}">
+			<label for="q" class="sr-only">Search query</label>
+			<input type="text" name="q" placeholder="Type in search keyword" class="col-sm-9">
+			<input type="submit" value="Search using Google">
+		</form>
+
+		<h2>Browse by category</h2>
+		<ul>
+		{% set tag_replacements = { 'tag': 'feeds',
+									'/index.html': '.atom.xml',
+									} %}
+		{% for tag in tags |sort %}
+			{% set tag_feed_url = tag.0.save_as| dict_replace(tag_replacements) %}
+			<li>
+				<a href="{{ SITEURL }}/{{ tag.0.save_as }}">{{ tag.0.name }}</a>
+				<a href="{{ SITEURL }}/{{ tag_feed_url }}" title="Atom feed for {{ tag.0.name }}"><i class="fa fa-rss"></i></a>
+			</li>
+		{% endfor %}
+		</ul>
+
+		<h2>Browse by date</h2>
+		{% for article in dates %}
+		<p>
+			<span class="categories-timestamp"><time datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time></span>
+			<a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}{% if article.subtitle %} - {{ article.subtitle }}{% endif %}</a>
+		</p>
+		{% endfor %}
+	</div>
+</section>
 {% endblock %}
