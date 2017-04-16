@@ -18,7 +18,7 @@ DEFAULT_DATE_FORMAT = '%d %B %Y'
 
 STATIC_PATHS = ['2015', '2016', '2017', '2018', '2019',
                 'main',
-                'certyfikaty']
+                'certificates']
 
 FEED_DOMAIN = None
 FEED_ATOM = None
@@ -104,6 +104,16 @@ READERS = {
 IGNORE_FILES = ['.#*', 
         '*.Rmd',
         ]
+
+EXTRA_PATH_METADATA = {}
+EXTRA_METADATA = {}
+root = os.path.abspath('content/certificates/')
+
+for filename in os.listdir(root):
+    key = os.path.relpath(os.path.join(root, filename), os.path.join(root, '..'))
+    EXTRA_METADATA[key] = {'save_as': key}
+
+EXTRA_PATH_METADATA.update(EXTRA_METADATA)
 
 THEME = 'theme/'
 PYGMENTS_STYLE = 'solarizedlight'
