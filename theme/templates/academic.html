@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+
+{% block title %}{{ page.title }}{% endblock %}
+
+{% block html_lang %}{{ page.lang }}{% endblock %}
+
+{% block meta %}
+	{{ super() }}
+    {% if page.summary %}
+	<meta name="description" content="{{ page.summary|striptags|escape }}" />
+    {% endif %}
+{% endblock %}
+
+{% block canonical_rel %}
+<link rel="canonical" href="{{ SITEURL }}/">
+{% endblock %}
+
+{% block ignored_navbar %}
+<!-- this really should be in main_body, but let's ignore it until we create real CV out here -->
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+	<div class="container main">
+
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+														 data-target=".navbar-collapse" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="/">{{ SITENAME }}</a>
+		</div>
+
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse">
+			<!-- Left Nav Bar -->
+			<!-- <ul class="nav navbar-nav navbar-right">
+				<li class="nav-item">
+					<a href="">
+						<span></span>
+					</a>
+				</li>
+			</ul> -->
+
+		</div><!-- /.navbar-collapse -->
+	</div><!-- /.container -->
+</nav>
+{% endblock %}
+
+{% block main_body%}
+<section id="" class="home-section">
+	<div class="container main">
+		<!-- About widget -->
+		<div class="row" itemprop="author" itemscope itemtype="http://schema.org/Person">
+			<div class="col-xs-12 col-md-4">
+				<div id="profile">
+					<div class="portrait">
+						<img itemprop="image" src="/theme/img/main-photo.jpg">
+					</div>
+
+					<div class="portrait-title">
+						<h2 itemprop="name">Mirosław Zalewski</h2>
+					</div>
+
+					<ul class="social-icon" aria-hidden="true">
+					{% for name, link, icon in SOCIAL_MAIN %}
+						<li>
+							<a title="{{ name }}" href="{{ link }}">
+								<i class="fa big-icon fa-{{ icon }}"></i>
+							</a>
+						</li>
+					{% endfor %}
+					</ul>
+
+				</div>
+			</div>
+			<div class="col-xs-12 col-md-8 entry-content" itemprop="description">
+				<p>I am Mirosław Zalewski, software tester currently living in Poznań, Poland.</p>
+				<p>I do wear glasses, but I did not had any recent photo with them on.</p>
+				<p>Feel free to <a href="/blog">read my blog</a>, <a href="mailto:mz %at% miroslaw-zalewski.eu">send me an e-mail</a> or follow me on social media sites.</p>
+
+
+				<!-- <div class="row">
+					<div class="col-sm-5">
+						<h3>Interests</h3>
+						<ul class="ul-interests">
+							<li></li>
+						</ul>
+					</div>
+
+					<div class="col-sm-7">
+						<h3>Education</h3>
+						<ul class="ul-edu fa-ul">
+							<li>
+								<i class="fa-li fa fa-graduation-cap"></i>
+								<div class="description">
+									<p class="course"></p>
+									<p class="institution"></p>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div> -->
+			</div>
+		</div>
+	</div>
+</section>
+
+{% endblock %}
+
+{% block ignored %}
+<!-- Remove this part later on - it's here only to ease copy-paste process in main_body block -->
+<section id="" class="home-section">
+	<div class="container main">
+
+	</div>
+</section>
+{% endblock %}

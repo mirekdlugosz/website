@@ -19,12 +19,6 @@ DEFAULT_DATE_FORMAT = '%d %B %Y'
 STATIC_PATHS = ['2015', '2016', '2017', '2018', '2019',
                 'main',]
 
-EXTRA_PATH_METADATA = {
-        'main/dagre-d3.js': {'save_as': 'dagre-d3.js'},
-        'main/index.html': {'save_as': 'index.html'},
-        'main/resume-graph.js': {'save_as': 'resume-graph.js'},
-        }
-
 FEED_DOMAIN = None
 FEED_ATOM = None
 FEED_RSS = None
@@ -81,14 +75,14 @@ SOCIAL = (('Email', 'mailto:mz %at% miroslaw-zalewski.eu'),
           ('RSS feed', '/blog/feeds/rss.xml'),
 #         ('', '#'),
           )
-SOCIAL_MAIN = (('Email', 'mailto:mz %at% miroslaw-zalewski.eu', 'envelope'),
+SOCIAL_MAIN = (#('Email', 'mailto:mz %at% miroslaw-zalewski.eu', 'envelope'),
                ('LinkedIn', 'http://www.linkedin.com/in/miroslawzalewski', 'linkedin'),
                ('Stack Exchange', 'http://stackexchange.com/users/4352116/miros%C5%82aw-zalewski?tab=accounts', 'stack-exchange'),
                ('GitHub', 'https://github.com/mirzal/', 'github'),
                ('BitBucket', 'https://bitbucket.org/mirzal/', 'bitbucket'),
                ('Twitter', 'https://twitter.com/mszalewski', 'twitter'),
-               ('My blog', '/blog/', 'rss'),
-               ('About me', '', 'user'),
+               #('My blog', '/blog/', 'rss'),
+               #('About me', '', 'user'),
         )
 
 DEFAULT_PAGINATION = False

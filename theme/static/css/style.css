@@ -254,3 +254,349 @@ footer.post-info {
 .read-next h3 {
 	margin-top: 0;
 }
+
+/*
+ * Main page - incorporated from hugo-academic theme
+ *
+ * <https://github.com/gcushen/hugo-academic>
+ *
+ * The MIT License (MIT)
+ * 
+ * Copyright (c) 2016 George Cushen
+ * 
+ * Permission is hereby granted, free of charge, to any person obtaining a copy of
+ * this software and associated documentation files (the "Software"), to deal in
+ * the Software without restriction, including without limitation the rights to
+ * use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+ * the Software, and to permit persons to whom the Software is furnished to do so,
+ * subject to the following conditions:
+ * 
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ * 
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+ * FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+ * COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+ * IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+ * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ */
+
+.container.main {
+    font-size: 20px;
+}
+
+.home-section {
+  background-color: rgb(255, 255, 255);
+  padding: 110px 0 110px 0;
+}
+
+.home-section:first-of-type {
+  padding-top: 50px;
+}
+
+.home-section:nth-of-type(even) {
+  background-color: rgb(247, 247, 247);
+}
+
+@media screen and (max-width: 768px) {
+  .home-section {
+    padding: 60px 0 60px 0;
+  }
+  .home-section:first-of-type {
+    padding-top: 40px;
+  }
+}
+
+/*************************************************
+ *  Biography
+ **************************************************/
+
+#profile {
+  text-align: center;
+}
+
+#profile .portrait img {
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+  border-radius: 50%;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+}
+
+#profile .portrait-title h2 {
+  font-size: 1.75em;
+  font-weight: 300;
+  color: #000000;
+  margin: 20px 0 10px 0;
+}
+
+#profile .portrait-title h3 {
+  font-size: 1.13em;
+  font-weight: 300;
+  color: #AAAAAA;
+  margin: 0px 0 10px 0;
+}
+
+#profile ul.social-icon {
+  display: inline-flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  margin-top: 30px;
+}
+
+#profile .social-icon li {
+  margin-right: 1em;
+}
+
+#profile .social-icon li:last-of-type {
+  margin-right: 0;
+}
+
+#profile .social-icon li:hover {
+  transform: scale(1.2)
+}
+
+.social-icon .big-icon {
+  font-size: 4rem;
+}
+
+ul.ul-interests li {
+  font-size: 0.9rem;
+}
+
+ul.ul-edu {
+  list-style: none;
+}
+
+ul.ul-edu li {
+  position: relative;
+  padding: 0px 15px 4px 3px;
+}
+
+ul.ul-edu li .description p {
+  margin: 0;
+}
+
+ul.ul-edu li .description p.course {
+  font-size: 0.9rem;
+}
+
+ul.ul-edu li .description p.institution {
+  font-size: 0.75rem;
+  color: rgba(0,0,0,0.6);
+}
+
+/*************************************************
+ *  Projects
+ **************************************************/
+
+#projects.home-section li {
+  margin-bottom: 1rem;
+}
+
+#projects.home-section li:last-of-type {
+  margin-bottom: 0;
+}
+
+#projects.home-section .project-title {
+  display: inline-block;
+  margin-bottom: 6px;
+}
+
+#projects.home-section .project-summary {
+  font-size: 0.9rem;
+  margin-bottom: 0.4rem;
+}
+
+#projects.home-section .project-tags {
+  font-size: 0.75rem;
+  color: #9c9c9c;
+}
+
+#container-projects {
+  display: block;
+  position: relative;
+  overflow: hidden;
+}
+
+.project-toolbar{
+  margin-bottom: 2rem;
+}
+
+.project-item {
+  margin-bottom: 1.5rem;
+}
+
+.isotope-item {
+  z-index: 2;
+}
+
+.isotope-item:hover{
+  z-index: 3;
+}
+
+/*************************************************
+ *  Contact
+ **************************************************/
+
+#contact.home-section .fa-ul {
+  margin-left: 3.14285714rem; /* Must be > `fa-2x` icon size. */
+}
+
+#contact.home-section .fa-li {
+  position: absolute;
+  left: -3.14285714rem; /* Negative of `#contact.home-section .fa-ul` margin. */
+  width: 2rem; /* Match `fa-2x` icon size. */
+  top: 0.14285714em; /* Default FA value. */
+  text-align: center;
+}
+
+#contact.home-section li {
+  padding-top: 0.8rem; /* Align text with bottom of `fa-2x` icon. */
+  margin-bottom: 0.3rem;
+}
+
+#contact.home-section li:last-of-type {
+  margin-bottom: 0;
+}
+
+/*************************************************
+ *  Navigation Bar
+ **************************************************/
+
+#navbar-main.navbar {
+  min-height: 70px !important;
+}
+
+#navbar-main.navbar-default {
+  background: #fff;
+  box-shadow: 0 0.125rem 0.25rem 0 rgba(0,0,0,.11)
+}
+
+nav#navbar-main li {
+  font-size: 16px;
+}
+
+#navbar-main.navbar-default .navbar-nav>li>a,
+#navbar-main.navbar-default .navbar-nav>a:focus,
+#navbar-main.navbar-default .navbar-nav>a:hover {
+  white-space: nowrap;
+  -webkit-transition: 0.2s ease;
+  transition: 0.2s ease;
+  color: #34495e;
+  font-weight: 600;
+}
+
+#navbar-main.navbar-default .navbar-nav>.active>a,
+#navbar-main.navbar-default .navbar-nav>.active>a:focus,
+#navbar-main.navbar-default .navbar-nav>.active>a:hover {
+  color: #0095eb;
+  font-weight: 700;
+  background-color: transparent !important; /* Override Bootstrap. */
+}
+
+#navbar-main .navbar-brand,
+#navbar-main .navbar-nav li a {
+  height: inherit;
+  line-height: 50px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+#navbar-main.navbar-default .navbar-brand {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 1.2em;
+  color: #2b2b2b;
+}
+
+@media screen and (max-width: 1200px) {
+  #navbar-main.navbar {
+    min-height: 50px !important;
+  }
+
+  #navbar-main .navbar-brand,
+  #navbar-main .navbar-nav li a {
+    height: inherit;
+    line-height: 40px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+
+  #navbar-main .navbar-header {
+    float: none;
+    min-height: inherit;
+  }
+
+  #navbar-main .navbar-left,
+  #navbar-main .navbar-right {
+    float: none !important;
+  }
+
+  #navbar-main .navbar-toggle {
+    display: block;
+  }
+
+  #navbar-main.navbar-fixed-top {
+    top: 0;
+    border-width: 0 0 1px;
+  }
+
+  #navbar-main .navbar-collapse.collapse {
+    display: none !important;
+  }
+
+  #navbar-main .navbar-nav {
+    float: none !important;
+    margin-top: 7.5px;
+  }
+
+  #navbar-main .navbar-nav > li {
+    float: none;
+  }
+
+  #navbar-main .navbar-nav > li > a {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    line-height: normal;
+  }
+
+  #navbar-main.navbar-default .navbar-nav .open .dropdown-menu {
+    position: static;
+    float: none;
+    width: auto;
+    margin-top: 0;
+    background-color: transparent;
+    border: 0;
+    box-shadow: none;
+  }
+
+  #navbar-main.navbar-default .navbar-nav .open .dropdown-menu > li > a {
+    padding: 5px 15px 5px 25px;
+    line-height: 20px;
+    color: #34495e;
+  }
+
+  #navbar-main.navbar-default .navbar-nav .open .dropdown-menu > li > a:focus,
+  #navbar-main.navbar-default .navbar-nav .open .dropdown-menu > li > a:hover {
+    color: inherit;
+    background-color: transparent;
+  }
+
+  #navbar-main.navbar-default .navbar-nav .open .dropdown-menu > .active > a,
+  #navbar-main.navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus,
+  #navbar-main.navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover {
+    color: #0095eb;
+    background-color: transparent;
+  }
+
+  #navbar-main .collapse.in {
+    display: block !important;
+  }
+}
+
