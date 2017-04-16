@@ -17,7 +17,8 @@ DEFAULT_LANG = u'en'
 DEFAULT_DATE_FORMAT = '%d %B %Y'
 
 STATIC_PATHS = ['2015', '2016', '2017', '2018', '2019',
-                'main',]
+                'main',
+                'certyfikaty']
 
 FEED_DOMAIN = None
 FEED_ATOM = None
@@ -48,9 +49,9 @@ ARTICLE_URL = "blog/{date:%Y}/{slug}/"
 ARTICLE_SAVE_AS = ARTICLE_URL + '/index.html'
 PAGE_URL = 'blog/pages/{slug}.html'
 PAGE_SAVE_AS = PAGE_URL
-CATEGORY_URL = 'blog/category/{slug}/'
-CATEGORY_SAVE_AS = CATEGORY_URL + 'index.html'
-CATEGORIES_URL = 'blog/categories.html'
+CATEGORY_URL = ''
+CATEGORY_SAVE_AS = ''
+CATEGORIES_URL = ''
 CATEGORIES_SAVE_AS = ''
 TAG_URL = 'blog/tag/{slug}/'
 TAG_SAVE_AS = TAG_URL + 'index.html'
