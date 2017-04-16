@@ -30,10 +30,10 @@
     {# Facebook OpenGraph and Twitter Cards tags #}
     {% include 'includes/social_media_tags.html' %}
 
-	<link rel="stylesheet" href="{{ SITEURL }}/theme/css/bootstrap.min.css" type="text/css"/>
-    <link href="{{ SITEURL }}/theme/css/font-awesome.min.css" rel="stylesheet">
-    <link href="{{ SITEURL }}/theme/css/pygments/{{ PYGMENTS_STYLE|default('native') }}.css" rel="stylesheet">
-    <link rel="stylesheet" href="{{ SITEURL }}/theme/css/style.css" type="text/css"/>
+	<link rel="stylesheet" href="{{ SITEURL }}/theme/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="{{ SITEURL }}/theme/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="{{ SITEURL }}/theme/css/pygments/{{ PYGMENTS_STYLE|default('native') }}.css" type="text/css">
+    <link rel="stylesheet" href="{{ SITEURL }}/theme/css/style.css" type="text/css">
 
 	{% block feeds %}
     {% if FEED_ALL_ATOM %}
