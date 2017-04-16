@@ -105,16 +105,6 @@ IGNORE_FILES = ['.#*',
         '*.Rmd',
         ]
 
-EXTRA_PATH_METADATA = {}
-EXTRA_METADATA = {}
-root = os.path.abspath('content/certificates/')
-
-for filename in os.listdir(root):
-    key = os.path.relpath(os.path.join(root, filename), os.path.join(root, '..'))
-    EXTRA_METADATA[key] = {'save_as': key}
-
-EXTRA_PATH_METADATA.update(EXTRA_METADATA)
-
 THEME = 'theme/'
 PYGMENTS_STYLE = 'solarizedlight'
 
