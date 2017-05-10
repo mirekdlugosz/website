@@ -81,7 +81,7 @@ SOCIAL_MAIN = (#('Email', 'mailto:mz %at% miroslaw-zalewski.eu', 'envelope'),
                ('Stack Exchange', 'http://stackexchange.com/users/4352116/miros%C5%82aw-zalewski?tab=accounts', 'stack-exchange'),
                ('GitHub', 'https://github.com/mirzal/', 'github'),
                ('BitBucket', 'https://bitbucket.org/mirzal/', 'bitbucket'),
-               ('Twitter', 'https://twitter.com/mszalewski', 'twitter'),
+               ('Twitter', 'https://twitter.com/zalewskiEU', 'twitter'),
                #('My blog', '/blog/', 'rss'),
                #('About me', '', 'user'),
         )

@@ -31,7 +31,7 @@ If you want to get in touch with me, use one of following channels:
         </a>
     </li>
     <li>
-        <a href="https://twitter.com/mszalewski">
+        <a href="https://twitter.com/zalewskiEU">
             Twitter <i class="fa fa-twitter"></i>
         </a>
     </li>
