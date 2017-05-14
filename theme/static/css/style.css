@@ -158,8 +158,14 @@ pre {
 .categories-timestamp {
     color: #AAAAAA;
     font-size: 0.9em;
-	display: inline-block;
+	display: block;
 	width: 10em;
+}
+
+@media (min-width: 768px) {
+	.categories-timestamp {
+		display: inline-block;
+	}
 }
 
 .tagcloud li {
@@ -227,6 +233,10 @@ footer.post-info {
 	margin-top: 40px;
 }
 
+.read-next li {
+	display: list-item;
+}
+
 .read-next li > a {
 	padding: 0;
 	border: none;
@@ -234,16 +244,6 @@ footer.post-info {
 
 .read-next li > a:hover {
 	background-color: transparent;
-}
-
-.read-next li.previous {
-	padding-left: 0;
-    text-align: left;
-}
-
-.read-next li.next {
-	padding-left: 0;
-    text-align: right;
 }
 
 .read-next p {
@@ -254,6 +254,25 @@ footer.post-info {
 .read-next h3 {
 	margin-top: 0;
 }
+
+@media (max-width: 991px) {
+	.read-next .next > a,
+	.read-next .previous > a {
+		float: none;
+	}
+}
+@media (min-width: 992px) {
+	.read-next li.previous {
+		padding-left: 0;
+		text-align: left;
+	}
+
+	.read-next li.next {
+		padding-left: 0;
+		text-align: right;
+	}
+}
+
 
 /*
  * Main page - incorporated from hugo-academic theme
