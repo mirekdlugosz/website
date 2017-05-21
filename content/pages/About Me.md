@@ -11,7 +11,7 @@ If you want to get in touch with me, use one of following channels:
         </a>
     </li>
     <li>
-        <a href="http://www.linkedin.com/in/miroslawzalewski">
+        <a href="http://www.linkedin.com/in/miroslawzalewski/en">
             LinkedIn <i class="fa fa-linkedin"></i>
         </a>
     </li>
