@@ -363,29 +363,36 @@ section.home-section div.section-heading h1 {
   margin: 0px 0 10px 0;
 }
 
-#profile ul.social-icon {
-  display: inline-flex;
+ul.social-icon {
+  display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   list-style: none;
   padding: 0;
   margin-top: 30px;
+  justify-content: center;
 }
 
-#profile .social-icon li {
+.social-icon li {
   margin-right: 1em;
 }
 
-#profile .social-icon li:last-of-type {
+.social-icon li:last-of-type {
   margin-right: 0;
 }
 
-#profile .social-icon li:hover {
+.social-icon li:hover {
   transform: scale(1.2)
 }
 
 .social-icon .big-icon {
   font-size: 4rem;
+}
+
+.social-icon li a,
+.social-icon li a:hover {
+	text-decoration: none;
+	border: none;
 }
 
 ul.ul-interests li {
