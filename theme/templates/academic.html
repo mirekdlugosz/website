@@ -15,8 +15,7 @@
 <link rel="canonical" href="{{ SITEURL }}/">
 {% endblock %}
 
-{% block ignored_navbar %}
-<!-- this really should be in main_body, but let's ignore it until we create real CV out here -->
+{% block main_body%}
 <nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
 	<div class="container main">
 
@@ -35,21 +34,44 @@
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse">
 			<!-- Left Nav Bar -->
-			<!-- <ul class="nav navbar-nav navbar-right">
+			<ul class="nav navbar-nav navbar-right">
 				<li class="nav-item">
-					<a href="">
-						<span></span>
+					<a href="#about">
+						<span>About</span>
 					</a>
 				</li>
-			</ul> -->
+				<li class="nav-item">
+					<a href="#work-experience">
+						<span>Work experience</span>
+					</a>
+				</li>
+				<li class="nav-item">
+					<a href="#skills">
+						<span>Skills</span>
+					</a>
+				</li>
+				<li class="nav-item">
+					<a href="#tools">
+						<span>Tools</span>
+					</a>
+				</li>
+				<li class="nav-item">
+					<a href="#education">
+						<span>Education</span>
+					</a>
+				</li>
+				<li class="nav-item">
+					<a href="#contact">
+						<span>Contact</span>
+					</a>
+				</li>
+			</ul>
 
 		</div><!-- /.navbar-collapse -->
 	</div><!-- /.container -->
 </nav>
-{% endblock %}
 
-{% block main_body%}
-<section id="" class="home-section">
+<section id="about" class="home-section">
 	<div class="container main">
 		<!-- About widget -->
 		<div class="row" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -107,13 +129,131 @@
 	</div>
 </section>
 
+<section id="work-experience" class="home-section">
+	<div class="container main">
+		<div class="row">
+			<div class="col-xs-12 col-md-4 section-heading">
+				<h1>Work experience</h1>
+			</div>
+			<div class="col-xs-12 col-md-8">
+				<p>Lorem ipsum</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="skills" class="home-section">
+	<div class="container main">
+		<div class="row">
+			<div class="col-xs-12 col-md-4 section-heading">
+				<h1>Skills</h1>
+				<p>I won't blink if you ask me to do any of these</p>
+			</div>
+			<div class="col-xs-12 col-md-8">
+				<ul class="listing">
+					<li>Manual testing</li>
+					<li>Test automation</li>
+					<li>Test planning</li>
+					<li>Exploratory testing</li>
+					<li>Functional testing</li>
+					<li>Integration testing</li>
+					<li>Regression testing</li>
+					<li>Black box testing</li>
+					<li>White box testing</li>
+					<li>Requirements review</li>
+					<li>Test estimation</li>
+					<li>Test designing</li>
+					<li>Bug triaging</li>
+					<li>Issue pinpointing</li>
+					<li>Root cause analysis</li>
+					<li>Bug tracking</li>
+					<li>Preparing test documentation</li>
+					<li>Data analysis</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="tools" class="home-section">
+	<div class="container main">
+		<div class="row">
+			<div class="col-xs-12 col-md-4 section-heading">
+				<h1>Tools</h1>
+				<p>I am comfortable discussing; there are many more I used once or twice</p>
+			</div>
+			<div class="col-xs-12 col-md-8">
+				<ul class="listing">
+					<li>JIRA</li>
+					<li>HP ALM</li>
+					<li>Jenkins</li>
+					<li>Confluence wiki</li>
+					<li>Git</li>
+					<li>Python</li>
+					<li>JavaScript</li>
+					<li>R</li>
+					<li>Bash</li>
+					<li>SQL</li>
+					<li>Linux</li>
+					<li>Selenium WebDriver</li>
+					<li>Web services</li>
+					<li>Protractor</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="education" class="home-section">
+	<div class="container main">
+		<div class="row">
+			<div class="col-xs-12 col-md-4 section-heading">
+				<h1>Education</h1>
+			</div>
+			<div class="col-xs-12 col-md-8">
+				<div class="description row">
+					<div class="col-xs-3"><p>2017</p></div>
+					<div class="col-xs-9">
+						<p class="course"><em>Statistical data analysis in public administration and business</em>, Postgraduate studies</p>
+						<p class="institution">Poznań University of Economics</p>
+					</div>
+				</div>
+				<div class="description row">
+					<div class="col-xs-3"><p>2008‒2013</p></div>
+					<div class="col-xs-9">
+						<p class="course"><em>Sociology</em>, Master of Arts</p>
+						<p class="institution">Adam Mickiewicz University in Poznań</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="contact" class="home-section">
+	<div class="container main">
+		<div class="row">
+			<div class="col-xs-12 col-md-4 section-heading">
+				<h1>Contact</h1>
+			</div>
+			<div class="col-xs-12 col-md-8">
+			</div>
+		</div>
+	</div>
+</section>
 {% endblock %}
 
 {% block ignored %}
 <!-- Remove this part later on - it's here only to ease copy-paste process in main_body block -->
 <section id="" class="home-section">
 	<div class="container main">
-
+		<div class="row">
+			<div class="col-xs-12 col-md-4 section-heading">
+				<h1></h1>
+			</div>
+			<div class="col-xs-12 col-md-8">
+			</div>
+		</div>
 	</div>
 </section>
 {% endblock %}
