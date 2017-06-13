@@ -9,6 +9,8 @@
     {% if page.summary %}
 	<meta name="description" content="{{ page.summary|striptags|escape }}" />
     {% endif %}
+
+	<script type="text/javascript" src="/theme/js/smooth-scroll.js"></script>
 {% endblock %}
 
 {% block canonical_rel %}
@@ -46,6 +48,11 @@
 					</a>
 				</li>
 				<li class="nav-item">
+					<a href="#projects">
+						<span>Projects</span>
+					</a>
+				</li>
+				<li class="nav-item">
 					<a href="#skills">
 						<span>Skills</span>
 					</a>
@@ -66,7 +73,6 @@
 					</a>
 				</li>
 			</ul>
-
 		</div><!-- /.navbar-collapse -->
 	</div><!-- /.container -->
 </nav>
@@ -106,7 +112,105 @@
 				<h1>Work experience</h1>
 			</div>
 			<div class="col-xs-12 col-md-8">
-				<p>Lorem ipsum</p>
+				<div class="description">
+					<h2>Software Quality and Analysis Engineer</h2>
+					<p class="institution"><time>11.2013‒07.2017</time>, <span class="institution">Sii Polska</span></p>
+					<h4>Projects</h4>
+					<ul>
+						<li>web-based laboratory tool, Automation tester (01.2017‒05.2017)</li>
+						<li>mobile CRM system, Manual tester (05.2014‒10.2015), Test team leader (11.2015‒12.2016)</li>
+						<li>SAP Business Intelligence reports, Manual tester (02.2015‒09.2015)</li>
+						<li>web-based EHS tool, Manual tester (11.2013‒04.2014)</li>
+					</ul>
+					<h4>Highlights</h4>
+					<ul>
+						<li>mobile CRM project: driving force behind wiki system that served as knowledge base and facilitated onboarding of new team members</li>
+						<li>mobile CRM project: designed JIRA workflow that streamlined communication between team members and reduced number of issues closed without code change</li>
+						<li>laboratory tool: reduced number of false-positive failed automated functional test cases to zero</li>
+						<li>laboratory tool: doubled number of automated functional test cases in four months</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="projects" class="home-section">
+	<div class="container main">
+		<div class="row">
+			<div class="col-xs-12 col-md-4 section-heading">
+				<h1>Projects</h1>
+				<p>What I do outside of work</p>
+			</div>
+			<div class="col-xs-12 col-md-8">
+				<div class="col-md-6">
+					<div class="card">
+						<a href="https://github.com/mirzal/pelican-metadata-generator" class="card-image hover-overlay">
+							<img src="/theme/img/projects-pelican.png" class="img-responsive">
+						</a>
+						<div class="card-text">
+							<h4>
+								<a href="https://github.com/mirzal/pelican-metadata-generator">Pelican Metadata Generator</a>
+							</h4>
+							<div class="card-description">
+								<p>Graphical application to create <a href="https://blog.getpelican.com/">Pelican</a> post metadata.</p>
+								<p class="tags"><i class="fa fa-tags"></i> Python 3, PyQt 5, unittest, git, Markdown</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-6">
+					<div class="card">
+						<a href="https://mzalewski.shinyapps.io/ESS-civic-engagement" class="card-image hover-overlay">
+							<img src="/theme/img/projects-ess.png" class="img-responsive">
+						</a>
+						<div class="card-text">
+							<h4>
+								<a href="https://mzalewski.shinyapps.io/ESS-civic-engagement">Civic engagement in Europe</a>
+							</h4>
+							<div class="card-description">
+								<p>R Shiny application that allows user to explore changes to civic engagement index in various European countries over time.</p>
+								<p class="tags"><i class="fa fa-tags"></i> R, ggplot2, Shiny (HTML, CSS), data wrangling, visualisation</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-6">
+					<div class="card">
+						<a href="http://przepis-na-lo.pl/" class="card-image hover-overlay">
+							<img src="/theme/img/projects-przepis-na-lo.png" class="img-responsive">
+						</a>
+						<div class="card-text">
+							<h4>
+								<a href="http://przepis-na-lo.pl/">Przepis na LibreOffice</a>
+							</h4>
+							<div class="card-description">
+								<p>My discontinued blog focused on <a href="https://libreoffice.org/">LibreOffice</a> tips and tricks. It was relatively popular in Polish open source and academic communities, attracting about 20 000 unique visitors in peak months.</p>
+								<p class="tags"><i class="fa fa-tags"></i> Wordpress, PHP, HTML, CSS, writing</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-6">
+					<div class="card">
+						<a href="/blog/" class="card-image hover-overlay">
+							<img src="/theme/img/projects-blog.png" class="img-responsive">
+						</a>
+						<div class="card-text">
+							<h4>
+								<a href="/blog/">My blog</a>
+							</h4>
+							<div class="card-description">
+								<p>My current, tech-focused blog.</p>
+								<p class="tags"><i class="fa fa-tags"></i> Pelican, Jinja2 (HTML, CSS), Markdown, writing</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
 			</div>
 		</div>
 	</div>
@@ -150,7 +254,7 @@
 		<div class="row">
 			<div class="col-xs-12 col-md-4 section-heading">
 				<h1>Tools</h1>
-				<p>I am comfortable discussing; there are many more I used once or twice</p>
+				<p>I feel comfortable using and discussing these</p>
 			</div>
 			<div class="col-xs-12 col-md-8">
 				<ul class="listing">
@@ -207,6 +311,26 @@
 				<h1>Contact</h1>
 			</div>
 			<div class="col-xs-12 col-md-8">
+				<div class="col-md-4 item">
+					<a href="mailto:mz %at% miroslaw-zalewski.eu">
+						<p><i class="fa fa-envelope"></i></p>
+						<p>Email</p>
+					</a>
+				</div>
+
+				<div class="col-md-4 item">
+					<a href="http://www.linkedin.com/in/miroslawzalewski/en">
+						<p><i class="fa fa-linkedin"></i></p>
+						<p>LinkedIn</p>
+					</a>
+				</div>
+
+				<div class="col-md-4 item">
+					<a href="https://twitter.com/zalewskiEU">
+						<p><i class="fa fa-twitter"></i></p>
+						<p>Twitter</p>
+					</a>
+				</div>
 			</div>
 		</div>
 	</div>
