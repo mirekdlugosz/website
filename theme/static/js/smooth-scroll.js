@@ -1,3 +1,15 @@
+/* NodeList polyfill for older browsers
+https://developer.mozilla.org/en-US/docs/Web/API/NodeList/forEach
+*/
+if (window.NodeList && !NodeList.prototype.forEach) {
+	NodeList.prototype.forEach = function(callback, argument) {
+		argument = argument || window;
+		for (let i = 0; i < this.length; i++) {
+			callback.call(argument, this[i], i, this);
+		}
+	};
+}
+
 const smooth_scroll_to = (target_elem, duration=700) => {
 	let smooth_step = (start_time, end_time, now) => {
 		if (now <= start_time) { return 0; }
@@ -27,7 +39,7 @@ const smooth_scroll_to = (target_elem, duration=700) => {
 
 			let move_factor = smooth_step(start_time, end_time, Date.now());
 			let current_position = Math.round(start_position + (distance * move_factor));
-            document.body.scrollTop = current_position;
+            window.scrollTo(0, current_position);
 
             if (current_position === target) {
                 resolve();
@@ -50,7 +62,7 @@ window.addEventListener("load", () => {
     }
 
     document.querySelectorAll("#navbar-main ul li a").forEach(elem => {
-        elem.addEventListener("click", () => {
+        elem.addEventListener("click", (event) => {
             event.preventDefault();
             smooth_scroll_to(document.getElementById(elem.hash.slice(1)));
         });
