@@ -454,20 +454,12 @@ ul.ul-edu li .description p.institution {
   overflow: hidden;
 }
 
-.project-toolbar{
+.project-toolbar {
   margin-bottom: 2rem;
 }
 
 .project-item {
   margin-bottom: 1.5rem;
-}
-
-.isotope-item {
-  z-index: 2;
-}
-
-.isotope-item:hover{
-  z-index: 3;
 }
 
 .card {
@@ -555,6 +547,16 @@ ul.ul-edu li .description p.institution {
 
 .card:hover .card-image.hover-overlay:after {
 	opacity: 0.6;
+}
+
+#projects .card p.tags:before {
+	content: "\f02c";
+	font: normal normal normal 14px/1 FontAwesome;
+	font-size: inherit;
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	padding-right: 0.5em;
 }
 
 #work-experience .description h2:first-of-type {
