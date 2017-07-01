@@ -52,6 +52,15 @@ body {
     margin-left: 10px;
 }
 
+h2 a.toclink,
+h2 a.toclink:focus,
+h2 a.toclink:active,
+h2 a.toclink:visited,
+h2 a.toclink:hover {
+	border-bottom: none;
+	color: inherit;
+}
+
 /* Example for how to control spacing between icon and label in specific
    lists in the sidebar. To change, override in your CUSTOM_CSS           */
 #sidebar #social i {

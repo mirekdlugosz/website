@@ -120,6 +120,7 @@ MARKDOWN = {
         'markdown.extensions.codehilite': {'css_class': 'highlight', 'linenums': False},
         'markdown.extensions.extra': {},
         'markdown.extensions.meta': {},
+        'markdown.extensions.toc': {'anchorlink': True},
     },
     'output_format': 'html5',
 }
