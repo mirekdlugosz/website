@@ -56,7 +56,17 @@ h2 a.toclink,
 h2 a.toclink:focus,
 h2 a.toclink:active,
 h2 a.toclink:visited,
-h2 a.toclink:hover {
+h2 a.toclink:hover,
+h3 a.toclink,
+h3 a.toclink:focus,
+h3 a.toclink:active,
+h3 a.toclink:visited,
+h3 a.toclink:hover,
+h4 a.toclink,
+h4 a.toclink:focus,
+h4 a.toclink:active,
+h4 a.toclink:visited,
+h4 a.toclink:hover {
 	border-bottom: none;
 	color: inherit;
 }
