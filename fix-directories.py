@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 
-import os, sys
+import os
+import sys
 
 ROOT = sys.argv[1]
 
 PATHS = (
-        ('static/certificates/', 'certificates'),
-    )
+    ('static/certificates/', 'certificates'),
+)
 
 for source, destination in PATHS:
     source_path = os.path.join(ROOT, source)
