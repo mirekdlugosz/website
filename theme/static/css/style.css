@@ -578,6 +578,14 @@ ul.ul-edu li .description p.institution {
 	padding-right: 0.5em;
 }
 
+#work-experience .description {
+	padding-top: 55px;
+}
+
+#work-experience .description:first-child {
+	padding-top: 0;
+}
+
 #work-experience .description h2:first-of-type {
 	margin-top: 0;
 }
