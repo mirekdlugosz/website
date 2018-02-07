@@ -1,5 +1,11 @@
 body {
     padding-top: 70px;
+	font-size: 19px;
+	line-height: 1.58;
+}
+
+p {
+	margin-bottom: 16px;
 }
 
 .center-block {
@@ -197,7 +203,7 @@ pre {
 }
 
 footer.post-info {
-    margin-bottom: 2em;
+    margin-bottom: 1.5em;
 }
 
 .post-info .label {
@@ -218,10 +224,6 @@ footer.post-info {
 
 .article .entry-content .post-info + p:first-of-type {
 	font-weight: bold;
-}
-
-.container {
-	font-size: 16px;
 }
 
 #archives input[placeholder] {
@@ -319,10 +321,6 @@ footer.post-info {
  * IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-
-.container.main {
-    font-size: 20px;
-}
 
 .home-section {
   background-color: rgb(255, 255, 255);
@@ -678,7 +676,7 @@ nav#navbar-main li {
 #navbar-main.navbar-default .navbar-brand {
   text-transform: uppercase;
   font-weight: bold;
-  font-size: 1.2em;
+  font-size: 24px;
   color: #2b2b2b;
 }
 
