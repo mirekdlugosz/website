@@ -2,7 +2,7 @@ Title: Everything you need to know about artificial intelligence
 Slug: everything-you-need-to-know-about-artificial-intelligence
 Date: 2018-02-06 21:48:02
 Category: Blog
-Tags: automation, testing
+Tags: automation, found on web, testing
 
 Last week I have written about automated translation system gone awry in the midst of Polish international relations crisis. Today I have discovered extremely good article explaining important parts of artificial intelligence in layman's terms.
 
