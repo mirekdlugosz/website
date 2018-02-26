@@ -12,6 +12,11 @@ p {
 	float: none;
 }
 
+blockquote {
+	font-size: 1em;
+	color: #565656;
+}
+
 #sidebar .list-group, #sidebar .list-group-item {
     background-color: transparent;
 }
