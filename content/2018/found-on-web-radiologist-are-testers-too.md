@@ -4,7 +4,7 @@ Date: 2018-02-25 15:14:28
 Category: Blog
 Tags: found on web, testing
 
-Luke Oakden-Rayner, PhD candidate in field of radiology, explains why certain X-ray images database is not really fit to task of training medical systems to do diagnostics. His observations apply to pretty much any dataset used to train machines.
+Luke Oakden-Rayner, PhD candidate in field of radiology, explains why certain X-ray images database is not really fit to task of training medical systems to do diagnostics. His observations stem from questions that apply to pretty much any dataset used to train machines.
 
 <!-- more -->
 
