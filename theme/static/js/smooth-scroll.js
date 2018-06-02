@@ -32,11 +32,6 @@ const smooth_scroll_to = (target_elem, duration=700) => {
 
 	return new Promise((resolve, reject) => {
 		const scroll_frame = () => {
-            if (window.scrollY !== previous_position) {
-                reject("interrupted");
-                return;
-            }
-
 			let move_factor = smooth_step(start_time, end_time, Date.now());
 			let current_position = Math.round(start_position + (distance * move_factor));
             window.scrollTo(0, current_position);
