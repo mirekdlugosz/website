@@ -1,6 +1,6 @@
 title: About me
 
-I got my master degree in sociology and I am currently working as software quality assurance engineer. On this blog I share things that I have learned about. 
+I got my master degree in sociology and I am currently working as software quality assistance engineer. On this blog I share things that I have learned about.
 
 If you want to get in touch with me, use one of following channels:
 
