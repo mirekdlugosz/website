@@ -2,7 +2,7 @@ Title: Practicing the Rule of Three: Polish SAF-T
 Slug: practicing-the-rule-of-three-polish-saf-t
 Date: 2018-02-26 19:16:46
 Category: Blog
-Tags: testing
+Tags: application, testing
 
 Testerzy.pl, one of the biggest websites for testers in Poland, published [short article](http://testerzy.pl/wiesci-ze-swiata-testerow/krytyczna-funkcja-sprawozdawcza-jpk-niedotestowana) about problems with system behind [SAF-T](https://en.wikipedia.org/wiki/SAF-T). It's in Polish, but Google Translate does not-terrible job at translating it to English. The bottom line is: application does not allow to input numbers with more than two significant digits. Testerzy.pl claim that system was "not tested enough".
 
