@@ -17,7 +17,7 @@ DEFAULT_LANG = u'en'
 DEFAULT_DATE_FORMAT = '%d %B %Y'
 
 STATIC_PATHS = ['2015', '2016', '2017', '2018', '2019',
-                'main',
+                'root',
                 'certificates']
 
 FEED_DOMAIN = None
@@ -62,6 +62,10 @@ ARCHIVES_SAVE_AS = ARCHIVES_URL
 STATIC_URL = 'static/{path}'
 STATIC_SAVE_AS = STATIC_URL
 INDEX_SAVE_AS = 'blog/index.html'
+
+EXTRA_PATH_METADATA = {
+    'root/.htaccess': {'save_as': '.htaccess'},
+}
 
 LINKS = (
         ('My résumé', '/'),
