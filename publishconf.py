@@ -16,8 +16,8 @@ RELATIVE_URLS = False
 FEED_DOMAIN = SITEURL
 FEED_ALL_ATOM = 'blog/feeds/atom.xml'
 FEED_ALL_RSS = 'blog/feeds/rss.xml'
-#CATEGORY_FEED_ATOM = 'blog/feeds/%s.atom.xml'
-#CATEGORY_FEED_RSS = 'blog/feeds/%s.rss.xml'
+# CATEGORY_FEED_ATOM = 'blog/feeds/%s.atom.xml'
+# CATEGORY_FEED_RSS = 'blog/feeds/%s.rss.xml'
 TAG_FEED_ATOM = 'blog/feeds/%s.atom.xml'
 TAG_FEED_RSS = 'blog/feeds/%s.rss.xml'
 TRANSLATION_FEED_ATOM = None
@@ -30,4 +30,4 @@ DELETE_OUTPUT_DIRECTORY = True
 # Following items are often useful when publishing
 
 DISQUS_SITENAME = "miroslawzalewski"
-#GOOGLE_ANALYTICS = ""
+# GOOGLE_ANALYTICS = ""

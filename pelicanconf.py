@@ -2,7 +2,8 @@
 # -*- coding: utf-8 -*- #
 from __future__ import unicode_literals
 
-import sys, os
+import sys
+import os
 sys.path.insert(0, os.path.dirname(__file__))
 import addins.jinja_filters
 
@@ -32,10 +33,10 @@ TRANSLATION_FEED_ATOM = None
 
 USE_FOLDER_AS_CATEGORY = False
 DISPLAY_CATEGORIES_ON_MENU = False
-DISPLAY_CATEGORIES_ON_SIDEBAR= False
+DISPLAY_CATEGORIES_ON_SIDEBAR = False
 # Eventually, we want to drop About Me page for main website (`/`)
 # Reverse values of variables below then
-DISPLAY_LINKS_ON_MENU = False 
+DISPLAY_LINKS_ON_MENU = False
 DISPLAY_PAGES_ON_MENU = True
 
 DISPLAY_TAGS_INLINE = True
@@ -63,13 +64,25 @@ STATIC_URL = 'static/{path}'
 STATIC_SAVE_AS = STATIC_URL
 INDEX_SAVE_AS = 'blog/index.html'
 
+# Uncomment following line if you want document-relative URLs when developing
+# RELATIVE_URLS = True
+
+READERS = {
+    'htm': None,
+    'html': None,
+}
+
+IGNORE_FILES = ['.#*',
+                '*.Rmd',
+                ]
+
 EXTRA_PATH_METADATA = {
     'root/.htaccess': {'save_as': '.htaccess'},
 }
 
 LINKS = (
-        ('My résumé', '/'),
-        )
+    ('My résumé', '/'),
+)
 
 # Social widget
 SOCIAL = (('Email', 'mailto:mz %at% miroslaw-zalewski.eu'),
@@ -78,45 +91,32 @@ SOCIAL = (('Email', 'mailto:mz %at% miroslaw-zalewski.eu'),
           ('StackExchange', 'http://stackexchange.com/users/4352116/miros%C5%82aw-zalewski?tab=accounts'),
           ('LinkedIn', 'http://www.linkedin.com/in/miroslawzalewski/en'),
           ('RSS feed', '/blog/feeds/rss.xml'),
-#         ('', '#'),
           )
-SOCIAL_MAIN = (#('Email', 'mailto:mz %at% miroslaw-zalewski.eu', 'envelope'),
-               ('LinkedIn', 'http://www.linkedin.com/in/miroslawzalewski/en', 'linkedin'),
-               ('Stack Exchange', 'http://stackexchange.com/users/4352116/miros%C5%82aw-zalewski?tab=accounts', 'stack-exchange'),
-               ('GitHub', 'https://github.com/mirzal/', 'github'),
-               ('BitBucket', 'https://bitbucket.org/mirzal/', 'bitbucket'),
-               ('Twitter', 'https://twitter.com/zalewskiEU', 'twitter'),
-               #('My blog', '/blog/', 'rss'),
-               #('About me', '', 'user'),
-        )
+SOCIAL_MAIN = (  # ('Email', 'mailto:mz %at% miroslaw-zalewski.eu', 'envelope'),
+    ('LinkedIn', 'http://www.linkedin.com/in/miroslawzalewski/en', 'linkedin'),
+    ('Stack Exchange', 'http://stackexchange.com/users/4352116/miros%C5%82aw-zalewski?tab=accounts', 'stack-exchange'),
+    ('GitHub', 'https://github.com/mirzal/', 'github'),
+    ('BitBucket', 'https://bitbucket.org/mirzal/', 'bitbucket'),
+    ('Twitter', 'https://twitter.com/zalewskiEU', 'twitter'),
+    # ('My blog', '/blog/', 'rss'),
+    # ('About me', '', 'user'),
+)
 
 DEFAULT_PAGINATION = False
-#DEFAULT_PAGINATION = 20
+# DEFAULT_PAGINATION = 20
 PAGINATION_PATTERNS = (
     (1, '{base_name}/', '{base_name}/index.html'),
     (2, '{base_name}/page/{number}/', '{base_name}/page/{number}/index.html'),
 )
-
-# Uncomment following line if you want document-relative URLs when developing
-#RELATIVE_URLS = True
-
-READERS = { 
-        'htm': None,
-        'html': None,
-        }
-
-IGNORE_FILES = ['.#*', 
-        '*.Rmd',
-        ]
 
 THEME = 'theme/'
 PYGMENTS_STYLE = 'solarizedlight'
 
 PLUGIN_PATHS = ['/home/minio/sources/pelican-plugins']
 PLUGINS = [
-        'summary',
-        'neighbors',
-        ]
+    'summary',
+    'neighbors',
+]
 SUMMARY_END_MARKER = '<!-- more -->'
 
 MARKDOWN = {
@@ -130,6 +130,6 @@ MARKDOWN = {
 }
 
 JINJA_FILTERS = {
-        'dict_replace': addins.jinja_filters.dict_replace,
-        'current_year': addins.jinja_filters.current_year,
-        }
+    'dict_replace': addins.jinja_filters.dict_replace,
+    'current_year': addins.jinja_filters.current_year,
+}
