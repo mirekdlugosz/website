@@ -42,6 +42,8 @@
 		</header>
         <div class="entry-content">
             {{ page.content }}
+            {% block extra_content %}
+            {% endblock %}
             {% if page.comments == 'enabled' %}
                 {% include 'includes/comments.html' %}
             {% endif %}

@@ -1,5 +1,4 @@
 <footer class="post-info">
-    <span class="label label-default">Date</span>
     <span class="published">
         <time datetime="{{ article.date.isoformat() }}"> {{ article.locale_date }}</time>
     </span>
@@ -29,7 +28,8 @@
     {% endif %}
 
 	{% if article.tags %}
-	<span class="label label-default">Tags</span>
+	<span class="sr-only">Tags</span>
+    <span class="tags"><i class="fas fa-tags"></i></span>
 	{% for tag in article.tags |sort %}
 		<a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>
 		{% if not loop.last %}

@@ -1,0 +1,21 @@
+// put your Bootstrap variables overrides here
+// e.g. `$body-bg: #ff0000;`
+
+$gray-600: #868e96 !default;
+$teal: #0085A1 !default;
+$primary: $teal !default;
+
+$font-family-serif:   'Lora', serif;
+$font-family-sans-serif:      -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+$font-family-monospace:       SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
+$font-family-base:            $font-family-serif !default;
+$headings-font-family:        inherit !default;
+
+$font-size-base: 1.25rem !default;
+
+$h1-font-size: $font-size-base * 1.75 !default;
+$h2-font-size: $font-size-base * 1.5 !default;
+$h3-font-size: $font-size-base * 1.25 !default;
+$h4-font-size: $font-size-base !default;
+
+$paragraph-margin-bottom:   1.8rem !default;

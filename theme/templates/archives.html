@@ -6,12 +6,14 @@
 	<h1>Site archives</h1>
 	<div id="archives">
 		<h2>Search</h2>
-		<form action="https://www.google.com/search" method="get">
+		<form action="https://www.google.com/search" method="get" class="input-group mb-4">
 			<input type="hidden" name="ie" value="UTF-8">
 			<input type="hidden" name="sitesearch" value="{{ SITEURL[8:] }}">
 			<label for="q" class="sr-only">Search query</label>
-			<input type="text" name="q" placeholder="Type in search keyword" class="col-sm-9">
-			<input type="submit" value="Search using Google">
+			<input type="text" name="q" placeholder="Type in search keyword" class="form-control">
+            <div class="input-group-append">
+                <input type="submit" value="Search using Google" class="btn btn-secondary">
+            </div>
 		</form>
 
 		<h2>Browse by category</h2>
@@ -23,17 +25,19 @@
 			{% set tag_feed_url = tag.0.save_as| dict_replace(tag_replacements) %}
 			<li>
 				<a href="{{ SITEURL }}/{{ tag.0.save_as }}">{{ tag.0.name }}</a>
-				<a href="{{ SITEURL }}/{{ tag_feed_url }}" title="Atom feed for {{ tag.0.name }}"><i class="fa fa-rss"></i></a>
+				<a href="{{ SITEURL }}/{{ tag_feed_url }}" title="Atom feed for {{ tag.0.name }}"><i class="fas fa-rss"></i></a>
 			</li>
 		{% endfor %}
 		</ul>
 
 		<h2>Browse by date</h2>
 		{% for article in dates %}
-		<p>
-			<span class="categories-timestamp"><time datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time></span>
-			<a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}{% if article.subtitle %} - {{ article.subtitle }}{% endif %}</a>
-		</p>
+        <div class="row article">
+            <p class="col-12 col-md-4 timestamp"><time datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time></p>
+            <p class="col-12 col-md-8 title">
+                <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a>
+            </p>
+        </div>
 		{% endfor %}
 	</div>
 </section>

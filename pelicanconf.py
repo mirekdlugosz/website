@@ -4,11 +4,13 @@ from __future__ import unicode_literals
 
 import sys
 import os
+import datetime
 sys.path.insert(0, os.path.dirname(__file__))
 import addins.jinja_filters
+from metadata import PROJECTS
 
-AUTHOR = u'Miros\u0142aw Zalewski'
-SITENAME = u'Miros\u0142aw Zalewski'
+AUTHOR = 'Mirosław Zalewski'
+SITENAME = 'Mirosław Zalewski'
 SITEURL = ''
 
 PATH = 'content'
@@ -16,10 +18,12 @@ TIMEZONE = 'Europe/Warsaw'
 LOCALE = 'C'
 DEFAULT_LANG = u'en'
 DEFAULT_DATE_FORMAT = '%d %B %Y'
+BUILD_DATE = datetime.date.today().year
 
-STATIC_PATHS = ['2015', '2016', '2017', '2018', '2019',
-                'root',
-                'certificates']
+STATIC_PATHS = [str(_) for _ in range(2015, BUILD_DATE + 1)]
+STATIC_PATHS.extend(['root', 'certificates'])
+
+USE_FOLDER_AS_CATEGORY = False
 
 FEED_DOMAIN = None
 FEED_ATOM = None
@@ -31,24 +35,11 @@ AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 TRANSLATION_FEED_ATOM = None
 
-USE_FOLDER_AS_CATEGORY = False
-DISPLAY_CATEGORIES_ON_MENU = False
-DISPLAY_CATEGORIES_ON_SIDEBAR = False
-# Eventually, we want to drop About Me page for main website (`/`)
-# Reverse values of variables below then
-DISPLAY_LINKS_ON_MENU = False
-DISPLAY_PAGES_ON_MENU = True
-
-DISPLAY_TAGS_INLINE = True
-
-SHOW_ARTICLE_AUTHOR = False
-DISPLAY_ARTICLE_INFO_ON_INDEX = True
-
 AUTHOR_SAVE_AS = ''
 AUTHORS_SAVE_AS = ''
 ARTICLE_URL = "blog/{date:%Y}/{slug}/"
 ARTICLE_SAVE_AS = ARTICLE_URL + '/index.html'
-PAGE_URL = 'blog/pages/{slug}.html'
+PAGE_URL = '{slug}.html'
 PAGE_SAVE_AS = PAGE_URL
 CATEGORY_URL = ''
 CATEGORY_SAVE_AS = ''
@@ -80,39 +71,25 @@ EXTRA_PATH_METADATA = {
     'root/.htaccess': {'save_as': '.htaccess'},
 }
 
-LINKS = (
-    ('My résumé', '/'),
-)
+SHOW_ARTICLE_AUTHOR = False
+DISPLAY_ARTICLE_INFO_ON_INDEX = True
 
-# Social widget
-SOCIAL = (('Email', 'mailto:mz %at% miroslaw-zalewski.eu'),
-          ('GitHub', 'https://github.com/mirzal/'),
-          ('BitBucket', 'https://bitbucket.org/mirzal/'),
-          ('StackExchange', 'http://stackexchange.com/users/4352116/miros%C5%82aw-zalewski?tab=accounts'),
-          ('LinkedIn', 'http://www.linkedin.com/in/miroslawzalewski/en'),
-          ('RSS feed', '/blog/feeds/rss.xml'),
-          )
-SOCIAL_MAIN = (  # ('Email', 'mailto:mz %at% miroslaw-zalewski.eu', 'envelope'),
-    ('LinkedIn', 'http://www.linkedin.com/in/miroslawzalewski/en', 'linkedin'),
-    ('Stack Exchange', 'http://stackexchange.com/users/4352116/miros%C5%82aw-zalewski?tab=accounts', 'stack-exchange'),
-    ('GitHub', 'https://github.com/mirzal/', 'github'),
-    ('BitBucket', 'https://bitbucket.org/mirzal/', 'bitbucket'),
-    ('Twitter', 'https://twitter.com/zalewskiEU', 'twitter'),
-    # ('My blog', '/blog/', 'rss'),
-    # ('About me', '', 'user'),
+CONTACT = (
+    ('Email', 'mailto:mz %at% miroslaw-zalewski.eu', 'envelope far'),
+    ('LinkedIn', 'https://www.linkedin.com/in/miroslawzalewski/en', 'linkedin-in fab'),
+    ('Twitter', 'https://twitter.com/zalewskiEU', 'twitter fab'),
 )
 
 DEFAULT_PAGINATION = False
-# DEFAULT_PAGINATION = 20
+# DEFAULT_PAGINATION = 5
 PAGINATION_PATTERNS = (
     (1, '{base_name}/', '{base_name}/index.html'),
     (2, '{base_name}/page/{number}/', '{base_name}/page/{number}/index.html'),
 )
 
 THEME = 'theme/'
-PYGMENTS_STYLE = 'solarizedlight'
 
-PLUGIN_PATHS = ['/home/minio/sources/pelican-plugins']
+PLUGIN_PATHS = ['../pelican-plugins']
 PLUGINS = [
     'summary',
     'neighbors',
@@ -131,5 +108,4 @@ MARKDOWN = {
 
 JINJA_FILTERS = {
     'dict_replace': addins.jinja_filters.dict_replace,
-    'current_year': addins.jinja_filters.current_year,
 }

@@ -1,0 +1,63 @@
+{% extends "page.html" %}
+
+{% block content%}
+
+<section id="about" class="full-width">
+	<div class="container main">
+		<div class="row" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <div id="profile" class="col-12 col-md-4">
+                <img itemprop="image" src="/theme/img/main-photo.jpg">
+            </div>
+			<div class="col-12 col-md-8" itemprop="description">
+				{{ page.content }}
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="latest">
+    <h1>Latest posts on <a href="/blog/">blog</a></h1>
+    <ul>
+        {% for post in articles %}
+        {% if loop.index <= 5 %}
+        <li>
+            <a href="{{ SITEURL }}/{{ post.url }}">{{ post.title }}</a>
+            <span class="published">
+                (<time datetime="{{ post.date.isoformat() }}">{{ post.locale_date }}</time>)
+            </span>
+        </li>
+        {% endif %}
+        {% endfor %}
+    </ul>
+    <p class="see-all"><a class="btn btn-secondary btn-sm" role="button" href="{{ SITEURL }}/{{ ARCHIVES_URL }}">Full archive <i class="fas fa-chevron-right"></i></a></p>
+</section>
+
+<section id="projects">
+    <h1>Projects</h1>
+    <div class="row">
+        {% for project in PROJECTS if project.starred %}
+        <div class="col-sm-6">
+            {% include 'includes/project_card.html' %}
+        </div>
+        {% endfor %}
+    </div>
+    {% for page in pages if page.title == 'Projects' %}
+    <p class="see-all"><a class="btn btn-secondary btn-sm" role="button" href="{{ SITEURL }}/{{ page.url }}">See all <i class="fas fa-chevron-right"></i></a></p>
+    {% endfor %}
+</section>
+
+<section id="contact">
+    <h1>Contact</h1>
+    <div class="row">
+        {% for name, link, icon in CONTACT %}
+        <div class="col-4 item">
+            <a href="{{ link }}">
+                <p><i class="fa-{{ icon }}"></i></p>
+                <p>{{ name }}</p>
+            </a>
+        </div>
+        {% endfor %}
+	</div>
+</section>
+
+{% endblock %}

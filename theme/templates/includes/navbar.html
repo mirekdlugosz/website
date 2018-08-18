@@ -1,55 +1,30 @@
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="navbar-main">
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav" role="navigation">
 	<div class="container">
-        <div class="navbar-header">
-			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                data-target="#navbar-main .navbar-collapse" aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a href="{{ SITEURL }}/blog/" class="navbar-brand">
-                {% if SITELOGO %}<img src="{{ SITEURL }}/{{ SITELOGO }}" width="{{ SITELOGO_SIZE }}"/> {% endif %}
-                {% if not HIDE_SITENAME %}{{ SITENAME }}{% endif %}
-            </a>
-        </div>
-        <div class="collapse navbar-collapse navbar-ex1-collapse">
-            <ul class="nav navbar-nav">
-                {% for title, link in MENUITEMS %}
-                    <li><a href="{{ link }}">{{ title }}</a></li>
-                {% endfor %}
-                {% if DISPLAY_PAGES_ON_MENU %}
-                    {% for p in pages if not p.hidden %}
-                         <li{% if p == page %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ p.url }}">
-                             {{ p.menulabel|default(p.title) }}
-                          </a></li>
-                      {% endfor %}
-                {% endif %}
-                {% if DISPLAY_CATEGORIES_ON_MENU %}
-                    {% for cat, null in categories %}
-                        <li {% if cat == category %}class="active"{% endif %}>
-                            <a href="{{ SITEURL }}/{{ cat.url }}">{{ cat | capitalize }}</a>
-                        </li>
-                    {% endfor %}
-                {% endif %}
-                {% if DISPLAY_LINKS_ON_MENU %}
-					{% for name, link in LINKS %}
-						<li>
-							<a href="{{ link }}">
-							{{ name }} <i class="fa fa-external-link-square"></i>
-							</a>
-						</li>
-                      {% endfor %}
-                {% endif %}
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li{% if 'archives.html' in output_file %} class="active"{% endif %}>
-                  <a href="{{ SITEURL }}/{{ ARCHIVES_URL | default('archives.html') }}">
-                      <i class="fa fa-th-list"></i><span class="icon-label">Archives</span>
-                  </a>
-              </li>
-            </ul>
-        </div>
-        <!-- /.navbar-collapse -->
-    </div>
-</nav> <!-- /.navbar -->
+		<a href="{{ SITEURL }}/" class="navbar-brand">
+			{% if SITELOGO %}<img src="{{ SITEURL }}/{{ SITELOGO }}" width="{{ SITELOGO_SIZE }}"/> {% endif %}
+			{% if not HIDE_SITENAME %}{{ SITENAME }}{% endif %}
+		</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+        </button>
+
+		<div class="collapse navbar-collapse" id="main-menu">
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item{% if 'archives.html' in output_file %} active{% endif %}">
+					<a class="nav-link" href="{{ SITEURL }}/blog/">Blog</a>
+				</li>
+				{% for page in pages if page.title == 'Projects' %}
+				<li class="nav-item{% if 'projects.html' in output_file %} active{% endif %}">
+					<a class="nav-link" href="{{ SITEURL }}/{{ page.url }}">Projects</a>
+				</li>
+				{% endfor %}
+				<li class="nav-item">
+                    <a class="nav-link" href="https://www.linkedin.com/in/miroslawzalewski/en">Resumé <i class="fab fa-linkedin"></i></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="{{ SITEURL }}/#contact">Contact</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</nav>
