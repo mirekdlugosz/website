@@ -75,9 +75,9 @@ SHOW_ARTICLE_AUTHOR = False
 DISPLAY_ARTICLE_INFO_ON_INDEX = True
 
 CONTACT = (
-    ('Email', 'mailto:mz %at% miroslaw-zalewski.eu', 'envelope far'),
-    ('LinkedIn', 'https://www.linkedin.com/in/miroslawzalewski/en', 'linkedin-in fab'),
+    ('Email', 'mailto:mz %at% miroslaw-zalewski.eu', 'envelope fas'),
     ('Twitter', 'https://twitter.com/zalewskiEU', 'twitter fab'),
+    ('LinkedIn', 'https://www.linkedin.com/in/miroslawzalewski/en', 'linkedin-in fab'),
 )
 
 DEFAULT_PAGINATION = False
