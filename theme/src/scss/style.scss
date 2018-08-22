@@ -196,6 +196,10 @@ img::-moz-selection {
 	text-decoration: none;
 }
 
+#content footer.post-info + p {
+	font-weight: 700;
+}
+
 .read-next {
 	margin: $paragraph-margin-bottom * 2 0 $paragraph-margin-bottom;
 	padding: 0;
