@@ -269,8 +269,10 @@ p.see-all {
 	}
 }
 
-#about + * {
-	margin-top: $paragraph-margin-bottom * 2;
+@include media-breakpoint-up(sm) {
+	#about + * {
+		margin-top: $paragraph-margin-bottom * 2;
+	}
 }
 
 #contact .item {
