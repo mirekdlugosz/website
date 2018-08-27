@@ -1,6 +1,6 @@
 <footer class="post-info">
-	<span class="sr-only">Publication date</span>
     <span class="published">
+		<span class="sr-only">Publication date</span>
         <time datetime="{{ article.date.isoformat() }}"> {{ article.locale_date }}</time>
     </span>
     {% if SHOW_DATE_MODIFIED %}
@@ -29,13 +29,15 @@
     {% endif %}
 
 	{% if article.tags %}
-	<span class="sr-only">Tags</span>
-    <span class="tags"><i class="fas fa-tags"></i></span>
-	{% for tag in article.tags |sort %}
-		<a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>
-		{% if not loop.last %}
-			/
-		{% endif %}
-	{% endfor %}
+    <span class="tags">
+		<span class="sr-only">Tags</span>
+		<i class="fas fa-tags"></i>
+		{% for tag in article.tags |sort %}
+			<a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>
+			{% if not loop.last %}
+				/
+			{% endif %}
+		{% endfor %}
+	</span>
 	{% endif %}
 </footer><!-- /.post-info -->
