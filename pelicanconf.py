@@ -73,8 +73,6 @@ EXTRA_PATH_METADATA = {
 
 SHOW_ARTICLE_AUTHOR = False
 
-GOOGLE_ANALYTICS = 'UA-2205779-7'
-
 CONTACT = (
     ('Email', 'mailto:mz %at% miroslaw-zalewski.eu', 'envelope fas'),
     ('Twitter', 'https://twitter.com/zalewskiEU', 'twitter fab'),
