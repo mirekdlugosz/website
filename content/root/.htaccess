@@ -1,3 +1,9 @@
+ExpiresActive On
+ExpiresByType text/javascript "access plus 2 weeks"
+ExpiresByType text/css "access plus 2 weeks"
+ExpiresByType image/jpeg "access plus 2 weeks"
+ExpiresByType image/png "access plus 2 weeks"
+
 RewriteEngine On
 RewriteBase /
 RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
