@@ -16,12 +16,14 @@ SITEURL = ''
 PATH = 'content'
 TIMEZONE = 'Europe/Warsaw'
 LOCALE = 'C'
-DEFAULT_LANG = u'en'
+DEFAULT_LANG = 'en'
 DEFAULT_DATE_FORMAT = '%d %B %Y'
 BUILD_DATE = datetime.date.today().year
 
-STATIC_PATHS = [str(_) for _ in range(2015, BUILD_DATE + 1)]
-STATIC_PATHS.extend(['root', 'certificates'])
+STATIC_PATHS = ['root', 'certificates', 
+                # directories that are not referenced in articles,
+                # but should be placed somewhere in `static`
+                '2015/bakeries-map']
 
 USE_FOLDER_AS_CATEGORY = False
 
@@ -102,7 +104,7 @@ MARKDOWN = {
         'markdown.extensions.meta': {},
         'markdown.extensions.toc': {'anchorlink': True},
     },
-    'output_format': 'html5',
+    'output_format': 'html',
 }
 
 JINJA_FILTERS = {

@@ -1,4 +1,4 @@
-PY?=python
+PY?=python3
 PELICAN?=pelican
 PELICANOPTS=
 
@@ -30,6 +30,7 @@ help:
 	@echo '   make clean                          remove the generated files         '
 	@echo '   make html                           (re)generate the web site          '
 	@echo '   make serve [PORT=8000]              serve site at http://localhost:8000'
+	@echo '   make devserver [PORT=8000]          serve and regenerate together      '
 	@echo '   make publish                        generate using production settings '
 	@echo '   make ssh_upload                     upload the web site via SSH        '
 	@echo '   make rsync_upload                   upload the web site via rsync+ssh  '
@@ -46,9 +47,16 @@ clean:
 
 serve:
 ifdef PORT
-	cd $(OUTPUTDIR) && $(PY) -m pelican.server $(PORT)
+	$(PELICAN) -l $(INPUTDIR) -o $(OUTPUTDIR) -s $(CONFFILE) $(PELICANOPTS) -p $(PORT)
 else
-	cd $(OUTPUTDIR) && $(PY) -m pelican.server
+	$(PELICAN) -l $(INPUTDIR) -o $(OUTPUTDIR) -s $(CONFFILE) $(PELICANOPTS)
+endif
+
+devserver:
+ifdef PORT
+	$(PELICAN) -lr $(INPUTDIR) -o $(OUTPUTDIR) -s $(CONFFILE) $(PELICANOPTS) -p $(PORT)
+else
+	$(PELICAN) -lr $(INPUTDIR) -o $(OUTPUTDIR) -s $(CONFFILE) $(PELICANOPTS)
 endif
 
 publish:
