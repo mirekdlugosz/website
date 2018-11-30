@@ -90,10 +90,11 @@ PAGINATION_PATTERNS = (
 
 THEME = 'theme/'
 
-PLUGIN_PATHS = ['../pelican-plugins']
+PLUGIN_PATHS = ['../pelican-plugins', 'plugins']
 PLUGINS = [
     'summary',
     'neighbors',
+    'rename_to_slug',
 ]
 SUMMARY_END_MARKER = '<!-- more -->'
 
