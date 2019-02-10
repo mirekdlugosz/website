@@ -12,7 +12,7 @@ I was not involved in the project in question and I cannot comment whether it wa
 
 * Specification explicitly said that numeric values must be expressed in format with two significant digits. Maybe someone brought this to attention of specification-makers, maybe not.
 * Development process made it very hard to fix bugs in specification, while requiring software to conform to said specification (even when it was buggy).
-* Information about the issue never left testing team. Maybe their priorities at the time didn't justify spending time on reporting it. Maybe their process made each reported problem such a hassle, that testers equivocated. Maybe someone found it just before lunch break and then forgot.
+* Information about the issue never left testing team. Maybe their priorities at the time didn't justify spending time on reporting it. Maybe their process made each reported problem such a hassle, that testers hesitated. Maybe someone found it just before lunch break and then forgot.
 * None of decision-makers looked into reported issue. It still lingered in NEW queue at the time of release.
 * Issue was reported and then closed as too minor to be worth any further work.
 * After investigation by development team, it turned out that fix would require refactoring of significant part of application. Someone decided that benefits of fix do not outweigh potential costs.
