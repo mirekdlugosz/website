@@ -299,6 +299,7 @@ p.see-all {
 		transition: all 0.2s ease-out;
 		display: flex;
 		flex-direction: column;
+		margin: 4px 0;
 		.card-image {
 			display: block;
 			min-height: 150px;
