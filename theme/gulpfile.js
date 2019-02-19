@@ -7,7 +7,7 @@ var rename = require("gulp-rename");
 var uglify = require("gulp-uglify");
 
 // Compile SCSS
-gulp.task('css:compile', function() {
+function css_compile() {
     return gulp.src([
         './src/scss/variables.scss',
         './src/scss/bootstrap.scss',
@@ -22,10 +22,10 @@ gulp.task('css:compile', function() {
         }).on('error', sass.logError))
         .pipe(autoprefixer('last 2 versions'))
         .pipe(gulp.dest('./static/css'))
-});
+}
 
 // Minify CSS
-gulp.task('css:minify', ['css:compile'], function() {
+function css_minify() {
     return gulp.src([
         './static/css/**/*.css',
         '!./static/css/**/*.min.css'
@@ -36,13 +36,13 @@ gulp.task('css:minify', ['css:compile'], function() {
             suffix: '.min'
         }))
         .pipe(gulp.dest('./static/css'));
-});
+}
 
 // CSS
-gulp.task('css', ['css:compile', 'css:minify']);
+exports.css = gulp.series(css_compile, css_minify);
 
 // Minify JavaScript
-gulp.task('js:minify', function() {
+function js_minify() {
     return gulp.src([
         './node_modules/bootstrap.native/dist/bootstrap-native-v4.min.js',
         './src/js/*.js'
@@ -50,34 +50,37 @@ gulp.task('js:minify', function() {
         .pipe(concat('script.min.js'))
         .pipe(uglify())
         .pipe(gulp.dest('./static/js'));
-});
+}
 
 // JS
-gulp.task('js', ['js:minify']);
+exports.js = gulp.series(js_minify);
 
 // copy FontAwesome font files
-gulp.task('fonts', function() {
+function fonts() {
     return gulp.src([
         './node_modules/@fortawesome/fontawesome-free/webfonts/*',
         './vendor/Lora/*',
         '!./vendor/Lora/style.scss'
     ])
         .pipe(gulp.dest('./static/fonts'));
-});
+}
+
+exports.fonts = fonts;
 
 // copy images
-gulp.task('images', function() {
+function images() {
     return gulp.src([
         './src/img/*'
     ])
         .pipe(gulp.dest('./static/img'));
-});
+}
+
+exports.images = images;
 
 // Default task
-gulp.task('default', ['css', 'js', 'fonts', 'images']);
+exports.default = gulp.parallel(exports.css, exports.js, exports.fonts, exports.images);
 
-// Dev task
-gulp.task('dev', ['default'], function() {
-    gulp.watch('./src/**/*.scss', ['css']);
-    gulp.watch('./src/**/*.js', ['js']);
+exports.dev = gulp.series(function() {
+    gulp.watch('./src/**/*.scss', { ignoreInitial: false }, exports.css);
+    gulp.watch('./src/**/*.js', { ignoreInitial: false }, exports.js);
 });
