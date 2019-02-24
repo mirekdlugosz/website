@@ -31,6 +31,7 @@ PROJECTS = [
         'tags': ['Python 3', 'PyQt 5', 'unittest', 'Markdown'],
         'description': """
             Graphical application to create <a href="https://blog.getpelican.com/">Pelican</a> post metadata.
+            <a href="https://github.com/mirzal/pelican-metadata-generator">GitHub</a>.
         """,
         'starred': True,
     },
