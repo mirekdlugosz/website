@@ -39,13 +39,13 @@ help:
 	@echo 'Set the RELATIVE variable to 1 to enable relative urls (useful with `make publish`)'
 	@echo '                                                                          '
 
-html:
-	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(CONFFILE) $(PELICANOPTS)
-
 clean:
 	[ ! -d $(OUTPUTDIR) ] || rm -rf $(OUTPUTDIR)
 
-serve:
+html: clean
+	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(CONFFILE) $(PELICANOPTS)
+
+serve: clean
 ifdef PORT
 	$(PELICAN) -l $(INPUTDIR) -o $(OUTPUTDIR) -s $(CONFFILE) $(PELICANOPTS) -p $(PORT)
 else
@@ -59,7 +59,7 @@ else
 	$(PELICAN) -lr $(INPUTDIR) -o $(OUTPUTDIR) -s $(CONFFILE) $(PELICANOPTS)
 endif
 
-publish:
+publish: clean
 	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(PUBLISHCONF) $(PELICANOPTS)
 
 postpublish:
@@ -68,7 +68,7 @@ postpublish:
 ssh_upload: publish
 	scp -P $(SSH_PORT) -r $(OUTPUTDIR)/* $(SSH_USER)@$(SSH_HOST):$(SSH_TARGET_DIR)
 
-rsync_upload: clean publish postpublish
+rsync_upload: publish postpublish
 	rsync -e "ssh -p $(SSH_PORT)" -P -rvzc --delete --cvs-exclude --exclude='.*.swp' $(OUTPUTDIR)/ $(SSH_USER)@$(SSH_HOST):$(SSH_TARGET_DIR)
 
 .PHONY: html help clean serve publish ssh_upload rsync_upload 
