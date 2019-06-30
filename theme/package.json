@@ -4,22 +4,22 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.7.2",
+    "@fortawesome/fontawesome-free": "^5.9.0",
     "bootstrap": "^4.3.1",
-    "bootstrap.native": "^2.0.25",
-    "popper.js": "^1.14.7"
+    "bootstrap.native": "^2.0.26",
+    "popper.js": "^1.15.0"
   },
   "devDependencies": {
     "autoprefixer": "^9.4.7",
-    "gulp": "^4.0.0",
-    "gulp-autoprefixer": "^6.0.0",
-    "gulp-clean-css": "^4.0.0",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^6.1.0",
+    "gulp-clean-css": "^4.2.0",
     "gulp-concat": "^2.6.1",
     "gulp-postcss": "^8.0.0",
     "gulp-rename": "^1.4.0",
     "gulp-sass": "^4.0.2",
     "gulp-sourcemaps": "^2.6.4",
-    "gulp-uglify": "^3.0.1"
+    "gulp-uglify": "^3.0.2"
   },
   "scripts": {
     "build": "echo FIXME"
