@@ -2,7 +2,7 @@ Title: The map of bakeries that sell genuine St. Martin Croissants
 Slug: the-map-of-bakeries-that-sell-genuine-st-martin-croissants
 Date: 2015-11-11 20:51:25
 Category: Blog
-Tags: tutorial, web scraping, R
+Tags: development, R, tutorial, web scraping
 
 97 years ago Poland regained independence after being partitioned for well over a century. The date coincidences with St. Martin Day, a holiday with pagan roots that somehow managed to be more important here in [Poznań](https://en.wikipedia.org/wiki/Pozna%C5%84). We celebrate by having a parade on one of main streets and eating ungodly amounts of *rogal świętomarciński* (St. Martin Croissant), a local cake with PGI status in European Union. In this blog post I will show how to plot locations of bakeries that are allowed to sell products with that name.
 <!-- more -->

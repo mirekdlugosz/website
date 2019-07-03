@@ -2,7 +2,7 @@ Title: The Last Jedi non-review
 Slug: the-last-jedi-non-review
 Date: 2017-12-21 22:42:13
 Category: Blog
-Tags: opinion, fiction
+Tags: fiction
 
 This is supposed to be *tech-oriented* blog, but since I rarely write anything anyway, let's talk about Star Wars instead. Spoilers ahead.
 

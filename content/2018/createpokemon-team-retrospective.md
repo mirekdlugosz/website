@@ -2,7 +2,7 @@ Title: createPokémon.team retrospective
 Slug: createpokemon-team-retrospective
 Date: 2018-07-12 21:42:49
 Category: Blog
-Tags: opinion
+Tags: development, practice
 
 Last week I announced release of [createPokémon.team](https://createpokemon.team/). It took about three months of my free time, out of which one was "full-time". During that time, I had some ideas and observations that I wanted to share in this blog post. It crosses into rant territory at times.
 

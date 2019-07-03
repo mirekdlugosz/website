@@ -2,7 +2,7 @@ Title: What robots can't do: speech translation
 Slug: what-robots-can-t-do-speech-translation
 Date: 2018-02-02 22:42:57
 Category: Blog
-Tags: automation, opinion
+Tags: automation
 
 In the middle of Polish international relations crisis, we can see why robots won't take our jobs anytime soon.
 

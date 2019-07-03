@@ -1,6 +1,5 @@
 Title: Why I don't use GitHub exclusively and why you should consider it as well
 Slug: why-i-dont-use-github-exclusively
-Tags: opinion, git
 Category: Blog
 Date: 2015-09-06 19:26:47
 
