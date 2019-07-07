@@ -37,7 +37,7 @@ a {
 }
 
 p {
-	line-height: 1.5;
+	line-height: $line-height-base;
 	margin: $paragraph-margin-bottom 0;
 }
 
@@ -51,7 +51,7 @@ ul {
 }
 
 li {
-	line-height: 1.5;
+	line-height: $line-height-base;
 	margin-bottom: $paragraph-margin-bottom * 0.8;
 	@include media-breakpoint-up(sm) {
 		padding-left: 0.7rem;

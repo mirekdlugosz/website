@@ -1,1 +1,1 @@
-Files from vendors that are not on npm (so we can't import files form node_modules)
+Files from vendors that are not on npm (so we can't import files from node_modules)
