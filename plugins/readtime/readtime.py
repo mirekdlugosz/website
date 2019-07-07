@@ -1,7 +1,7 @@
 import logging
 import math
 
-from pelican import signals, contents
+from pelican import generators, signals
 from html.parser import HTMLParser
 
 logger = logging.getLogger(__name__)
@@ -29,9 +29,6 @@ def strip_tags(html):
 
 
 def calculate_readtime(content_object):
-    if isinstance(content_object, contents.Static):
-        return
-
     READTIME_AVG_WPM = content_object.settings.get('READTIME_AVG_WPM', 230)
     text = strip_tags(content_object.content)
     words = text.split()
@@ -48,5 +45,12 @@ def calculate_readtime(content_object):
     }
 
 
+def run_plugin(finished_generators):
+    generator = next(generator for generator in finished_generators
+                     if isinstance(generator, generators.ArticlesGenerator))
+    for article in generator.articles:
+        calculate_readtime(article)
+
+
 def register():
-    signals.content_object_init.connect(calculate_readtime)
+    signals.all_generators_finalized.connect(run_plugin)
