@@ -342,7 +342,7 @@ p.see-all {
 
 // Styling for the footer
 body > footer {
-	margin: 3rem 0 4rem;
+	margin: 2rem 0 4rem;
 	.list-inline {
 		margin: 0;
 		padding: 0;
@@ -358,6 +358,11 @@ body > footer {
 	.privacy {
 		margin-top: 0;
 	}
+}
+
+#load-comments {
+    margin-top: 1rem;
+    display: none;
 }
 
 .full-width {
