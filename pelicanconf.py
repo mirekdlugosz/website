@@ -93,9 +93,9 @@ THEME = 'theme/'
 PLUGIN_PATHS = ['../pelican-plugins', 'plugins']
 PLUGINS = [
     'neighbors',
-    'readtime',
     'rename_to_slug',
     'summary',
+    'readtime',
 ]
 SUMMARY_END_MARKER = '<!-- more -->'
 
