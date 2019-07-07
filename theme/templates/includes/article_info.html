@@ -28,6 +28,14 @@
         <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>
     {% endif %}
 
+	{% if article.readtime %}
+	<span class="readtime">
+		<span class="sr-only">Read time</span>
+		<i class="far fa-clock"></i>
+		{{ article.readtime.minutes }} min
+	</span>
+	{% endif %}
+
 	{% if article.tags %}
     <span class="tags">
 		<span class="sr-only">Tags</span>
