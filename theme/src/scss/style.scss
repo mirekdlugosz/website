@@ -12,6 +12,13 @@ body {
 	color: $gray-900;
 	font-family: $font-family-base;
 	overflow-x: hidden;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	-moz-font-feature-settings: "liga" on;
+	@include media-breakpoint-down(sm) {
+		font-size: $font-size-sm;
+	}
 }
 
 h1,
@@ -184,7 +191,7 @@ img::-moz-selection {
 }
 
 .post-info {
-	font-size: $font-size-sm;
+	font-size: $font-size-smaller;
 	@include link-inherit-color();
 	> span {
 		margin-left: $font-size-base;
@@ -253,7 +260,7 @@ p.see-all {
 			margin: 0;
 		}
 		.timestamp {
-			font-size: $font-size-sm;
+			font-size: $font-size-smaller;
 			color: $text-muted;
 		}
 	}
@@ -329,7 +336,7 @@ p.see-all {
 			margin: $paragraph-margin-bottom / 2 0;
 		}
 		p.tags {
-			font-size: $font-size-sm;
+			font-size: $font-size-smaller;
 		}
 		&:hover {
 			box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);

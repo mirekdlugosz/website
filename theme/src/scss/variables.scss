@@ -5,13 +5,16 @@ $gray-600: #868e96 !default;
 $teal: #0085A1 !default;
 $primary: $teal !default;
 
-$font-family-serif:   'Lora', serif;
+$font-family-serif:   'Merriweather', serif;
 $font-family-sans-serif:      -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
 $font-family-monospace:       SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
 $font-family-base:            $font-family-serif !default;
 $headings-font-family:        inherit !default;
 
 $font-size-base: 1.25rem !default;
+$font-size-smaller: 0.85em !default;
+
+$line-height-base:            1.75 !default;
 
 $h1-font-size: $font-size-base * 1.75 !default;
 $h2-font-size: $font-size-base * 1.5 !default;

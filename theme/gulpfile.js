@@ -13,7 +13,7 @@ function css_compile() {
         './src/scss/bootstrap.scss',
         './src/scss/fontawesome.scss',
         './src/scss/pygments.scss',
-        './vendor/Lora/style.scss',
+        './vendor/Merriweather/style.scss',
         './src/scss/style.scss',
     ])
         .pipe(concat('style.scss'))
@@ -59,8 +59,8 @@ exports.js = gulp.series(js_minify);
 function fonts() {
     return gulp.src([
         './node_modules/@fortawesome/fontawesome-free/webfonts/*',
-        './vendor/Lora/*',
-        '!./vendor/Lora/style.scss'
+        './vendor/Merriweather/*',
+        '!./vendor/Merriweather/style.scss'
     ])
         .pipe(gulp.dest('./static/fonts'));
 }
