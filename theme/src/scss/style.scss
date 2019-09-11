@@ -198,7 +198,7 @@ img::-moz-selection {
 	text-decoration: none;
 }
 
-#content footer.post-info + p {
+#content .entry-content p:first-of-type {
 	font-weight: 700;
 }
 
