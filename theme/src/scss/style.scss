@@ -205,7 +205,7 @@ img::-moz-selection {
 	text-decoration: none;
 }
 
-#content .entry-content p:first-of-type {
+#content.article .entry-content > p:first-of-type {
 	font-weight: 700;
 }
 
