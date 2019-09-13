@@ -11,7 +11,7 @@ PUBLISHCONF=$(BASEDIR)/publishconf.py
 SSH_HOST=mydevil
 SSH_PORT=22
 SSH_USER=minio
-SSH_TARGET_DIR=/home/minio/domains/miroslaw-zalewski.eu/public_html/
+SSH_TARGET_DIR=/home/minio/domains/mirekdlugosz.com/public_html/
 
 DEBUG ?= 0
 ifeq ($(DEBUG), 1)

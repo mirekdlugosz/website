@@ -9,8 +9,8 @@ sys.path.insert(0, os.path.dirname(__file__))
 import addins.jinja_filters
 from metadata import PROJECTS
 
-AUTHOR = 'Mirosław Zalewski'
-SITENAME = 'Mirosław Zalewski'
+AUTHOR = 'Mirek Długosz'
+SITENAME = 'Mirek Długosz'
 SITEURL = ''
 
 PATH = 'content'
@@ -76,9 +76,9 @@ EXTRA_PATH_METADATA = {
 SHOW_ARTICLE_AUTHOR = False
 
 CONTACT = (
-    ('Email', 'mailto:mz %at% miroslaw-zalewski.eu', 'envelope fas'),
-    ('Twitter', 'https://twitter.com/zalewskiEU', 'twitter fab'),
-    ('LinkedIn', 'https://www.linkedin.com/in/miroslawzalewski/en', 'linkedin-in fab'),
+    ('Email', 'mailto:mirek %at% mirekdlugosz.com', 'envelope fas'),
+    ('Twitter', 'https://twitter.com/mirekdlugosz', 'twitter fab'),
+    ('LinkedIn', 'https://www.linkedin.com/in/mirekdlugosz/en', 'linkedin-in fab'),
 )
 
 DEFAULT_PAGINATION = False
