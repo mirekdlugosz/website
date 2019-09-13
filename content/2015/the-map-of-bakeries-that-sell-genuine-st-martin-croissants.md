@@ -108,6 +108,6 @@ Finally, we have to create skeleton HTML and JavaScript code. If I were to inclu
 
 ## Closing words
 
-In this blog post we have seen how to download data from website into R, use it to obtain coordinates of addresses and export data into JSON. Finally, we have used JavaScript to create dynamic map that can be used for data exploration. That last part was greatly inspired by [Fabio Veronesi](http://r-video-tutorial.blogspot.com/)'s preceding [work](http://r-video-tutorial.blogspot.com/2015/05/live-earthquake-map-with-shiny-and.html) that has not been mentioned before.
+In this blog post we have seen how to download data from website into R, use it to obtain coordinates of addresses and export data into JSON. Finally, we have used JavaScript to create dynamic map that can be used for data exploration. That last part was greatly inspired by [Fabio Veronesi](http://r-video-tutorial.blogspot.com/)’s preceding [work](http://r-video-tutorial.blogspot.com/2015/05/live-earthquake-map-with-shiny-and.html) that has not been mentioned before.
 
 Both [R code]({static}bakeries-map/transform-data.R) and [the final product (map)]({static}bakeries-map/index.htm) are available for curious.

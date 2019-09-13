@@ -10,7 +10,7 @@ Every now and then I stumble upon book that disguises itself as website - it has
 **Disclaimer #1**: I am using Linux on my desktop, so instructions are for Linux computers. Both programs that I use, 
 [httrack](https://www.httrack.com/) and [Calibre](http://calibre-ebook.com/), are cross-platform - you can run them on Windows and OS X too.
 
-**Disclaimer #2**: The example that I use, one of [Karl Broman](http://kbroman.org/)'s tutorials, is released to public domain with source code publicly available. In this particular case you could save yourself a trouble by `git clone`-ing and `pandoc -t epub`-ing the entire thing. But usually you won't have that luxury.
+**Disclaimer #2**: The example that I use, one of [Karl Broman](http://kbroman.org/)’s tutorials, is released to public domain with source code publicly available. In this particular case you could save yourself a trouble by `git clone`-ing and `pandoc -t epub`-ing the entire thing. But usually you won't have that luxury.
 
 **Disclaimer #3**: Most content that you find online is copyrighted, even if you can read it for free (as in *gratis*). Making offline copy probably falls under fair use. Sharing that copy with relatives or close friends probably does too, but is on slippery slope. Sharing that copy with anyone else is most likely illegal. Just don't do it, ok?
 

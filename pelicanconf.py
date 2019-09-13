@@ -109,6 +109,8 @@ MARKDOWN = {
     'output_format': 'html',
 }
 
+TYPOGRIFY = True
+
 JINJA_FILTERS = {
     'dict_replace': addins.jinja_filters.dict_replace,
 }
