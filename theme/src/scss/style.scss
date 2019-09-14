@@ -131,10 +131,6 @@ img::-moz-selection {
 	.navbar-brand {
 		text-transform: uppercase;
 		font-weight: 800;
-		// TODO: drop if I ever identify myself under shorter name
-		@include media-breakpoint-down(xs) {
-			font-size: $font-size-sm;
-		}
 	}
 	.navbar-toggler {
 		font-size: $font-size-sm;
