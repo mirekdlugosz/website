@@ -57,6 +57,7 @@ Now we are ready to extract individual records from vector of lines and run our 
 
 <!-- force separation of code blocks -->
 
+    :::text
     Warning message:
     In rbind(`1` = c("1", "1", "TOTAL ECLIPSE OF THE HEART", NA, NA, :
       number of columns of result is not a multiple of vector length (arg 83)

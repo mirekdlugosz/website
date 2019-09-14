@@ -20,6 +20,7 @@ The code I started with could have looked something like that:
 
 Saving it in file and then `source`ing it left me with following error message:
 
+    :::text
     Error in eval(expr, envir, enclos) : No matches
 
 I proceeded with running it line-by-line in R console to track down the source of error. Sure enough, the last line was to blame. Provided XPath expression is not overly complex, but still leaves some room for mistakes and typos, so I started to tackle down the issue by simplifying it. After few tries I was left with the simplest expression ever - `xml_find_one(xml, '//Record')` - but the error just didn't want to go away.

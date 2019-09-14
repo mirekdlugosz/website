@@ -21,6 +21,7 @@ let's say that I want to make ebook out of Karl Broman's "[Organizing Data In Sp
 
 First I download it to my disk:
 
+    :::text
     cd /tmp/
     httrack http://kbroman.org/dataorg/ -a -v -I0
 
@@ -42,6 +43,7 @@ When checkbox is unselected, wich is the default, Calibre will follow each link 
 
 OK, maybe that was convoluted. Let me get some visual aids here. Assume that this is the structure of links on website you have downloaded:
 
+    :::text
     book
 	├── A.html
 	│   ├── C.html

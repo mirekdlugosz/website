@@ -12,6 +12,7 @@ Tags: Linux, Protractor, tutorial
 
 Protractor runs on top of [Node](https://nodejs.org), which you must install before doing anything else:
 
+    :::text
     # apt-get install nodejs nodejs-legacy
 
 Contrary to its name, `nodejs-legacy` is not legacy version of Node software, but compatibility layer that lets it use `node` binary name. Node in Debian is invoked using `nodejs` binary, because [another program in repository already provided `node` name](https://lists.debian.org/debian-devel-announce/2012/07/msg00002.html). 
