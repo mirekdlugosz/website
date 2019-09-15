@@ -41,7 +41,7 @@
         </div>
         {% endfor %}
     </div>
-    {% for page in pages if page.title == 'Projects' %}
+    {% for page in pages if page.slug == 'projects' %}
     <p class="see-all"><a class="btn btn-secondary btn-sm" role="button" href="{{ SITEURL }}/{{ page.url }}">See all <i class="fas fa-chevron-right"></i></a></p>
     {% endfor %}
 </section>

@@ -13,7 +13,7 @@
 				<li class="nav-item{% if 'archives.html' in output_file %} active{% endif %}">
 					<a class="nav-link" href="{{ SITEURL }}/blog/">Blog</a>
 				</li>
-				{% for page in pages if page.title == 'Projects' %}
+				{% for page in pages if page.slug == 'projects' %}
 				<li class="nav-item{% if 'projects.html' in output_file %} active{% endif %}">
 					<a class="nav-link" href="{{ SITEURL }}/{{ page.url }}">Projects</a>
 				</li>
