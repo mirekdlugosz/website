@@ -10,6 +10,6 @@ WORKDIR /var/www/
 RUN git clone --recursive https://github.com/getpelican/pelican-plugins
 WORKDIR /var/www/pelican
 COPY . ./
-COPY --from=theme /var/www/pelican-theme/static ./theme/
+COPY --from=theme /var/www/pelican-theme/static/ ./theme/static/
 RUN pip install -r requirements.txt
 ENTRYPOINT ["make"]
