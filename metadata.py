@@ -20,18 +20,18 @@ PROJECTS = [
         'tags': ['Python 3', 'Angular', 'TypeScript', 'SCSS'],
         'description': """
             Web application that helps you build your own Pokémon team in any core series game.
-            <a href="https://github.com/mirzal/create-pokemon-team">GitHub</a>.
+            <a href="https://github.com/mirekdlugosz/create-pokemon-team">GitHub</a>.
         """,
         'starred': True,
     },
     {
         'name': 'Pelican Metadata Generator',
-        'href': 'https://github.com/mirzal/pelican-metadata-generator',
+        'href': 'https://github.com/mirekdlugosz/pelican-metadata-generator',
         'imagetitle': 'pelican',
         'tags': ['Python 3', 'PyQt 5', 'unittest', 'Markdown'],
         'description': """
             Graphical application to create <a href="https://blog.getpelican.com/">Pelican</a> post metadata.
-            <a href="https://github.com/mirzal/pelican-metadata-generator">GitHub</a>.
+            <a href="https://github.com/mirekdlugosz/pelican-metadata-generator">GitHub</a>.
         """,
         'starred': True,
     },
@@ -42,7 +42,7 @@ PROJECTS = [
         'tags': ['R', 'ggplot2', 'Shiny (HTML, CSS)', 'data wrangling', 'visualisation'],
         'description': """
             R Shiny application to explore changes in civic engagement index in various European countries over time.
-            <a href="https://github.com/mirzal/ESS-civic-engagement">GitHub</a>.
+            <a href="https://github.com/mirekdlugosz/ESS-civic-engagement">GitHub</a>.
         """,
         'starred': False,
     },
@@ -63,7 +63,7 @@ PROJECTS = [
         'tags': ['Pelican', 'Jinja2 (HTML, SCSS)', 'writing'],
         'description': """
             My current blog, focused mainly on testing and tech.
-            <a href="https://github.com/mirzal/website">GitHub</a>.
+            <a href="https://github.com/mirekdlugosz/website">GitHub</a>.
         """,
         'starred': False,
     },

@@ -76,6 +76,6 @@ This project and potential of what it could become was lingering on my mind more
 
 And I finally did finish it today.
 
-Head on to [createPokémon.team](https://createpokemon.team/) to see the results of couple of months of my work. There are still some things that could be implemented or improved, but overall I feel happy and proud of what I have achieved. You can find source code on [Github](https://github.com/mirzal/create-pokemon-team/); there is also ever-growing [list of known issues and improvement ideas](https://github.com/mirzal/create-pokemon-team/issues). Feel free to poke around the code, comment on issues and send a PR or two!
+Head on to [createPokémon.team](https://createpokemon.team/) to see the results of couple of months of my work. There are still some things that could be implemented or improved, but overall I feel happy and proud of what I have achieved. You can find source code on [Github](https://github.com/mirekdlugosz/create-pokemon-team/); there is also ever-growing [list of known issues and improvement ideas](https://github.com/mirekdlugosz/create-pokemon-team/issues). Feel free to poke around the code, comment on issues and send a PR or two!
 
 And that's why I love Pokémon. They inspire me to learn, create and share with others.

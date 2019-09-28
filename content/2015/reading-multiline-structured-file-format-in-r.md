@@ -9,7 +9,7 @@ Reddit user [alignedletters](https://www.reddit.com/user/alignedletters) [asked 
 <!-- more -->
 
 Example data file was uploaded by /u/alignedletters to [pastebin.ca](http://www.pastebin.ca/3147596); you can also find a copy on 
-[BitBucket](https://bitbucket.org/mirzal/scrapbook/src/master/structured-multiline-data/sample-data.txt) and [GitHub](https://github.com/mirzal/scrapbook/blob/master/structured-multiline-data/sample-data.txt). I will refer to that file as `sample-data.txt` from now on.
+[BitBucket](https://bitbucket.org/mirzal/scrapbook/src/master/structured-multiline-data/sample-data.txt) and [GitHub](https://github.com/mirekdlugosz/scrapbook/blob/master/structured-multiline-data/sample-data.txt). I will refer to that file as `sample-data.txt` from now on.
 
 Let's start by skimming over its content. Header at the top of file informs us that there are seven columns. Two of them are put inside parentheses, and one pair of fields is delimited by single dash. Reading actual records reveals that three fields are put in first line, while remaining four fields are placed below, in line indented by tab and six spaces. Before reaching 30th record we should have also noticed that missing values in second field are indicated by double dash. There is some cruft at beginning and end of file, as well as after every 10 records. 
 
@@ -116,6 +116,6 @@ This time R did not produce any warnings and the final data frame looks about ri
 The only thing that's left to do is converting few columns from characters into numbers and assigning meaningful names to columns.
 
 Final version of code can be found on [BitBucket](https://bitbucket.org/mirzal/scrapbook/src/master/structured-multiline-data/import.R) 
-and [GitHub](https://github.com/mirzal/scrapbook/blob/master/structured-multiline-data/import.R). Another file in that directory shows alternate, regular expression oriented solution that you might find interesting. That approach was implemented in Python, although it would look almost the same in any other programming language.
+and [GitHub](https://github.com/mirekdlugosz/scrapbook/blob/master/structured-multiline-data/import.R). Another file in that directory shows alternate, regular expression oriented solution that you might find interesting. That approach was implemented in Python, although it would look almost the same in any other programming language.
 
 **Takeaway lesson**: don't be that guy. If you are going to publish some data, use format for which there are libraries in programming languages popular at the moment. When in doubt, use CSV for tables and JSON/XML for all other structures.
