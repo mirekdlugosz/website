@@ -103,6 +103,7 @@ MARKDOWN = {
     'extension_configs': {
         'markdown.extensions.codehilite': {'css_class': 'highlight', 'linenums': False},
         'markdown.extensions.extra': {},
+        'markdown.extensions.fenced_code': {},
         'markdown.extensions.meta': {},
         'markdown.extensions.toc': {'anchorlink': True},
     },
