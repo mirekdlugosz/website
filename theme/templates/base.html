@@ -31,7 +31,9 @@
     {% endblock %}
 
     {# Facebook OpenGraph and Twitter Cards tags #}
+    {% block opengraph %}
     {% include 'includes/social_media_tags.html' %}
+    {% endblock %}
 
 	{% block feeds %}
     {% if FEED_ALL_ATOM %}

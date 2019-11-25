@@ -1,9 +1,5 @@
 {# Open Graph tags #}
-{% if USE_OPEN_GRAPH is not defined %}
-	{% set USE_OPEN_GRAPH = True %}
-{% endif %}
 {% if USE_OPEN_GRAPH %}
-{% block opengraph %}
 <!-- Open Graph tags -->
 	{% if OPEN_GRAPH_FB_APP_ID %}
 		<meta property="fb:app_id" content="{{ OPEN_GRAPH_FB_APP_ID }}"/>
@@ -15,9 +11,8 @@
 	<meta property="og:description" content="{{ SITENAME }}"/>
 	{% if OPEN_GRAPH_IMAGE %}
 		<meta property="og:image"
-			  content="{{ SITEURL }}/{{ OPEN_GRAPH_IMAGE }}"/>
+			content="{{ SITEURL }}/{{ OPEN_GRAPH_IMAGE }}"/>
 	{% endif %}
-{% endblock %}
 {% endif %}
 
 {% if TWITTER_CARDS and USE_OPEN_GRAPH %}

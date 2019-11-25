@@ -112,6 +112,8 @@ MARKDOWN = {
 
 TYPOGRIFY = True
 
+USE_OPEN_GRAPH = True
+
 JINJA_FILTERS = {
     'dict_replace': addins.jinja_filters.dict_replace,
 }
