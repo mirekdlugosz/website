@@ -6,7 +6,9 @@
 	<h2 class="post-title"><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h2>
 	{% include "includes/article_info.html" %}
 	<div class="summary">
-		<p>{{ article.summary }}</p>
+		{% if article.summary %}
+		{{ article.summary }}
+		{% endif %}
 		<p><a class="btn btn-secondary btn-sm" role="button" href="{{ SITEURL }}/{{ article.url }}">Continue reading <i class="fas fa-chevron-right"></i></a></p>
 	</div>
 </article>
