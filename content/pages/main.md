@@ -1,7 +1,7 @@
 title: Mirek Długosz personal website
 slug: main
 save_as: index.html
-template: main
+template: page-main
 hidden: True
 
 I am [Mirek Długosz]({filename}/pages/whats-in-a-name.md) - software tester and open source enthusiast.
