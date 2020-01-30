@@ -49,14 +49,7 @@
 <section id="contact">
     <h1>Contact</h1>
     <div class="row">
-        {% for name, link, icon in CONTACT %}
-        <div class="col-4 item">
-            <a href="{{ link }}">
-                <p><i class="fa-{{ icon }}"></i></p>
-                <p>{{ name }}</p>
-            </a>
-        </div>
-        {% endfor %}
+		{% include 'includes/contact_items.html' %}
 	</div>
 </section>
 

@@ -1,0 +1,8 @@
+{% for name, link, icon in CONTACT %}
+<div class="col-4 item">
+	<a href="{{ link }}">
+		<p><i class="fa-{{ icon }}"></i></p>
+		<p>{{ name }}</p>
+	</a>
+</div>
+{% endfor %}
