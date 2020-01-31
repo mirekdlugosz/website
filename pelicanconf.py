@@ -81,6 +81,7 @@ CONTACT = (
     ('LinkedIn', 'https://www.linkedin.com/in/mirekdlugosz/en', 'linkedin-in fab'),
 )
 
+INDEX_ARTICLES = 15
 DEFAULT_PAGINATION = False
 # DEFAULT_PAGINATION = 5
 PAGINATION_PATTERNS = (

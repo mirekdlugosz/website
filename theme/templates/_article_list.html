@@ -1,7 +1,14 @@
 {% extends "_base.html" %}
 {% block content %}
-{% if articles %}
-{% for article in (articles_page.object_list if articles_page else articles) %}
+
+{% set articles_to_loop = INDEX_ARTICLES %}
+{# if we are on tag page, display everything #}
+{% if all_articles %}
+	{% set articles_to_loop = articles | length %}
+{% endif %}
+
+{% for article in articles %}
+{% if loop.index <= articles_to_loop %}
 <article class="post-preview">
 	<h2 class="post-title"><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h2>
 	{% include "includes/article_info.html" %}
@@ -12,32 +19,12 @@
 		<p><a class="btn btn-secondary btn-sm" role="button" href="{{ SITEURL }}/{{ article.url }}">Continue reading <i class="fas fa-chevron-right"></i></a></p>
 	</div>
 </article>
-{% if not loop.last %}
+{% if not loop.index == articles_to_loop %}
 <hr/>
 {% endif %}
+{% endif %}
 {% endfor %}
-{% endif %}
 
-{% if articles_page and articles_paginator.num_pages > 1 %}
-<nav aria-label="Articles archive navigation">
-    <ul class="pagination justify-content-center">
-        {% if articles_page.has_previous() %}
-        <li class="page-item">
-            <a class="page-link" href="{{ SITEURL }}/{{ articles_previous_page.url }}" aria-label="Previous">
-                <i class="fas fa-chevron-left"></i>
-                Newer articles
-            </a>
-        </li>
-        {% endif %}
-        {% if articles_page.has_next() %}
-        <li class="page-item">
-            <a class="page-link" href="{{ SITEURL }}/{{ articles_next_page.url }}" aria-label="Next">
-                Older articles
-                <i class="fas fa-chevron-right"></i>
-            </a>
-        </li>
-        {% endif %}
-    </ul>
-</nav>
-{% endif %}
+<p class="see-all">Want to read more? See <a href="{{ SITEURL }}/{{ ARCHIVES_URL }}">Archives</a>.</p>
+
 {% endblock content %}
