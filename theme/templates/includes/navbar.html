@@ -2,7 +2,7 @@
 	<div class="container">
 		<a href="{{ SITEURL }}/" class="navbar-brand">
 			{% if SITELOGO %}<img src="{{ SITEURL }}/{{ SITELOGO }}" width="{{ SITELOGO_SIZE }}"/> {% endif %}
-			{% if not HIDE_SITENAME %}{{ SITENAME }}{% endif %}
+			{% if not HIDE_SITENAME %}{{ AUTHOR }}{% endif %}
 		</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>

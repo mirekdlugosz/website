@@ -10,7 +10,7 @@ import addins.jinja_filters
 from metadata import PROJECTS
 
 AUTHOR = 'Mirek Długosz'
-SITENAME = 'Mirek Długosz'
+SITENAME = 'Mirek Długosz personal website'
 SITEURL = ''
 
 PATH = 'content'
