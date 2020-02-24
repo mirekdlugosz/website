@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
 
+"""
+Script that moves specific directories to new destinations in $OUTPUT
+
+Should be rewritten as custom metadata in pelicanconf.py
+"""
 import os
 import sys
 
