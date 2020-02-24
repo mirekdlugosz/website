@@ -5,7 +5,7 @@ RUN npm install && npx gulp
 
 FROM python:3-alpine
 EXPOSE 8000
-RUN apk add --update git make
+RUN apk add --update git make py3-pillow
 WORKDIR /var/www/
 RUN git clone --recursive https://github.com/getpelican/pelican-plugins
 WORKDIR /var/www/pelican

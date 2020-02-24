@@ -34,6 +34,8 @@ help:
 	@echo '   make publish                        generate using production settings '
 	@echo '   make ssh_upload                     upload the web site via SSH        '
 	@echo '   make rsync_upload                   upload the web site via rsync+ssh  '
+	@echo '   make clean-thumbnails               remove existing thumbnails         '
+	@echo '   make thumbnails                     generate missing thumbnails        '
 	@echo '                                                                          '
 	@echo 'Set the DEBUG variable to 1 to enable debugging, e.g. make DEBUG=1 html   '
 	@echo 'Set the RELATIVE variable to 1 to enable relative urls (useful with `make publish`)'
@@ -42,7 +44,13 @@ help:
 clean:
 	[ ! -d $(OUTPUTDIR) ] || rm -rf $(OUTPUTDIR)
 
-html: clean
+clean-thumbnails:
+	python3 ./scripts/generate-thumbnails.py --rm
+
+thumbnails:
+	python3 ./scripts/generate-thumbnails.py
+
+html: clean thumbnails
 	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(CONFFILE) $(PELICANOPTS)
 
 serve:
@@ -52,18 +60,18 @@ else
 	$(PELICAN) -l $(INPUTDIR) -o $(OUTPUTDIR) -s $(CONFFILE) $(PELICANOPTS)
 endif
 
-devserver: clean
+devserver: clean thumbnails
 ifdef PORT
 	$(PELICAN) -lr $(INPUTDIR) -o $(OUTPUTDIR) -s $(CONFFILE) $(PELICANOPTS) -p $(PORT)
 else
 	$(PELICAN) -lr $(INPUTDIR) -o $(OUTPUTDIR) -s $(CONFFILE) $(PELICANOPTS)
 endif
 
-publish: clean
+publish: clean thumbnails
 	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(PUBLISHCONF) $(PELICANOPTS)
 
 postpublish:
-	python3 ./fix-directories.py $(OUTPUTDIR)
+	python3 ./scripts/fix-directories.py $(OUTPUTDIR)
 
 ssh_upload: publish
 	scp -P $(SSH_PORT) -r $(OUTPUTDIR)/* $(SSH_USER)@$(SSH_HOST):$(SSH_TARGET_DIR)
