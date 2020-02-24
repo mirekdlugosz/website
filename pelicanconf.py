@@ -93,6 +93,7 @@ THEME = 'theme/'
 
 PLUGIN_PATHS = ['../pelican-plugins', 'plugins']
 PLUGINS = [
+    'thumb_tag',
     'neighbors',
     'rename_to_slug',
     'summary',

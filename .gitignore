@@ -5,3 +5,5 @@ output/
 .doit.db
 *.swp
 .envrc
+*-min.png
+*-min.jpg
