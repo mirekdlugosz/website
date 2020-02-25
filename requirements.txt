@@ -1,3 +1,6 @@
 typogrify
 Markdown
 pelican
+
+# plugins requirements
+BeautifulSoup4

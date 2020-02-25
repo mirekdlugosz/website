@@ -1,6 +1,7 @@
 PY?=python3
 PELICAN?=pelican
 PELICANOPTS=
+THUMBNAILOPTS=
 
 BASEDIR=$(CURDIR)
 INPUTDIR=$(BASEDIR)/content
@@ -16,6 +17,7 @@ SSH_TARGET_DIR=/home/minio/domains/mirekdlugosz.com/public_html/
 DEBUG ?= 0
 ifeq ($(DEBUG), 1)
 	PELICANOPTS += -D
+	THUMBNAILOPTS += --debug
 endif
 
 RELATIVE ?= 0
@@ -28,6 +30,7 @@ help:
 	@echo '                                                                          '
 	@echo 'Usage:                                                                    '
 	@echo '   make clean                          remove the generated files         '
+	@echo '   make theme                          (re)generate theme                 '
 	@echo '   make html                           (re)generate the web site          '
 	@echo '   make serve [PORT=8000]              serve site at http://localhost:8000'
 	@echo '   make devserver [PORT=8000]          serve and regenerate together      '
@@ -45,12 +48,15 @@ clean:
 	[ ! -d $(OUTPUTDIR) ] || rm -rf $(OUTPUTDIR)
 
 clean-thumbnails:
-	python3 ./scripts/generate-thumbnails.py --rm
+	python3 ./scripts/generate-thumbnails.py --rm $(THUMBNAILOPTS)
 
 thumbnails:
-	python3 ./scripts/generate-thumbnails.py
+	python3 ./scripts/generate-thumbnails.py $(THUMBNAILOPTS)
 
-html: clean thumbnails
+theme:
+	cd theme && npx gulp
+
+html: clean thumbnails theme
 	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(CONFFILE) $(PELICANOPTS)
 
 serve:
@@ -60,14 +66,14 @@ else
 	$(PELICAN) -l $(INPUTDIR) -o $(OUTPUTDIR) -s $(CONFFILE) $(PELICANOPTS)
 endif
 
-devserver: clean thumbnails
+devserver: clean thumbnails theme
 ifdef PORT
 	$(PELICAN) -lr $(INPUTDIR) -o $(OUTPUTDIR) -s $(CONFFILE) $(PELICANOPTS) -p $(PORT)
 else
 	$(PELICAN) -lr $(INPUTDIR) -o $(OUTPUTDIR) -s $(CONFFILE) $(PELICANOPTS)
 endif
 
-publish: clean thumbnails
+publish: clean thumbnails theme
 	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(PUBLISHCONF) $(PELICANOPTS)
 
 postpublish:
@@ -79,4 +85,4 @@ ssh_upload: publish
 rsync_upload: publish postpublish
 	rsync -e "ssh -p $(SSH_PORT)" -P -rvzc --delete --cvs-exclude --exclude='.*.swp' --exclude='drafts/' $(OUTPUTDIR)/ $(SSH_USER)@$(SSH_HOST):$(SSH_TARGET_DIR)
 
-.PHONY: html help clean serve publish ssh_upload rsync_upload 
+.PHONY: thumbnails clean-thumbnails theme html help clean serve publish ssh_upload rsync_upload 

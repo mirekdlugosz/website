@@ -1,15 +1,18 @@
-FROM node:lts-alpine as theme
-WORKDIR /var/www/pelican-theme
-COPY theme/ ./
-RUN npm install && npx gulp
-
-FROM python:3-alpine
+FROM node:12-buster-slim
 EXPOSE 8000
-RUN apk add --update git make py3-pillow
+RUN apt-get update \
+	&& apt-get install -y ca-certificates git make python3 python3-pip python3-setuptools python3-wheel python3-pil --no-install-recommends \
+	&& apt-get clean \
+	&& rm -rf /var/lib/apt/lists/*
+
 WORKDIR /var/www/
-RUN git clone --recursive https://github.com/getpelican/pelican-plugins
-WORKDIR /var/www/pelican
+RUN git clone --depth 1 --recursive https://github.com/getpelican/pelican-plugins
+
+WORKDIR /var/www/pelican/
 COPY . ./
-COPY --from=theme /var/www/pelican-theme/static/ ./theme/static/
-RUN pip install -r requirements.txt
+
+RUN cd theme && npm install
+RUN pip3 install -r requirements.txt
+RUN make theme
+
 ENTRYPOINT ["make"]
