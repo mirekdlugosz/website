@@ -56,7 +56,7 @@ thumbnails:
 theme:
 	cd theme && npx gulp
 
-html: clean thumbnails theme
+html: clean thumbnails
 	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(CONFFILE) $(PELICANOPTS)
 
 serve:
@@ -66,7 +66,7 @@ else
 	$(PELICAN) -l $(INPUTDIR) -o $(OUTPUTDIR) -s $(CONFFILE) $(PELICANOPTS)
 endif
 
-devserver: clean thumbnails theme
+devserver: clean thumbnails
 ifdef PORT
 	$(PELICAN) -lr $(INPUTDIR) -o $(OUTPUTDIR) -s $(CONFFILE) $(PELICANOPTS) -p $(PORT)
 else
