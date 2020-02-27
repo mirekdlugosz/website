@@ -229,7 +229,7 @@ img::-moz-selection {
 }
 
 .post-info {
-	font-size: $font-size-smaller;
+	font-size: $font-size-sm;
 	@include link-inherit-color();
 	> span {
 		margin-left: $font-size-base;
@@ -298,7 +298,7 @@ p.see-all {
 			margin: 0;
 		}
 		.timestamp {
-			font-size: $font-size-smaller;
+			font-size: $font-size-sm;
 			color: $text-muted;
 		}
 	}
@@ -374,7 +374,7 @@ p.see-all {
 			margin: $paragraph-margin-bottom / 2 0;
 		}
 		p.tags {
-			font-size: $font-size-smaller;
+			font-size: $font-size-sm;
 		}
 		&:hover {
 			box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);

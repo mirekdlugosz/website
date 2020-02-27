@@ -12,7 +12,7 @@ $font-family-base:            $font-family-serif !default;
 $headings-font-family:        inherit !default;
 
 $font-size-base: 1.2rem !default;
-$font-size-smaller: 0.85em !default;
+$font-size-sm: $font-size-base * .9114 !default;
 
 $line-height-base:            1.75 !default;
 
