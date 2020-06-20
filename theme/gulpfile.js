@@ -44,7 +44,7 @@ exports.css = gulp.series(css_compile, css_minify);
 // Minify JavaScript
 function js_minify() {
     return gulp.src([
-        './node_modules/bootstrap.native/dist/bootstrap-native-v4.min.js',
+        './node_modules/bootstrap.native/dist/bootstrap-native.min.js',
         './src/js/*.js'
     ])
         .pipe(concat('script.min.js'))
