@@ -309,7 +309,7 @@ p.see-all {
 	img {
 		width: 200px;
 		height: 200px;
-		margin: 0 auto;
+		margin: $paragraph-margin-bottom auto 0 auto;
 		border-radius: 50%;
 		background-size: cover;
 	}
