@@ -4,13 +4,13 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.13.1",
-    "bootstrap": "^4.5.0",
-    "bootstrap.native": "^3.0.9",
+    "@fortawesome/fontawesome-free": "^5.14.0",
+    "bootstrap": "^4.5.2",
+    "bootstrap.native": "^3.0.10",
     "popper.js": "^1.16.1"
   },
   "devDependencies": {
-    "autoprefixer": "^9.8.1",
+    "autoprefixer": "^9.8.6",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^7.0.1",
     "gulp-clean-css": "^4.3.0",
