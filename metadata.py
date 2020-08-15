@@ -17,21 +17,35 @@ PROJECTS = [
         'name': 'createPokémon.team',
         'href': 'https://createpokemon.team/',
         'imagetitle': 'createpokemonteam',
-        'tags': ['Python 3', 'Angular', 'TypeScript', 'SCSS'],
+        'tags': ['Python', 'Angular', 'TypeScript', 'SCSS'],
         'description': """
             Web application that helps you build your own Pokémon team in any core series game.
             <a href="https://github.com/mirekdlugosz/create-pokemon-team">GitHub</a>.
         """,
-        'starred': True,
+        'starred': False,
     },
     {
         'name': 'Pelican Metadata Generator',
         'href': 'https://github.com/mirekdlugosz/pelican-metadata-generator',
         'imagetitle': 'pelican',
-        'tags': ['Python 3', 'PyQt 5', 'unittest', 'Markdown'],
+        'tags': ['Python', 'PyQt 5', 'unittest', 'Markdown'],
         'description': """
             Graphical application to create <a href="https://blog.getpelican.com/">Pelican</a> post metadata.
             <a href="https://github.com/mirekdlugosz/pelican-metadata-generator">GitHub</a>.
+        """,
+        'starred': True,
+    },
+    {
+        'name': 'Airgun',
+        'href': 'https://github.com/SatelliteQE/airgun',
+        'imagetitle': 'airgun',
+        'tags': ['Python', 'Selenium', 'XPath'],
+        'description': """
+            Framework to interact with
+            <a href="https://www.redhat.com/en/technologies/management/satellite">Red Hat Satellite</a>,
+            supporting automated web UI checks created by Satellite QE team.
+            I was maintaining it from June 2019 to June 2020.
+            <a href="https://github.com/SatelliteQE/airgun">GitHub</a>.
         """,
         'starred': True,
     },
@@ -47,12 +61,13 @@ PROJECTS = [
         'starred': False,
     },
     {
-        'name': 'Przepis na LibreOffice',
-        'href': 'http://przepis-na-lo.pl/',
-        'imagetitle': 'przepis-na-lo',
-        'tags': ['Wordpress', 'PHP', 'HTML', 'CSS', 'writing'],
+        'name': 'ansible-dotfiles',
+        'href': 'https://github.com/mirekdlugosz/ansible-dotfiles',
+        'imagetitle': 'ansible',
+        'tags': ['Ansible'],
         'description': """
-            My discontinued blog focused on <a href="https://libreoffice.org/">LibreOffice</a> tips and tricks. It was relatively popular in Polish open source and academic communities, attracting about 20&nbsp;000 unique visitors in peak months.
+            Ansible playbook to deploy some of my configuration files and install utilities that are rarely packaged by distributions.
+            <a href="https://github.com/mirekdlugosz/ansible-dotfiles">GitHub</a>.
         """,
         'starred': False,
     },
@@ -64,6 +79,29 @@ PROJECTS = [
         'description': """
             My current blog, focused mainly on testing and tech.
             <a href="https://github.com/mirekdlugosz/website">GitHub</a>.
+        """,
+        'starred': False,
+    },
+    {
+        'name': 'Przepis na LibreOffice',
+        'href': 'http://przepis-na-lo.pl/',
+        'imagetitle': 'przepis-na-lo',
+        'tags': ['Wordpress', 'PHP', 'HTML', 'CSS', 'writing'],
+        'description': """
+            My discontinued blog focused on <a href="https://libreoffice.org/">LibreOffice</a> tips and tricks. It was relatively popular in Polish open source and academic communities, attracting about 20&nbsp;000 unique visitors in peak months.
+        """,
+        'starred': False,
+    },
+    {
+        'name': 'A Fistful of Links website',
+        'href': 'https://afistfuloflinks.github.io/',
+        'imagetitle': 'afol',
+        'tags': ['Hugo', 'Github Actions', 'Python'],
+        'description': """
+            I prepared most of new website, based on <a href="https://gohugo.io/">Hugo</a>,
+            and created automatic build system in Github Actions.
+            I also ported historical content from intranet site.
+            <a href="https://github.com/AFistfulOfLinks/afistfuloflinks">GitHub</a>.
         """,
         'starred': False,
     },
