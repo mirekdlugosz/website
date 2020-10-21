@@ -31,7 +31,7 @@ def thumb(preprocessor, tag, markup):
 
     alt_text = ""
     if caption_text:
-        alt_text = f' alt="{caption_text}"'
+        alt_text = f'" alt="{caption_text}'
 
     tag = f'<a href="{image_path}"><img src="{thumb_path}{alt_text}"></a>'
 
