@@ -1,6 +1,9 @@
-typogrify
-Markdown
-pelican
+typogrify ~= 2.0.7
+Markdown ~= 3.3.2
+pelican ~= 4.5.0
 
 # plugins requirements
-BeautifulSoup4
+BeautifulSoup4 ~= 4.9.3
+
+# scripts requirements
+Pillow ~= 8.0.0

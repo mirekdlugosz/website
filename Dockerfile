@@ -1,7 +1,7 @@
 FROM node:12-buster-slim
 EXPOSE 8000
 RUN apt-get update \
-	&& apt-get install -y ca-certificates git make python3 python3-pip python3-setuptools python3-wheel python3-pil --no-install-recommends \
+	&& apt-get install -y ca-certificates git make python3 python3-pip python3-setuptools python3-wheel --no-install-recommends \
 	&& apt-get clean \
 	&& rm -rf /var/lib/apt/lists/*
 

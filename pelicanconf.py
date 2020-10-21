@@ -100,6 +100,7 @@ PRELOAD_FONTS_NAMES = (
 
 PLUGIN_PATHS = ['../pelican-plugins', 'plugins']
 PLUGINS = [
+    'liquid_tags',
     'thumb_tag',
     'neighbors',
     'rename_to_slug',
