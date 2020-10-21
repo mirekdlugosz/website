@@ -21,22 +21,22 @@ Around mid-2015 I started toying with idea of Pokémon team builder application.
 That version was extremely simple - you could choose six Pokémon and **type** (not actual name) of four attacks for each of them. Below the form, there was bare-bones table filled with cryptic numbers. There was no data validation (you could choose type of move that given Pokémon couldn't use at all). There was no way of mapping type with particular move that Pokémon knew. Moves that didn't do any damage had to be omitted. There was no way to preserve team across sessions - form had to be filled after each restart of app. It was low-quality software that provided huge value.
 
 <div markdown="1" class="row">
-<div class="col-md-4">
-<p>
+<div markdown="1" class="col-md-4">
+<p markdown="1">
 [![R Shiny app - team builder form](
 {attach}why-i-love-pokemon/shiny_1-min.png)](
 {attach}why-i-love-pokemon/shiny_1.png)
 </p>
 </div>
-<div class="col-md-4">
-<p>
+<div markdown="1" class="col-md-4">
+<p markdown="1">
 [![R Shiny app - team details](
 {attach}why-i-love-pokemon/shiny_2-min.png)](
 {attach}why-i-love-pokemon/shiny_2.png)
 </p>
 </div>
-<div class="col-md-4">
-<p>
+<div markdown="1" class="col-md-4">
+<p markdown="1">
 [![R Shiny app - team overview](
 {attach}why-i-love-pokemon/shiny_3-min.png)](
 {attach}why-i-love-pokemon/shiny_3.png)
@@ -49,22 +49,22 @@ Fast forward to December 2016, I was expecting to switch teams inside my company
 After few weeks I had *something*. The basic idea was the same - you select six Pokémon and their moves (by name or type!) and get table with cryptic numbers in return. But non-damaging moves were ignored, team definition was stored in URL (as base64-encoded JSON object...) and it run in real browser! Sure, it was readable only on computers, entire frontend was unmaintainable mess in single JavaScript file and I never wrote these Protractor checks, but it was so much better.
 
 <div markdown="1" class="row">
-<div class="col-md-4">
-<p>
+<div markdown="1" class="col-md-4">
+<p markdown="1">
 [![AngularJS app - team builder form](
 {attach}why-i-love-pokemon/angular_1-min.png)](
 {attach}why-i-love-pokemon/angular_1.png)
 </p>
 </div>
-<div class="col-md-4">
-<p>
+<div markdown="1" class="col-md-4">
+<p markdown="1">
 [![AngularJS app - team details](
 {attach}why-i-love-pokemon/angular_2-min.png)](
 {attach}why-i-love-pokemon/angular_2.png)
 </p>
 </div>
-<div class="col-md-4">
-<p>
+<div markdown="1" class="col-md-4">
+<p markdown="1">
 [![AngularJS app - team overview](
 {attach}why-i-love-pokemon/angular_3-min.png)](
 {attach}why-i-love-pokemon/angular_3.png)

@@ -57,12 +57,12 @@ TestingCup is trying to reach international audience and, for the first time eve
 
 First image below shows page that was displayed when I was reserving my ticket (actually, there were four boxes - I had to get back to this page to take screenshot and there weren't any tickets available anymore). Second image shows page that was displayed when I clicked *Options* button on dashboard. They are basically the same form, so why do they use two different interfaces?
 <div markdown="1" class="row">
-<div class="col-md-6">
+<div markdown="1" class="col-md-6">
 [![New participant - four boxes one by one](
 {attach}testingcup-registration/Screenshot_20180219_100420-min.png)](
 {attach}testingcup-registration/Screenshot_20180219_100420.png)
 </div>
-<div class="col-md-6">
+<div markdown="1" class="col-md-6">
 [![Change option - two boxes and selection list?](
 {attach}testingcup-registration/Screenshot_20180219_101107-min.png)](
 {attach}testingcup-registration/Screenshot_20180219_101107.png)
