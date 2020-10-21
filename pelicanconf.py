@@ -91,6 +91,13 @@ PAGINATION_PATTERNS = (
 
 THEME = 'theme/'
 
+PRELOAD_FONTS_NAMES = (
+    "merriweather-v21-latin_latin-ext-regular",
+    "merriweather-v21-latin_latin-ext-700",
+    "fa-solid-900",
+    "fa-brands-400",
+)
+
 PLUGIN_PATHS = ['../pelican-plugins', 'plugins']
 PLUGINS = [
     'thumb_tag',
