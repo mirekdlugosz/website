@@ -5,6 +5,7 @@ pelican ~= 4.5.0
 # plugins
 ./plugins/readtime
 ./plugins/rename-to-slug
+./plugins/thumb-tag
 
 # plugins requirements
 BeautifulSoup4 ~= 4.9.3
