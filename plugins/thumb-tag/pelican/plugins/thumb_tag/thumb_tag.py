@@ -1,8 +1,8 @@
 import re
 
 # this does the actual plugin registration, by putting `register` in namespace
-from liquid_tags import register
-from liquid_tags.mdx_liquid_tags import LiquidTags
+from pelican.plugins.liquid_tags import register
+from pelican.plugins.liquid_tags.mdx_liquid_tags import LiquidTags
 
 THUMB_RE = re.compile(r'(?P<filepath>\S*)\s*(?P<display_caption>display_caption\s*)?\s*(?P<caption>.*)?', re.MULTILINE)
 

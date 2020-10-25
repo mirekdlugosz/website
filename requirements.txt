@@ -3,12 +3,17 @@ Markdown ~= 3.3.2
 pelican ~= 4.5.0
 
 # plugins
+## available on pip
+pelican-neighbors
+
+## in process of being ported to pelican-plugins
+https://github.com/mirekdlugosz/pelican-plugins-liquid-tags/archive/migrate.zip
+https://github.com/mirekdlugosz/pelican-plugins-summary/archive/migrate.zip
+
+## local - no intent of publishing
 ./plugins/readtime
 ./plugins/rename-to-slug
 ./plugins/thumb-tag
-
-# plugins requirements
-BeautifulSoup4 ~= 4.9.3
 
 # scripts requirements
 Pillow ~= 8.0.0

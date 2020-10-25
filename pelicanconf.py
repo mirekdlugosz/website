@@ -98,7 +98,8 @@ PRELOAD_FONTS_NAMES = (
     "fa-brands-400",
 )
 
-PLUGIN_PATHS = ['../pelican-plugins', 'plugins']
+# FIXME: could be dropped, but summary and readtime run order is unspecified
+# and may result in one of plugins not doing what it is advertised to
 PLUGINS = [
     'liquid_tags',
     'thumb_tag',

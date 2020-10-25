@@ -5,9 +5,6 @@ RUN apt-get update \
 	&& apt-get clean \
 	&& rm -rf /var/lib/apt/lists/*
 
-WORKDIR /var/www/
-RUN git clone --depth 1 --recursive https://github.com/getpelican/pelican-plugins
-
 WORKDIR /var/www/pelican/
 COPY . ./
 
