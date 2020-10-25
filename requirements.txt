@@ -2,6 +2,9 @@ typogrify ~= 2.0.7
 Markdown ~= 3.3.2
 pelican ~= 4.5.0
 
+# plugins
+./plugins/readtime
+
 # plugins requirements
 BeautifulSoup4 ~= 4.9.3
 
