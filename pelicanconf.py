@@ -98,16 +98,6 @@ PRELOAD_FONTS_NAMES = (
     "fa-brands-400",
 )
 
-# FIXME: could be dropped, but summary and readtime run order is unspecified
-# and may result in one of plugins not doing what it is advertised to
-PLUGINS = [
-    'liquid_tags',
-    'thumb_tag',
-    'neighbors',
-    'rename_to_slug',
-    'summary',
-    'readtime',
-]
 SUMMARY_END_MARKER = '<!-- more -->'
 
 MARKDOWN = {

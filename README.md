@@ -2,7 +2,7 @@ My personal website, hosted at [mirekdlugosz.com](https://mirekdlugosz.com). Bui
 
 Theme is very highly customized [pelican-bootstrap3](https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3), now running [Bootstrap 4](https://getbootstrap.com/).
 
-You need Node to build the theme (`npm install && npx gulp`). You need pelican, typogrify and Markdown the build the site (see `requirements.txt`). You also need [pelican-plugins](https://github.com/getpelican/pelican-plugins) in **parent** of this directory.
+You need Node to build the theme (`npm install && npx gulp`). You need pelican, typogrify, Markdown and couple of plugins the build the site (see `requirements.txt`). Best to create Python virtualenv to store them.
 
 ## Using Docker to build the site
 
