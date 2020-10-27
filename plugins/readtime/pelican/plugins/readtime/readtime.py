@@ -30,7 +30,7 @@ def strip_tags(html):
 
 def calculate_readtime(content_object):
     READTIME_AVG_WPM = content_object.settings.get('READTIME_AVG_WPM', 230)
-    text = strip_tags(content_object.content)
+    text = strip_tags(content_object._content)
     words = text.split()
     num_words = len(words)
     minutes = int(math.ceil(num_words / READTIME_AVG_WPM))
