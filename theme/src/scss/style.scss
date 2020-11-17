@@ -353,9 +353,9 @@ p.see-all {
 			display: block;
 			min-height: 150px;
 			height: 18vh;
-			background-size: contain;
+			background-size: cover;
 			background-repeat: no-repeat;
-			background-position: center;
+			background-position: top center;
 		}
 		.card-text {
 			height: calc(100% - 18vh);
@@ -379,6 +379,7 @@ p.see-all {
 		}
 		p.tags {
 			font-size: $font-size-sm;
+            height: 4rem;
 		}
 		&:hover {
 			box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
