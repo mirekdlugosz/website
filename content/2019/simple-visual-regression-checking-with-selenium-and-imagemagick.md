@@ -65,9 +65,11 @@ compare -compose src FIRST_FILE SECOND_FILE OUTPUT_FILE
 
 I ran my script two times and saved page screenshots as two distinct files. After feeding them to above command, I obtained this (click to see full size):
 
-[![Sample visual difference between two teams](
-{attach}simple-visual-regression-checking-with-selenium-and-imagemagick/sample-difference-min.png)](
-{attach}simple-visual-regression-checking-with-selenium-and-imagemagick/sample-difference.png)
+{% figure
+    {attach}simple-visual-regression-checking-with-selenium-and-imagemagick/sample-difference.png |
+    caption=Sample visual difference between two teams |
+    display_caption
+%}
 
 ## Creating safe filenames
 
@@ -172,9 +174,11 @@ It turned out there are some cases where the same team does not produce identica
 
 Another problem is that during development, new version uses different domain than existing instance, and current URL is displayed near the bottom of page. This caused all pairs to report some differences. I skimmed over all images to confirm there are no unexpected changes, but I should strive for making images really identical. This would allow me to exclude all images with exact same size from analysis, making it trivial to identify cases that differed in significant way.
 
-[![Random 'nothing interesting to see here, move along' image](
-{attach}simple-visual-regression-checking-with-selenium-and-imagemagick/random-result-min.png)](
-{attach}simple-visual-regression-checking-with-selenium-and-imagemagick/random-result.png)
+{% figure
+    {attach}simple-visual-regression-checking-with-selenium-and-imagemagick/random-result.png |
+    caption=Random 'nothing interesting to see here, move along' image |
+    display_caption
+%}
 
 ## Conclusion and ideas for further work
 

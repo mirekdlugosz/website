@@ -11,8 +11,10 @@ November 11th is Polish National Independence Day. Here in Poznań we don't care
 
 Out of sheer curiosity, I wanted to see how much I spent on croissants in previous years. Here's the plot of data from 2014 (2017 is missing because I wasn't in Poznań then):
 
-[![Plot of St. Martin Croissants spendings; 2014: 7.2 PLN, 2015: 15 PLN, 2016: 30.98 PLN, 2018: 60.02 PLN](
-{attach}law-of-st-martin-croissants-spendings/croissants-spendings.png)](
-{attach}law-of-st-martin-croissants-spendings/croissants-spendings.png)
+{% figure
+    {attach}law-of-st-martin-croissants-spendings/croissants-spendings.png |
+    caption=Plot of St. Martin Croissants spendings; 2014: 7.2 PLN, 2015: 15 PLN, 2016: 30.98 PLN, 2018: 60.02 PLN |
+    no_thumbnail=False
+%}
 
 My spendings follow exponential distribution almost perfectly, doubling every time I do buy them. I dread the next year.

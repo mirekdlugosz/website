@@ -20,57 +20,21 @@ Around mid-2015 I started toying with idea of Pokémon team builder application.
 
 That version was extremely simple - you could choose six Pokémon and **type** (not actual name) of four attacks for each of them. Below the form, there was bare-bones table filled with cryptic numbers. There was no data validation (you could choose type of move that given Pokémon couldn't use at all). There was no way of mapping type with particular move that Pokémon knew. Moves that didn't do any damage had to be omitted. There was no way to preserve team across sessions - form had to be filled after each restart of app. It was low-quality software that provided huge value.
 
-<div markdown="1" class="row">
-<div markdown="1" class="col-md-4">
-<p markdown="1">
-[![R Shiny app - team builder form](
-{attach}why-i-love-pokemon/shiny_1-min.png)](
-{attach}why-i-love-pokemon/shiny_1.png)
-</p>
-</div>
-<div markdown="1" class="col-md-4">
-<p markdown="1">
-[![R Shiny app - team details](
-{attach}why-i-love-pokemon/shiny_2-min.png)](
-{attach}why-i-love-pokemon/shiny_2.png)
-</p>
-</div>
-<div markdown="1" class="col-md-4">
-<p markdown="1">
-[![R Shiny app - team overview](
-{attach}why-i-love-pokemon/shiny_3-min.png)](
-{attach}why-i-love-pokemon/shiny_3.png)
-</p>
-</div>
-</div>
+{% gallery
+    {attach}why-i-love-pokemon/shiny_1.png | caption=R Shiny app - team builder form
+    {attach}why-i-love-pokemon/shiny_2.png | caption=R Shiny app - team details
+    {attach}why-i-love-pokemon/shiny_3.png | caption=R Shiny app - team overview
+%}
 
 Fast forward to December 2016, I was expecting to switch teams inside my company and become responsible for writing automated tests in Protractor (pardon my French, that was before I discovered Bach and Bolton who taught me that testing can't be automated). I didn't have any experience with Protractor and was eager to get some fast. Pokémon Moon was still fresh on my mind, so I added pieces together again and decided it's time to rewrite my old Pokémon team builder Shiny app in AngularJS.
 
 After few weeks I had *something*. The basic idea was the same - you select six Pokémon and their moves (by name or type!) and get table with cryptic numbers in return. But non-damaging moves were ignored, team definition was stored in URL (as base64-encoded JSON object...) and it run in real browser! Sure, it was readable only on computers, entire frontend was unmaintainable mess in single JavaScript file and I never wrote these Protractor checks, but it was so much better.
 
-<div markdown="1" class="row">
-<div markdown="1" class="col-md-4">
-<p markdown="1">
-[![AngularJS app - team builder form](
-{attach}why-i-love-pokemon/angular_1-min.png)](
-{attach}why-i-love-pokemon/angular_1.png)
-</p>
-</div>
-<div markdown="1" class="col-md-4">
-<p markdown="1">
-[![AngularJS app - team details](
-{attach}why-i-love-pokemon/angular_2-min.png)](
-{attach}why-i-love-pokemon/angular_2.png)
-</p>
-</div>
-<div markdown="1" class="col-md-4">
-<p markdown="1">
-[![AngularJS app - team overview](
-{attach}why-i-love-pokemon/angular_3-min.png)](
-{attach}why-i-love-pokemon/angular_3.png)
-</p>
-</div>
-</div>
+{% gallery
+    {attach}why-i-love-pokemon/angular_1.png | caption=AngularJS app - team builder form
+    {attach}why-i-love-pokemon/angular_2.png | caption=AngularJS app - team details
+    {attach}why-i-love-pokemon/angular_3.png | caption=AngularJS app - team overview
+%}
 
 This project and potential of what it could become was lingering on my mind more or less constantly since then. I had so many ideas on how it could be improved. Support all core Pokémon games. Work on mobile devices. *Look nice*. Keep team definition in URL in readable format. Use Angular (not to be confused with AngularJS). I wanted to finish it before job hunting. I wanted to finish it before Ultra Sun and Ultra Moon release. I wanted to finish it before returning to Poland.
 

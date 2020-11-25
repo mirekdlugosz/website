@@ -12,20 +12,26 @@ A little bit of context. There are only 250 places for competition, offered in f
 
 *Get tickets* button became active at 9.59. When I clicked it, I saw this screen:
 
-[![Login screen]({attach}testingcup-registration/Screenshot_20180220_095516-min.png)](
-{attach}testingcup-registration/Screenshot_20180220_095516.png)
+{% figure
+    {attach}testingcup-registration/Screenshot_20180220_095516.png |
+    caption=Login screen
+%}
 
 Well, OK. I have no problem with creating account. But they could have said it earlier, so I would be already logged in when tickets became available.
 
 Not the one to be held back, I proceeded to create new account. Since I was in hurry, I entered rather simple password, something like "testingiscool". Turned out, passwords have to contain uppercase letter and number:
 
-[![Password constraints]({attach}testingcup-registration/Screenshot_20180219_100745-min.png)](
-{attach}testingcup-registration/Screenshot_20180219_100745.png)
+{% figure
+    {attach}testingcup-registration/Screenshot_20180219_100745.png |
+    caption=Password constraints
+%}
 
 OK, fine. I decided to generate new random password using password manager. It was something like `0uPcYJ=bIELZDZe_NFSh`.
 
-[![Password constraints]({attach}testingcup-registration/Screenshot_20180219_100819-min.png)](
-{attach}testingcup-registration/Screenshot_20180219_100819.png)
+{% figure
+    {attach}testingcup-registration/Screenshot_20180219_100819.png |
+    caption=Password constraints
+%}
 
 Nope. Only now I know that some special characters are forbidden. I made a mental note to look up password policy later on and generated new password, this time without any special characters. Third time's a charm.
 
@@ -39,9 +45,10 @@ So, I opened *Billing Data* page and… I froze. I did notice lack of HTTPS back
 
 **The entire website, including all the forms, is served through unencrypted connection!**
 
-[![Invoice data form page is not secured](
-{attach}testingcup-registration/Screenshot_20180220_100852-min.png)](
-{attach}testingcup-registration/Screenshot_20180220_100852.png)
+{% figure
+    {attach}testingcup-registration/Screenshot_20180220_100852.png |
+    caption=Invoice data form page is not secured
+%}
 
 Yes, you have read it right. Organizers of high-profile software testing conference did not deploy TLS on their website. They did it these days, when popular browsers scream "unsecure!" on unencrypted websites. These days, when all browsers support SNI and you aren't limited to one certificate per IP. These days, when certificates are given away for free by Let's Encrypt. These days, when transferring sensitive personal information through insecure channel is violation of [GDPR](https://www.eugdpr.org/) and puts you at risk of paying hefty fine.
 
@@ -56,18 +63,11 @@ Finding organizer's bank account number is hard, as you already know. I can see 
 TestingCup is trying to reach international audience and, for the first time ever, their website is in English. This is generally a good thing. However, time of registration opening - arguably the most important information on entire website at the moment - is expressed without timezone. You have to guess that they mean local Poland's time.
 
 First image below shows page that was displayed when I was reserving my ticket (actually, there were four boxes - I had to get back to this page to take screenshot and there weren't any tickets available anymore). Second image shows page that was displayed when I clicked *Options* button on dashboard. They are basically the same form, so why do they use two different interfaces?
-<div markdown="1" class="row">
-<div markdown="1" class="col-md-6">
-[![New participant - four boxes one by one](
-{attach}testingcup-registration/Screenshot_20180219_100420-min.png)](
-{attach}testingcup-registration/Screenshot_20180219_100420.png)
-</div>
-<div markdown="1" class="col-md-6">
-[![Change option - two boxes and selection list?](
-{attach}testingcup-registration/Screenshot_20180219_101107-min.png)](
-{attach}testingcup-registration/Screenshot_20180219_101107.png)
-</div>
-</div>
+
+{% gallery
+    {attach}testingcup-registration/Screenshot_20180219_100420.png | caption=New participant - four boxes one by one | display_caption
+    {attach}testingcup-registration/Screenshot_20180219_101107.png | caption=Change option - two boxes and selection list? | display_caption
+%}
 
 ## Bugs found
 

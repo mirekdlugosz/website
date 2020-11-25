@@ -1,7 +1,7 @@
 [tool.poetry]
-name = "pelican-thumb-tag"
+name = "pelican-figures"
 version = "0.0.1"
-description = "Adds {% thumb %} liquid tag"
+description = "Adds {% thumb %} and {% gallery %} liquid tags"
 authors = ["Mirek Długosz"]
 license = "AGPL-3.0"
 readme = "README.md"

@@ -7,13 +7,13 @@ pelican ~= 4.5.0
 pelican-neighbors
 
 ## in process of being ported to pelican-plugins
-https://github.com/mirekdlugosz/pelican-plugins-liquid-tags/archive/migrate.zip
+https://github.com/mirekdlugosz/pelican-plugins-liquid-tags/archive/dont-wrap-p.zip
 https://github.com/mirekdlugosz/pelican-plugins-summary/archive/migrate.zip
 
 ## local - no intent of publishing
+./plugins/figures
 ./plugins/readtime
 ./plugins/rename-to-slug
-./plugins/thumb-tag
 
 # scripts requirements
 Pillow ~= 8.0.0

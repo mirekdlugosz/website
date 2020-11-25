@@ -131,15 +131,40 @@ pre {
 	}
 }
 
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    figure {
+        margin-left: 0;
+        margin-bottom: $paragraph-margin-bottom;
+        flex-basis: 100%;
+    }
+
+    @include media-breakpoint-up(md) {
+        figure {
+            flex: 1 0 30%;
+        }
+
+        figure + figure {
+            margin-left: $grid-gutter-width;
+        }
+
+        figure:nth-child(4n) {
+            margin-left: 0;
+        }
+    }
+}
+
+figcaption,
 .caption {
 	font-size: $font-size-sm;
-	font-style: italic;
+	color: $figure-caption-color;
 	display: block;
 	margin: 0;
-	padding: 10px;
+	padding: 1rem 1rem 0;
 	text-align: center;
-	border-bottom-right-radius: 5px;
-	border-bottom-left-radius: 5px;
 }
 
 ::-moz-selection {
