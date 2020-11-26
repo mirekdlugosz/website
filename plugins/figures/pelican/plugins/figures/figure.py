@@ -51,7 +51,7 @@ def single_image(
 
     template = """
     <figure>
-        <a href="{image_path}" target="_blank">
+        <a href="{image_path}">
             <img src="{thumb_path}" {title_text} {alt_text} loading="lazy">
         </a>
         {figcaption}
