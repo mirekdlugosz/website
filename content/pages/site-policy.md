@@ -1,5 +1,4 @@
 title: Site policy
-save_as: site-policy.html
 hidden: True
 
 ## Cookies and tracking mechanisms
@@ -16,4 +15,4 @@ All content authored by me on this site is subject to [Creative Commons Attribut
 
 Comments functionality is provided to allow for feedback and discussion. 
 
-While I hate to do so, I retain the right to remove comments that are hostile, destructive, offensive or otherwise crosses the borders, subject to my personal interpretation of these terms. This is personal website, not community platform. I don't believe that I am required to host people who choose to not be decent.
+While I hate to do so, I retain the right to remove comments that are hostile, destructive, offensive or otherwise crosses the boundaries, subject to my personal interpretation of these terms. This is personal website, not community platform. I don't believe that I am required to host people who choose to not be decent.
