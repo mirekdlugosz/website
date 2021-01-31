@@ -2,7 +2,7 @@ Title: Why I love Pokémon
 Slug: why-i-love-pokemon
 Date: 2018-07-01 20:39:49
 Category: Blog
-Tags: development, practice
+Tags: personal, JavaScript, projects
 
 This is software release announcement disguised as impressions on pop culture phenomena.
 

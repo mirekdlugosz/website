@@ -2,7 +2,7 @@ Title: Found on web: Premises of Rapid Software Testing
 Slug: found-on-web-premises-of-rapid-software-testing
 Date: 2018-06-22 23:04:17
 Category: Blog
-Tags: found on web, philosophy, testing
+Tags: found on web, testing
 
 Head on to Michael Bolton blog to read about fundamentals of Rapid Software Testing.
 

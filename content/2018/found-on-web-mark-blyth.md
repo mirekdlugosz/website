@@ -2,7 +2,7 @@ Title: Found on web: Mark Blyth
 Slug: found-on-web-mark-blyth
 Date: 2018-07-24 23:35:39
 Category: Blog
-Tags: found on web, practice
+Tags: found on web
 
 Mark Blyth is economist-turned-political scientist that you should definitely check out.
 

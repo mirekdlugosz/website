@@ -2,6 +2,7 @@ Title: So IBM is acquiring Red Hat
 Slug: so-ibm-is-acquiring-red-hat
 Date: 2018-10-29 12:37:20
 Category: Blog
+Tags: personal
 
 [Big news](https://www.redhat.com/en/about/press-releases/ibm-acquire-red-hat-completely-changing-cloud-landscape-and-becoming-world%E2%80%99s-1-hybrid-cloud-provider?intcmp=701f2000000RWK2AAO) hit yesterday evening.
 

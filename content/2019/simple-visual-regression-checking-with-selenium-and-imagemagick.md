@@ -2,7 +2,7 @@ Title: Simple visual regression checking with Selenium and ImageMagick
 Slug: simple-visual-regression-checking-with-selenium-and-imagemagick
 Date: 2019-11-24 20:48:57
 Category: Blog
-Tags: automation, practice, Python, testing, tutorial
+Tags: Python, testing, tutorial, planet Python
 
 I wanted to ensure that recent change did not break backwards compatibility and I ended up with visual regression checking script built with freely available software.
 

@@ -1,6 +1,6 @@
 Title: How to create ebook from website spanning multiple pages
 Slug: how-to-create-ebook-from-website-spanning-multiple-pages
-Tags: tutorial, web scraping, Linux
+Tags: tutorial, Linux
 Category: Blog
 Date: 2015-09-18 00:04:32
 

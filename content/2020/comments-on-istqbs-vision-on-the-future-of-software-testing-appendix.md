@@ -2,7 +2,7 @@ Title: Comments on ISTQB's "Vision on the Future of Software Testing". Appendix
 Slug: comments-on-istqbs-vision-on-the-future-of-software-testing-appendix
 Date: 2020-02-27 10:38:46
 Category: Blog
-Tags: community, testing
+Tags: testing
 
 ISTQB's "Vision on the Future of Software Testing" made rounds on social media recently. I'm hopping on to this train with my own commentary.
 

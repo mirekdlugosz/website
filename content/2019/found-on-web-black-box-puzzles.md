@@ -2,7 +2,7 @@ Title: Found on web: Black Box Puzzles
 Slug: found-on-web-black-box-puzzles
 Date: 2019-01-18 01:30:34
 Category: Blog
-Tags: found on web, practice, testing
+Tags: found on web, testing
 
 Black Box Puzzles is one of few websites that actually can help you become better tester.
 

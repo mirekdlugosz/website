@@ -2,7 +2,7 @@ Title: Registering for TestingCup
 Slug: registering-for-testingcup
 Date: 2018-02-20 22:50:51
 Category: Blog
-Tags: community, testing
+Tags: testing
 
 Yesterday, I tried to register for TestingCup competition and conference. Number of issues I have encountered is well outside of my comfort zone.
 

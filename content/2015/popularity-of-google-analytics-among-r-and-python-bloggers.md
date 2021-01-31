@@ -2,7 +2,7 @@ Title: Popularity of Google Analytics among R and python bloggers
 Slug: popularity-of-google-analytics-among-r-and-python-bloggers
 Date: 2015-10-13 23:25:55
 Category: Blog
-Tags: web scraping, Linux
+Tags: Linux
 
 One day I was wondering whether anyone actually reads that blog. A thought about setting up Google Analytics crossed my mind, but legitimate concerns about users privacy made me hesitant. Then I wanted to try out Piwik, but installation and configuration requires some effort and I wasn't sure if I want to make that investment. Eventually I figured out that I should probably do whatever other R and python bloggers are doing. But first I had to learn what it is.
 

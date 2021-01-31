@@ -40,7 +40,8 @@
     <span class="tags">
 		<span class="sr-only">Tags</span>
 		<i class="fas fa-tags"></i>
-		{% for tag in article.tags |sort %}
+        {% set filtered_tags = (article.tags| rejectattr("slug", "eq", "planet-python")) %}
+		{% for tag in filtered_tags |sort %}
 			<a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>
 			{% if not loop.last %}
 				/

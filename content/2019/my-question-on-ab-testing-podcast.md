@@ -2,7 +2,7 @@ Title: My question on AB Testing podcast
 Slug: my-question-on-ab-testing-podcast
 Date: 2019-02-19 21:34:45
 Category: Blog
-Tags: community, found on web, testing
+Tags: found on web, testing
 
 Question that I've asked has been covered in [recent episode of AB Testing](https://www.angryweasel.com/ABTesting/ab-testing-episode-97-questions-about-developers-and-tests/). Answer starts at around 9 minutes mark.
 

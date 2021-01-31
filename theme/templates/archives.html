@@ -17,13 +17,15 @@
 		</form>
 
 		<h2>Browse by category</h2>
-		<ul>
+		<ul class="categories">
 		{% set tag_replacements = { 'tag': 'feeds',
 									'/index.html': '.atom.xml',
 									} %}
-		{% for tag in tags |sort %}
+
+        {% set filtered_tags = (tags| rejectattr("0.slug", "eq", "planet-python")) %}
+		{% for tag in filtered_tags |sort %}
 			{% set tag_feed_url = tag.0.save_as| dict_replace(tag_replacements) %}
-			<li>
+            <li class="category-item category-{{ tag.0.slug }}">
 				<a href="{{ SITEURL }}/{{ tag.0.save_as }}">{{ tag.0.name }}</a>
 				<a href="{{ SITEURL }}/{{ tag_feed_url }}" title="Atom feed for {{ tag.0.name }}"><i class="fas fa-rss"></i></a>
 			</li>

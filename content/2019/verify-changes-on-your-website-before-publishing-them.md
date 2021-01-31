@@ -2,7 +2,7 @@ Title: Verify changes on your website before publishing them
 Slug: verify-changes-on-your-website-before-publishing-them
 Date: 2019-12-05 11:44:26
 Category: Blog
-Tags: development, Linux, tutorial
+Tags: Linux, tutorial, planet Python
 
 Nice trick that lets you review changes done to website before publishing it. 
 

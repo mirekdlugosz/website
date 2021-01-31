@@ -2,7 +2,7 @@ Title: Found on web: AST blogroll
 Slug: found-on-web-ast-blogroll
 Date: 2018-08-14 15:38:07
 Category: Blog
-Tags: community, found on web, testing
+Tags: found on web, testing
 
 I grabbed a list of blogs aggregated on Association for Software Testing website, so you don't have to.
 

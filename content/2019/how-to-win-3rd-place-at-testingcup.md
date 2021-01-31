@@ -1,7 +1,7 @@
 Title: How to win 3rd place at TestingCup?
 Slug: how-to-win-3rd-place-at-testingcup
 Date: 2019-07-07 11:28:32
-Tags: community, practice, testing, tutorial
+Tags: testing, tutorial
 
 [TestingCup](http://testingcup.pl/) is annual testing competition in Poland and this year, I won 3rd place in individual category.
 
