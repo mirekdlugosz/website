@@ -9,10 +9,12 @@ OUTPUTDIR=$(BASEDIR)/output
 CONFFILE=$(BASEDIR)/pelicanconf.py
 PUBLISHCONF=$(BASEDIR)/publishconf.py
 
+DOMAIN=mirekdlugosz.com
+
 SSH_HOST=mydevil
 SSH_PORT=22
 SSH_USER=minio
-SSH_TARGET_DIR=/home/minio/domains/mirekdlugosz.com/public_html/
+SSH_TARGET_DIR=/home/minio/domains/$(DOMAIN)/public_html/
 
 DEBUG ?= 0
 ifeq ($(DEBUG), 1)
@@ -84,5 +86,6 @@ ssh_upload: publish
 
 rsync_upload: publish postpublish
 	rsync -e "ssh -p $(SSH_PORT)" -P -rvzc --delete --cvs-exclude --exclude='.*.swp' --exclude='drafts/' $(OUTPUTDIR)/ $(SSH_USER)@$(SSH_HOST):$(SSH_TARGET_DIR)
+	ssh -p $(SSH_PORT) $(SSH_HOST) 'devil www options $(DOMAIN) cache purge'
 
 .PHONY: thumbnails clean-thumbnails theme html help clean serve publish ssh_upload rsync_upload 
