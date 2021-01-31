@@ -8,7 +8,7 @@
         <div class="card-description">
             <p>{{ project.description }}</p>
             <p class="tags">
-			<span class="sr-only">Tags</span>
+            <span class="sr-only">Tags</span>
             <i class="fas fa-tags"></i>
             {% for tag in project.tags %}{{ tag }}{% if not loop.last %}, {% endif %}{% endfor%}
             </p>

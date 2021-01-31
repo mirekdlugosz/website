@@ -1,49 +1,55 @@
 {% extends "_base.html" %}
+
 {% block title %}{{ article.title|striptags }} - {{ SITENAME }}{% endblock %}
+
 {% block html_lang %}{{ article.lang }}{% endblock %}
+
 {% block meta %}
-    {% if article.author %}
-        <meta name="author" content="{{ article.author }}" />
-    {% else %}
-        <meta name="author" content="{{ AUTHOR }}" />
-    {% endif %}
-    {% if article.tags %}
-        <meta name="keywords" content="{{ article.tags|join(',')|striptags }}" />
-    {% endif %}
-    {% if article.summary %}
-        <meta name="description" content="{{ article.summary|striptags|escape }}" />
-    {% endif %}
+{% if article.author %}
+<meta name="author" content="{{ article.author }}" />
+{% else %}
+<meta name="author" content="{{ AUTHOR }}" />
+{% endif %}
+
+{% if article.tags %}
+<meta name="keywords" content="{{ article.tags|join(',')|striptags }}" />
+{% endif %}
+
+{% if article.summary %}
+<meta name="description" content="{{ article.summary|striptags|escape }}" />
+{% endif %}
 {% endblock %}
+
 {% block opengraph %}
-    {% if USE_OPEN_GRAPH %}
-        {% if OPEN_GRAPH_FB_APP_ID %}
-            <meta property="fb:app_id" content="{{ OPEN_GRAPH_FB_APP_ID }}"/>
-        {% endif %}
-        <meta property="og:site_name" content="{{ SITENAME }}" />
-        <meta property="og:type" content="article"/>
-        <meta property="og:title" content="{{ article.title|striptags|escape }}"/>
-        <meta property="og:url" content="{{ SITEURL }}/{{ article.url }}"/>
-        <meta property="og:description" content="{{ article.summary|striptags|escape }}"/>
-        <meta property="article:published_time" content="{{ article.date.strftime("%Y-%m-%d") }}" />
-        {% if article.category %}
-            <meta property="article:section" content="{{ article.category }}" />
-        {% endif %}
-        {% for tag in article.tags %}
-            <meta property="article:tag" content="{{ tag }}" />
-        {% endfor %}
-        {% if article.author %}
-            <meta property="article:author" content="{{ article.author }}" />
-        {% elif AUTHOR %}
-            <meta property="article:author" content="{{ AUTHOR }}" />
-        {% endif %}
-        {% if article.og_image %}
-            <meta property="og:image"
-                  content="{{ SITEURL }}/{{ article.og_image }}"/>
-        {% elif OPEN_GRAPH_IMAGE %}
-            <meta property="og:image"
-                  content="{{ SITEURL }}/{{ OPEN_GRAPH_IMAGE }}"/>
-        {% endif %}
-    {% endif %}
+{% if USE_OPEN_GRAPH %}
+{% if OPEN_GRAPH_FB_APP_ID %}
+<meta property="fb:app_id" content="{{ OPEN_GRAPH_FB_APP_ID }}"/>
+{% endif %}
+<meta property="og:site_name" content="{{ SITENAME }}" />
+<meta property="og:type" content="article"/>
+<meta property="og:title" content="{{ article.title|striptags|escape }}"/>
+<meta property="og:url" content="{{ SITEURL }}/{{ article.url }}"/>
+<meta property="og:description" content="{{ article.summary|striptags|escape }}"/>
+<meta property="article:published_time" content="{{ article.date.strftime("%Y-%m-%d") }}" />
+{% if article.category %}
+<meta property="article:section" content="{{ article.category }}" />
+{% endif %}
+{% for tag in article.tags %}
+<meta property="article:tag" content="{{ tag }}" />
+{% endfor %}
+{% if article.author %}
+<meta property="article:author" content="{{ article.author }}" />
+{% elif AUTHOR %}
+<meta property="article:author" content="{{ AUTHOR }}" />
+{% endif %}
+{% if article.og_image %}
+<meta property="og:image"
+      content="{{ SITEURL }}/{{ article.og_image }}"/>
+{% elif OPEN_GRAPH_IMAGE %}
+<meta property="og:image"
+      content="{{ SITEURL }}/{{ OPEN_GRAPH_IMAGE }}"/>
+{% endif %}
+{% endif %}
 {% endblock %}
 
 {% block canonical_rel %}
@@ -51,43 +57,41 @@
 {% endblock %}
 
 {% block content %}
-    <section id="content" class="body article">
-        <article>
-            <header>
-                <h1>
-                    <a href="{{ SITEURL }}/{{ article.url }}"
-                       rel="bookmark"
-                       title="Permalink to {{ article.title|striptags }}">
-                        {{ article.title }}
-                    </a>
-                </h1>
-            </header>
-            {% include "includes/article_info.html" %}
-            <div class="entry-content">
-                {{ article.content }}
-            </div>
-            <!-- /.entry-content -->
-			<ul class="pager read-next row no-gutters justify-content-between">
-				<li class="previous col-md-6">
-				{% if article.prev_article %}
-					<a href="{{ SITEURL }}/{{ article.prev_article.url}}">
-						<p>Previous article</p>
-						<h3>{{ article.prev_article.title }}</h3>
-					</a>
-				{% endif %}
-				</li>
-				<li class="next col-md-6">
-				{% if article.next_article %}
-					<a href="{{ SITEURL }}/{{ article.next_article.url}}">
-						<p>Next article</p>
-						<h3>{{ article.next_article.title }}</h3>
-					</a>
-				{% endif %}
-				</li>
-			</ul>
-			{# Maybe do something with this later one #}
-			{# category.url #}
-            {% include 'includes/comments.html' %}
-        </article>
-    </section>
+<section id="content" class="body article">
+    <article>
+        <header>
+            <h1>
+                <a href="{{ SITEURL }}/{{ article.url }}"
+                   rel="bookmark"
+                   title="Permalink to {{ article.title|striptags }}">
+                    {{ article.title }}
+                </a>
+            </h1>
+        </header>
+        {% include "includes/article_info.html" %}
+        <div class="entry-content">
+            {{ article.content }}
+        </div>
+        <!-- /.entry-content -->
+        <ul class="pager read-next row no-gutters justify-content-between">
+            <li class="previous col-md-6">
+                {% if article.prev_article %}
+                <a href="{{ SITEURL }}/{{ article.prev_article.url}}">
+                    <p>Previous article</p>
+                    <h3>{{ article.prev_article.title }}</h3>
+                </a>
+                {% endif %}
+            </li>
+            <li class="next col-md-6">
+                {% if article.next_article %}
+                <a href="{{ SITEURL }}/{{ article.next_article.url}}">
+                    <p>Next article</p>
+                    <h3>{{ article.next_article.title }}</h3>
+                </a>
+                {% endif %}
+            </li>
+        </ul>
+        {% include 'includes/comments.html' %}
+    </article>
+</section>
 {% endblock %}

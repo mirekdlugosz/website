@@ -1,46 +1,46 @@
 {% if DISQUS_SITENAME %}
-    <hr/>
-    <section class="comments" id="comments">
-        <h2>Comments</h2>
+<hr/>
+<section class="comments" id="comments">
+    <h2>Comments</h2>
 
-        <div class="row justify-content-center">
-            <button id="load-comments" type="button" class="btn btn-secondary col-6 col-md-4 col-xl-3">Load comments</button>
-        </div>
+    <div class="row justify-content-center">
+        <button id="load-comments" type="button" class="btn btn-secondary col-6 col-md-4 col-xl-3">Load comments</button>
+    </div>
 
-        <div id="disqus_thread"></div>
-        <script type="text/javascript">
-            var disqus_shortname = '{{ DISQUS_SITENAME }}';
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = '{{ DISQUS_SITENAME }}';
 
-            {% if article %}
-            var disqus_config = function () {
-                this.page.identifier = '{{ article.date|strftime('%Y-%m-') ~ article.slug if DISQUS_ID_PREFIX_SLUG else article.slug }}';
-                this.page.url = '{{ SITEURL }}/{{ article.url }}';
-                this.page.title = '{{ article.title }}';
-                this.language = '{{ DEFAULT_LANG }}';
-            };
-            {% elif page %}
-            var disqus_config = function () {
-                this.page.identifier = 'page-{{ page.slug }}';
-                this.page.url = '{{ SITEURL }}/{{ page.url }}';
-                this.page.title = '{{ page.title }}'
-                this.language = '{{ DEFAULT_LANG }}';
-            };
-            {% endif %}
+        {% if article %}
+        var disqus_config = function () {
+                    this.page.identifier = '{{ article.date|strftime('%Y-%m-') ~ article.slug if DISQUS_ID_PREFIX_SLUG else article.slug }}';
+                    this.page.url = '{{ SITEURL }}/{{ article.url }}';
+                    this.page.title = '{{ article.title }}';
+                    this.language = '{{ DEFAULT_LANG }}';
+                };
+        {% elif page %}
+        var disqus_config = function () {
+                    this.page.identifier = 'page-{{ page.slug }}';
+                    this.page.url = '{{ SITEURL }}/{{ page.url }}';
+                    this.page.title = '{{ page.title }}'
+                    this.language = '{{ DEFAULT_LANG }}';
+                };
+        {% endif %}
 
-            var loadCommentsBtn = document.getElementById('load-comments');
-            loadCommentsBtn.style.display = 'block';
+        var loadCommentsBtn = document.getElementById('load-comments');
+        loadCommentsBtn.style.display = 'block';
 
-            loadCommentsBtn.addEventListener('click', function() {
-                var d = document, s = d.createElement('script');
-                s.src = `https://${disqus_shortname}.disqus.com/embed.js`;
-                s.setAttribute('data-timestamp', +new Date());
-                (d.head || d.body).appendChild(s);
-                loadCommentsBtn.parentNode.removeChild(loadCommentsBtn);
-            });
-        </script>
-        <noscript>
-            Comments on this website are <a href="http://disqus.com/?ref_noscript">provided by Disqus</a>
-            and require JavaScript to work. Please enable JavaScript in your browser.
-        </noscript>
-    </section>
+        loadCommentsBtn.addEventListener('click', function() {
+                    var d = document, s = d.createElement('script');
+                    s.src = `https://${disqus_shortname}.disqus.com/embed.js`;
+                    s.setAttribute('data-timestamp', +new Date());
+                    (d.head || d.body).appendChild(s);
+                    loadCommentsBtn.parentNode.removeChild(loadCommentsBtn);
+                });
+    </script>
+    <noscript>
+        Comments on this website are <a href="http://disqus.com/?ref_noscript">provided by Disqus</a>
+        and require JavaScript to work. Please enable JavaScript in your browser.
+    </noscript>
+</section>
 {% endif %}

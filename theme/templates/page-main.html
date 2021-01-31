@@ -4,16 +4,16 @@
 {% block content%}
 
 <section id="about" class="full-width" itemscope itemtype="http://schema.org/Person">
-	<div class="container main">
-		<div class="row" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <div class="container main">
+        <div class="row" itemprop="author" itemscope itemtype="http://schema.org/Person">
             <div id="profile" class="col-12 col-md-4">
                 <img itemprop="image" src="/theme/img/main-photo.jpg">
             </div>
-			<div class="col-12 col-md-8" itemprop="description">
-				{{ page.content }}
-			</div>
-		</div>
-	</div>
+            <div class="col-12 col-md-8" itemprop="description">
+                {{ page.content }}
+            </div>
+        </div>
+    </div>
 </section>
 
 <section id="latest">
@@ -50,8 +50,8 @@
 <section id="contact">
     <h1>Contact</h1>
     <div class="row">
-		{% include 'includes/contact_items.html' %}
-	</div>
+        {% include 'includes/contact_items.html' %}
+    </div>
 </section>
 
 {% endblock %}

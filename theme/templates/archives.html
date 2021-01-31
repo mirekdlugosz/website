@@ -3,44 +3,45 @@
 
 {% block content %}
 <section id="content">
-	<h1>Site archives</h1>
-	<div id="archives">
-		<h2>Search</h2>
-		<form action="https://www.google.com/search" method="get" class="input-group mb-4">
-			<input type="hidden" name="ie" value="UTF-8">
-			<input type="hidden" name="sitesearch" value="{{ SITEURL[8:] }}">
-			<label for="q" class="sr-only">Search query</label>
-			<input type="text" name="q" placeholder="Type in search keyword" class="form-control">
+    <h1>Site archives</h1>
+    <div id="archives">
+        <h2>Search</h2>
+        <form action="https://www.google.com/search" method="get" class="input-group mb-4">
+            <input type="hidden" name="ie" value="UTF-8">
+            <input type="hidden" name="sitesearch" value="{{ SITEURL[8:] }}">
+            <label for="q" class="sr-only">Search query</label>
+            <input type="text" name="q" placeholder="Type in search keyword" class="form-control">
             <div class="input-group-append">
                 <input type="submit" value="Search using Google" class="btn btn-secondary">
             </div>
-		</form>
+        </form>
 
-		<h2>Browse by category</h2>
-		<ul class="categories">
-		{% set tag_replacements = { 'tag': 'feeds',
-									'/index.html': '.atom.xml',
-									} %}
+        <h2>Browse by category</h2>
+        <ul class="categories">
+            {% set tag_replacements = {
+                'tag': 'feeds',
+                '/index.html': '.atom.xml',
+            } %}
 
-        {% set filtered_tags = (tags| rejectattr("0.slug", "eq", "planet-python")) %}
-		{% for tag in filtered_tags |sort %}
-			{% set tag_feed_url = tag.0.save_as| dict_replace(tag_replacements) %}
+            {% set filtered_tags = (tags| rejectattr("0.slug", "eq", "planet-python")) %}
+            {% for tag in filtered_tags |sort %}
+            {% set tag_feed_url = tag.0.save_as| dict_replace(tag_replacements) %}
             <li class="category-item category-{{ tag.0.slug }}">
-				<a href="{{ SITEURL }}/{{ tag.0.save_as }}">{{ tag.0.name }}</a>
-				<a href="{{ SITEURL }}/{{ tag_feed_url }}" title="Atom feed for {{ tag.0.name }}"><i class="fas fa-rss"></i></a>
-			</li>
-		{% endfor %}
-		</ul>
+                <a href="{{ SITEURL }}/{{ tag.0.save_as }}">{{ tag.0.name }}</a>
+                <a href="{{ SITEURL }}/{{ tag_feed_url }}" title="Atom feed for {{ tag.0.name }}"><i class="fas fa-rss"></i></a>
+            </li>
+            {% endfor %}
+        </ul>
 
-		<h2>Browse by date</h2>
-		{% for article in dates %}
+        <h2>Browse by date</h2>
+        {% for article in dates %}
         <div class="row article">
             <p class="col-12 col-md-4 timestamp"><time datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time></p>
             <p class="col-12 col-md-8 title">
-                <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a>
+            <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a>
             </p>
         </div>
-		{% endfor %}
-	</div>
+        {% endfor %}
+    </div>
 </section>
 {% endblock %}

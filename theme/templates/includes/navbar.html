@@ -1,32 +1,32 @@
 <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav" role="navigation">
-	<div class="container">
-		<a href="{{ SITEURL }}/" class="navbar-brand">
-			{% if SITELOGO %}<img src="{{ SITEURL }}/{{ SITELOGO }}" width="{{ SITELOGO_SIZE }}"/> {% endif %}
-			{% if not HIDE_SITENAME %}{{ AUTHOR }}{% endif %}
-		</a>
+    <div class="container">
+        <a href="{{ SITEURL }}/" class="navbar-brand">
+            {% if SITELOGO %}<img src="{{ SITEURL }}/{{ SITELOGO }}" width="{{ SITELOGO_SIZE }}"/> {% endif %}
+            {% if not HIDE_SITENAME %}{{ AUTHOR }}{% endif %}
+        </a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"></span>
         </button>
 
-		<div class="collapse navbar-collapse" id="main-menu">
-			<ul class="navbar-nav ml-auto">
-				<li class="nav-item{% if 'archives.html' in output_file %} active{% endif %}">
-					<a class="nav-link" href="{{ SITEURL }}/blog/">Blog</a>
-				</li>
-				{% for page in pages if page.slug == 'projects' %}
-				<li class="nav-item{% if 'projects.html' in output_file %} active{% endif %}">
-					<a class="nav-link" href="{{ SITEURL }}/{{ page.url }}">Projects</a>
-				</li>
-				{% endfor %}
-				<li class="nav-item">
+        <div class="collapse navbar-collapse" id="main-menu">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item{% if 'archives.html' in output_file %} active{% endif %}">
+                    <a class="nav-link" href="{{ SITEURL }}/blog/">Blog</a>
+                </li>
+                {% for page in pages if page.slug == 'projects' %}
+                <li class="nav-item{% if 'projects.html' in output_file %} active{% endif %}">
+                    <a class="nav-link" href="{{ SITEURL }}/{{ page.url }}">Projects</a>
+                </li>
+                {% endfor %}
+                <li class="nav-item">
                     <a class="nav-link" href="https://www.linkedin.com/in/mirekdlugosz/en">Resumé <i class="fab fa-linkedin"></i></a>
-				</li>
-				{% for page in pages if page.slug == 'contact' %}
-				<li class="nav-item{% if 'contact.html' in output_file %} active{% endif %}">
-					<a class="nav-link" href="{{ SITEURL }}/{{ page.url }}">Contact</a>
-				</li>
-				{% endfor %}
-			</ul>
-		</div>
-	</div>
+                </li>
+                {% for page in pages if page.slug == 'contact' %}
+                <li class="nav-item{% if 'contact.html' in output_file %} active{% endif %}">
+                    <a class="nav-link" href="{{ SITEURL }}/{{ page.url }}">Contact</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
 </nav>

@@ -1,52 +1,52 @@
 <footer class="post-info">
     <span class="published">
-		<span class="sr-only">Publication date</span>
+        <span class="sr-only">Publication date</span>
         <time datetime="{{ article.date.isoformat() }}"> {{ article.locale_date }}</time>
     </span>
     {% if SHOW_DATE_MODIFIED %}
-        {% if article.modified %}
-            <span class="label label-default">Modified</span>
-            <span class="modified">
-                <time datetime="{{ article.modified.isoformat() }}"> {{ article.locale_modified }}</time>
-            </span>
-        {% endif %}
+    {% if article.modified %}
+    <span class="label label-default">Modified</span>
+    <span class="modified">
+        <time datetime="{{ article.modified.isoformat() }}"> {{ article.locale_modified }}</time>
+    </span>
+    {% endif %}
     {% endif %}
     {% if SHOW_ARTICLE_AUTHOR %}
-		{% if article.author %}
-			{% set author = article.author %}
-		{% else %}
-			{% set author = AUTHOR %}
-		{% endif %}
-        {% if author %}
-            <span class="label label-default">By</span>
-            {{ author }}
+        {% if article.author %}
+            {% set author = article.author %}
+        {% else %}
+            {% set author = AUTHOR %}
         {% endif %}
+    {% if author %}
+    <span class="label label-default">By</span>
+    {{ author }}
+    {% endif %}
     {% endif %}
 
     {% if SHOW_ARTICLE_CATEGORY %}
-        <span class="label label-default">Category</span>
-        <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>
+    <span class="label label-default">Category</span>
+    <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>
     {% endif %}
 
-	{% if article.readtime %}
-	<span class="readtime">
-		<span class="sr-only">Read time</span>
-		<i class="far fa-clock"></i>
-		{{ article.readtime.minutes }} min
-	</span>
-	{% endif %}
+    {% if article.readtime %}
+    <span class="readtime">
+        <span class="sr-only">Read time</span>
+        <i class="far fa-clock"></i>
+        {{ article.readtime.minutes }} min
+    </span>
+    {% endif %}
 
-	{% if article.tags %}
+    {% if article.tags %}
     <span class="tags">
-		<span class="sr-only">Tags</span>
-		<i class="fas fa-tags"></i>
+        <span class="sr-only">Tags</span>
+        <i class="fas fa-tags"></i>
         {% set filtered_tags = (article.tags| rejectattr("slug", "eq", "planet-python")) %}
-		{% for tag in filtered_tags |sort %}
-			<a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>
-			{% if not loop.last %}
-				/
-			{% endif %}
-		{% endfor %}
-	</span>
-	{% endif %}
+        {% for tag in filtered_tags |sort %}
+        <a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>
+        {% if not loop.last %}
+            /
+        {% endif %}
+        {% endfor %}
+    </span>
+    {% endif %}
 </footer><!-- /.post-info -->

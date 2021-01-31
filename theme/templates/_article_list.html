@@ -4,20 +4,20 @@
 {% set articles_to_loop = INDEX_ARTICLES %}
 {# if we are on tag page, display everything #}
 {% if all_articles %}
-	{% set articles_to_loop = articles | length %}
+    {% set articles_to_loop = articles | length %}
 {% endif %}
 
 {% for article in articles %}
 {% if loop.index <= articles_to_loop %}
 <article class="post-preview">
-	<h2 class="post-title"><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h2>
-	{% include "includes/article_info.html" %}
-	<div class="summary">
-		{% if article.summary %}
-		{{ article.summary }}
-		{% endif %}
-		<p><a class="btn btn-secondary btn-sm" role="button" href="{{ SITEURL }}/{{ article.url }}">Continue reading <i class="fas fa-chevron-right"></i></a></p>
-	</div>
+    <h2 class="post-title"><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h2>
+    {% include "includes/article_info.html" %}
+    <div class="summary">
+        {% if article.summary %}
+        {{ article.summary }}
+        {% endif %}
+        <p><a class="btn btn-secondary btn-sm" role="button" href="{{ SITEURL }}/{{ article.url }}">Continue reading <i class="fas fa-chevron-right"></i></a></p>
+    </div>
 </article>
 {% if not loop.index == articles_to_loop %}
 <hr/>
