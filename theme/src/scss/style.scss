@@ -296,6 +296,12 @@ img::-moz-selection {
 	a:focus {
 		text-decoration: none;
 	}
+	@include media-breakpoint-up(md) {
+        li.col-md-6 {
+            max-width: 48%;
+            flex-basis: 48%;
+        }
+    }
 	@include media-breakpoint-up(lg) {
 		.previous {
 			text-align: left;
