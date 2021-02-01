@@ -1,34 +1,7 @@
-PY?=python3
-PELICAN?=pelican
-PELICANOPTS=
-THUMBNAILOPTS=
-
-BASEDIR=$(CURDIR)
-INPUTDIR=$(BASEDIR)/content
-OUTPUTDIR=$(BASEDIR)/output
-CONFFILE=$(BASEDIR)/pelicanconf.py
-PUBLISHCONF=$(BASEDIR)/publishconf.py
-
-DOMAIN=mirekdlugosz.com
-
-SSH_HOST=mydevil
-SSH_PORT=22
-SSH_USER=minio
-SSH_TARGET_DIR=/home/minio/domains/$(DOMAIN)/public_html/
-
-DEBUG ?= 0
-ifeq ($(DEBUG), 1)
-	PELICANOPTS += -D
-	THUMBNAILOPTS += --debug
-endif
-
-RELATIVE ?= 0
-ifeq ($(RELATIVE), 1)
-	PELICANOPTS += --relative-urls
-endif
-
 help:
-	@echo 'Makefile for a pelican Web site                                           '
+	@echo 'Deprecated Makefile for a pelican Web site                                '
+	@echo '                                                                          '
+	@echo '           !!!!! This file is deprecated. Use "inv" instead !!!!!         '
 	@echo '                                                                          '
 	@echo 'Usage:                                                                    '
 	@echo '   make clean                          remove the generated files         '
@@ -43,49 +16,28 @@ help:
 	@echo '   make thumbnails                     generate missing thumbnails        '
 	@echo '                                                                          '
 	@echo 'Set the DEBUG variable to 1 to enable debugging, e.g. make DEBUG=1 html   '
-	@echo 'Set the RELATIVE variable to 1 to enable relative urls (useful with `make publish`)'
 	@echo '                                                                          '
 
 clean:
-	[ ! -d $(OUTPUTDIR) ] || rm -rf $(OUTPUTDIR)
-
-clean-thumbnails:
-	python3 ./scripts/generate-thumbnails.py --rm $(THUMBNAILOPTS)
+	inv clean
 
 thumbnails:
-	python3 ./scripts/generate-thumbnails.py $(THUMBNAILOPTS)
+	inv thumbnails
 
 theme:
-	cd theme && npx gulp
+	inv theme
 
-html: clean thumbnails
-	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(CONFFILE) $(PELICANOPTS)
+html:
+	inv html
 
 serve:
-ifdef PORT
-	$(PELICAN) -l $(INPUTDIR) -o $(OUTPUTDIR) -s $(CONFFILE) $(PELICANOPTS) -p $(PORT)
-else
-	$(PELICAN) -l $(INPUTDIR) -o $(OUTPUTDIR) -s $(CONFFILE) $(PELICANOPTS)
-endif
+	inv serve
 
-devserver: clean thumbnails
-ifdef PORT
-	$(PELICAN) -lr $(INPUTDIR) -o $(OUTPUTDIR) -s $(CONFFILE) $(PELICANOPTS) -p $(PORT)
-else
-	$(PELICAN) -lr $(INPUTDIR) -o $(OUTPUTDIR) -s $(CONFFILE) $(PELICANOPTS)
-endif
+devserver:
+	inv devserver
 
-publish: clean thumbnails theme
-	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(PUBLISHCONF) $(PELICANOPTS)
-
-postpublish:
-	python3 ./scripts/fix-directories.py $(OUTPUTDIR)
-
-ssh_upload: publish
-	scp -P $(SSH_PORT) -r $(OUTPUTDIR)/* $(SSH_USER)@$(SSH_HOST):$(SSH_TARGET_DIR)
+publish:
+	inv publish
 
 rsync_upload: publish postpublish
-	rsync -e "ssh -p $(SSH_PORT)" -P -rvzc --delete --cvs-exclude --exclude='.*.swp' --exclude='drafts/' $(OUTPUTDIR)/ $(SSH_USER)@$(SSH_HOST):$(SSH_TARGET_DIR)
-	ssh -p $(SSH_PORT) $(SSH_HOST) 'devil www options $(DOMAIN) cache purge'
-
-.PHONY: thumbnails clean-thumbnails theme html help clean serve publish ssh_upload rsync_upload 
+	inv rsync-upload
