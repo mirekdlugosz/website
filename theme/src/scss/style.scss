@@ -272,8 +272,14 @@ img::-moz-selection {
     text-decoration: none;
 }
 
-#content.article .entry-content > p:first-of-type {
-    font-weight: 700;
+#content.article {
+    header a:hover {
+        text-decoration: none;
+    }
+
+    .entry-content > p:first-of-type {
+        font-weight: 700;
+    }
 }
 
 .read-next {
