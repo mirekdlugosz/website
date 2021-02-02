@@ -22,7 +22,8 @@
     "gulp-uglify": "^3.0.2"
   },
   "scripts": {
-    "build": "echo FIXME"
+    "build": "gulp",
+    "devserver": "gulp dev"
   },
   "author": "Mirek Długosz",
   "license": "GPL-3.0"
