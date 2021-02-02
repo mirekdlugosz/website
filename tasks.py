@@ -1,6 +1,7 @@
 import os
 import shlex
 import shutil
+import subprocess
 import sys
 from pathlib import Path
 
@@ -112,6 +113,17 @@ def devserver(c):
     def cached_html():
         html(c, extra_settings='CACHE_CONTENT=True LOAD_CONTENT_CACHE=True')
 
+    def start_npm_devserver():
+        cmd = "npm run devserver".split()
+        proc = subprocess.Popen(
+            cmd,
+            stdout=sys.stdout,
+            stderr=subprocess.STDOUT,
+            cwd=SETTINGS["THEME"],
+        )
+        return proc
+
+    npm_devserver = start_npm_devserver()
     server = Server()
     watched_globs = [
         CONFIG['settings_base'],
@@ -123,6 +135,7 @@ def devserver(c):
         server.watch(glob, cached_html)
     cached_html()
     server.serve(host=CONFIG['host'], port=CONFIG['port'], root=CONFIG['deploy_path'])
+    npm_devserver.terminate()
 
 
 @task(pre=[clean, thumbnails, theme])
