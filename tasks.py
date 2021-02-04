@@ -147,14 +147,7 @@ def publish(c):
     pelican_run(cmd.format(**CONFIG))
 
 
-@task
-def fix_publish_directories(c):
-    """Move around some directories in output dir"""
-    cmd = f'python3 ./scripts/fix-directories.py {CONFIG["deploy_path"]}'
-    c.run(cmd)
-
-
-@task(pre=[publish, fix_publish_directories])
+@task(pre=[publish])
 def rsync_upload(c):
     """Publish to production via rsync"""
     rsync_cmd = [

@@ -1,10 +1,9 @@
 #!/usr/bin/env python
-# -*- coding: utf-8 -*- #
-from __future__ import unicode_literals
 
 import sys
 import os
 import datetime
+from pathlib import Path
 sys.path.insert(0, os.path.dirname(__file__))
 import addins.jinja_filters
 from metadata import PROJECTS
@@ -69,9 +68,15 @@ IGNORE_FILES = ['.#*',
                 '*.Rmd',
                 ]
 
+certificates_metadata = {}
+for cert_file in (Path(PATH) / 'certificates').glob('*'):
+    cert_file = cert_file.relative_to(PATH).as_posix()
+    cert_metadata = {'save_as': cert_file}
+    certificates_metadata[cert_file] = cert_metadata
 EXTRA_PATH_METADATA = {
     'root/.htaccess': {'save_as': '.htaccess'},
     'root/.drafts_htaccess': {'save_as': 'drafts/.htaccess'},
+    **certificates_metadata
 }
 
 SHOW_ARTICLE_AUTHOR = False
