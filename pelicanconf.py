@@ -71,6 +71,7 @@ IGNORE_FILES = ['.#*',
 
 EXTRA_PATH_METADATA = {
     'root/.htaccess': {'save_as': '.htaccess'},
+    'root/.drafts_htaccess': {'save_as': 'drafts/.htaccess'},
 }
 
 SHOW_ARTICLE_AUTHOR = False

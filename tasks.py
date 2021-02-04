@@ -165,7 +165,6 @@ def rsync_upload(c):
         '--delete',
         '--cvs-exclude',
         "--exclude='.*.swp'",
-        "--exclude='drafts/'",
         '{} {ssh_user}@{ssh_host}:{ssh_path}',
     ]
     if env_var('DRY_RUN'):
