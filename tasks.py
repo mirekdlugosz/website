@@ -128,8 +128,8 @@ def devserver(c):
     watched_globs = [
         CONFIG['settings_base'],
         f'{SETTINGS["PATH"]}/**/*.md',
-        f'{SETTINGS["THEME"]}/templates/**',
-        f'{SETTINGS["THEME"]}/static/**',
+        f'{SETTINGS["THEME"]}/templates/**/*',
+        f'{SETTINGS["THEME"]}/static/**/*',
     ]
     for glob in watched_globs:
         server.watch(glob, cached_html)
