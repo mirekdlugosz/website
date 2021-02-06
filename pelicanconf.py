@@ -49,20 +49,19 @@ INDEX_SAVE_AS = 'blog/index.html'
 ARCHIVES_URL = 'blog/archives.html'
 ARCHIVES_SAVE_AS = ARCHIVES_URL
 
-STATIC_PATHS = ['root', 'certificates',
+STATIC_PATHS = ['static',
                 # directories that are not referenced in articles,
                 # but should be placed somewhere in `static`
                 '2015/bakeries-map']
-certificates_metadata = {}
-for cert_file in (Path(PATH) / 'certificates').glob('*'):
-    cert_file = cert_file.relative_to(PATH).as_posix()
-    cert_metadata = {'save_as': cert_file}
-    certificates_metadata[cert_file] = cert_metadata
-EXTRA_PATH_METADATA = {
-    'root/.htaccess': {'save_as': '.htaccess'},
-    'root/.drafts_htaccess': {'save_as': 'drafts/.htaccess'},
-    **certificates_metadata
-}
+EXTRA_PATH_METADATA = {}
+static_path_root = Path(PATH) / 'static'
+for static_file in static_path_root.glob('**/*'):
+    if static_file.is_dir():
+        continue
+    target_path = static_file.relative_to(static_path_root).as_posix()
+    static_file = static_file.relative_to(PATH).as_posix()
+    EXTRA_PATH_METADATA[static_file] = {'save_as': target_path}
+del static_path_root
 # }}}
 # {{{ pagination
 INDEX_ARTICLES = 15
