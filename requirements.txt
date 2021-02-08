@@ -9,7 +9,7 @@ pelican ~= 4.5.0
 pelican-neighbors
 
 ## in process of being ported to pelican-plugins
-https://github.com/mirekdlugosz/pelican-plugins-liquid-tags/archive/dont-wrap-p.zip
+https://github.com/pelican-plugins/liquid-tags/archive/main.zip
 https://github.com/mirekdlugosz/pelican-plugins-summary/archive/migrate.zip
 
 ## local - no intent of publishing

@@ -79,8 +79,10 @@ def figure(preprocessor, tag, markup):
         raise ValueError("{% figure %} requires filename")
 
     attrs = process_args(markup)
+    content = single_image(**attrs)
+    content = preprocessor.configs.htmlStash.store(content)
 
-    return single_image(**attrs)
+    return content
 
 
 @LiquidTags.register('gallery')
@@ -103,4 +105,6 @@ def gallery(preprocessor, tag, markup):
         attrs = process_args(image_markup)
         images.append(single_image(**attrs))
 
-    return '<div class="gallery">\n{gallery}</div>'.format(gallery="\n".join(images))
+    content = '<div class="gallery">\n{gallery}</div>'.format(gallery="\n".join(images))
+    content = preprocessor.configs.htmlStash.store(content)
+    return content
