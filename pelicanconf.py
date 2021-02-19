@@ -90,9 +90,6 @@ THEME = 'theme/'
 
 PRELOAD_FONTS_NAMES = (
     "merriweather-v21-latin_latin-ext-regular",
-    "merriweather-v21-latin_latin-ext-700",
-    "fa-solid-900",
-    "fa-brands-400",
 )
 
 CONTACT = (

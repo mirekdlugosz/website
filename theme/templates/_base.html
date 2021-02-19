@@ -14,9 +14,7 @@
         <link rel="stylesheet" href="{{ SITEURL }}/theme/css/style.min.css" type="text/css">
 
         {% for font_name in PRELOAD_FONTS_NAMES %}
-        {% for font_type in ("woff2", "woff") %}
-        <link rel="preload" href="{{ SITEURL }}/theme/fonts/{{ font_name }}.{{ font_type }}" as="font" type="font/{{ font_type }}" crossorigin>
-        {% endfor %}
+        <link rel="preload" href="{{ SITEURL }}/theme/fonts/{{ font_name }}.woff2" as="font" type="font/woff2" crossorigin>
         {% endfor %}
 
         {# Favicons are a touchy subject. For reasoning for the following code, see: http://stackoverflow.com/a/23851464/872397 #}
