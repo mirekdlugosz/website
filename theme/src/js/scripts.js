@@ -10,7 +10,7 @@
 
     document.addEventListener("scroll", function() {
         // Show the navbar when the page is scrolled up
-        var curWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+        // var curWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
         var currentTop = window.scrollY;
         var force = ((currentTop > previousTop) && (previousTop > 0));
 

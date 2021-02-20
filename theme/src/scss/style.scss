@@ -346,14 +346,52 @@ p.see-all {
     }
 }
 
-#about #profile {
-    text-align: center;
-    img {
-        width: 200px;
-        height: 200px;
-        margin: $paragraph-margin-bottom auto 0 auto;
-        border-radius: 50%;
-        background-size: cover;
+#top-image {
+    $navbar-offset: -100px;
+    background-image: url(/theme/img/header-bg.svg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-size: cover;
+    height: 100vh;
+    min-height: 200px;
+    max-height: calc(35vh + #{$navbar-offset});
+    background-position: center bottom;
+    margin-top: $navbar-offset;
+    margin-bottom: calc((#{$paragraph-margin-bottom} + 100px) * -1);
+    @include media-breakpoint-up(lg) {
+        max-height: calc(45vh - #{$navbar-offset});
+    }
+}
+
+#about {
+    $about-margin-left-lg: -25px;
+    $about-margin-left-xl: -200px;
+    $teal: #0085A1 !default;
+    #profile {
+        text-align: center;
+        img {
+            width: 200px;
+            height: 200px;
+            margin: $paragraph-margin-bottom auto 0 auto;
+            border-radius: 50%;
+            background-size: cover;
+            @include media-breakpoint-up(lg) {
+                margin-left: $about-margin-left-lg;
+            }
+            @include media-breakpoint-up(xl) {
+                margin-left: $about-margin-left-xl;
+            }
+        }
+    }
+    div[itemprop="description"] {
+        background-color: $body-bg;
+        border-radius: 1rem 1rem 0 0;
+        @include media-breakpoint-up(lg) {
+            margin-left: $about-margin-left-lg;
+        }
+        @include media-breakpoint-up(xl) {
+            margin-left: $about-margin-left-xl + ( $grid-gutter-width / 2 );
+        }
     }
 }
 
