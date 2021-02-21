@@ -94,7 +94,6 @@ Now that we have all the building blocks, it's time to wire them up. The general
 This is how my current implementation looks like:
 
 ```python
-@task
 def get_path_settings(paths):
     """Helper for liveserver function. Groups modified file into PAGE, ARTICLE
     or STATIC path variables. Returns dict of all three, or empty dict.
