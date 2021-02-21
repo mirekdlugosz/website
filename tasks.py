@@ -1,3 +1,4 @@
+import json
 import os
 import shlex
 import shutil
@@ -105,13 +106,50 @@ def serve(c):
     server.serve_forever()
 
 
+def get_path_settings(paths):
+    """Helper for liveserver function. Groups modified file into PAGE, ARTICLE
+    or STATIC path variables. Returns dict of all three, or empty dict.
+    """
+    PAGE_PATHS = []
+    ARTICLE_PATHS = []
+    STATIC_PATHS = []
+
+    for filepath in paths:
+        filepath = Path(filepath)
+
+        if not filepath.is_relative_to(SETTINGS['PATH']):
+            return {}
+
+        filepath = filepath.relative_to(SETTINGS['PATH']).as_posix()
+        if filepath.startswith(tuple(SETTINGS['STATIC_PATHS'])):
+            STATIC_PATHS.append(filepath)
+        elif filepath.startswith(tuple(SETTINGS['PAGE_PATHS'])):
+            PAGE_PATHS.append(filepath)
+        else:
+            ARTICLE_PATHS.append(filepath)
+
+    return {
+        'PAGE_PATHS': PAGE_PATHS,
+        'ARTICLE_PATHS': ARTICLE_PATHS,
+        'STATIC_PATHS': STATIC_PATHS
+    }
+
+
 @task(pre=[clean, thumbnails], post=[call(clean, path=SETTINGS["CACHE_PATH"])])
-def devserver(c):
+def devserver(c, full_rebuild=False):
     """Automatically rebuild site and reload browser tab upon file modification"""
     from livereload import Server
 
-    def cached_html():
-        html(c, extra_settings='CACHE_CONTENT=True LOAD_CONTENT_CACHE=True')
+    def cached_html(paths=None):
+        extra_settings = 'CACHE_CONTENT=True LOAD_CONTENT_CACHE=True'
+
+        if paths and not full_rebuild:
+            paths_settings = get_path_settings(paths)
+            for variable, changed in paths_settings.items():
+                value_as_json = json.dumps(changed)
+                extra_settings = f"{extra_settings} {variable}='{value_as_json}'"
+
+        html(c, extra_settings=extra_settings)
 
     def start_npm_devserver():
         cmd = "npm run devserver".split()
