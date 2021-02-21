@@ -42,6 +42,7 @@ The code below will set up `words` vector with all common English words from scr
     length(words)
 <!-- -->
 
+    #!text
     ## [1] 119050
 
 Finally we can verify if string is English word by checking if it exists in vector of known words. The nice thing is that we get vectorization for free.
@@ -50,6 +51,7 @@ Finally we can verify if string is English word by checking if it exists in vect
     c("knight", "stack", "selfie", "l8er", "googling", "echinuliform") %in% words
 <!-- -->
 
+    #!text
     ## [1]  TRUE  TRUE  TRUE FALSE  TRUE FALSE
 
 Or, instead of downloading archive and reading files, we could just use [`qdapDictionaries`](https://cran.r-project.org/web/packages/qdapDictionaries/index.html) package and load 
@@ -61,6 +63,7 @@ Or, instead of downloading archive and reading files, we could just use [`qdapDi
     c("knight", "stack", "selfie", "l8er", "googling", "echinuliform") %in% GradyAugmented
 <!-- -->
 
+    #!text
     ## [1] 122806
     ## [1]  TRUE  TRUE FALSE FALSE FALSE FALSE
 
