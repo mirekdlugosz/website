@@ -1,12 +1,21 @@
+AddType image/webp .webp
+
 ExpiresActive On
 ExpiresByType application/javascript "access plus 2 weeks"
 ExpiresByType text/javascript "access plus 2 weeks"
 ExpiresByType text/css "access plus 2 weeks"
 ExpiresByType image/jpeg "access plus 2 weeks"
 ExpiresByType image/png "access plus 2 weeks"
+ExpiresByType image/webp "access plus 2 weeks"
 ExpiresByType font/woff2 "access plus 4 weeks"
 
 RewriteEngine On
 RewriteBase /
 RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
 RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+
+RewriteCond %{HTTP_ACCEPT} image/webp
+RewriteCond %{REQUEST_FILENAME}.webp -f
+RewriteRule \.(jpe?g|png)$ %{REQUEST_FILENAME}.webp [T=image/webp,E=REQUEST_image,L]
+
+Header append Vary Accept env=REQUEST_image

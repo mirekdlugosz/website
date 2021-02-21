@@ -1,4 +1,5 @@
 import json
+import logging
 import os
 import shlex
 import shutil
@@ -12,6 +13,7 @@ from invoke.main import program
 from pelican import main as pelican_main
 from pelican.server import ComplexHTTPRequestHandler, RootedHTTPServer
 from pelican.settings import DEFAULT_CONFIG, get_settings_from_file
+from PIL import Image
 
 SETTINGS_FILE_BASE = 'pelicanconf.py'
 SETTINGS = {}
@@ -70,6 +72,38 @@ def thumbnails(c, clean=False):
 def clean_thumbnails(c):
     """Remove generated thumbnails"""
     thumbnails(c, clean=True)
+
+
+@task
+def webp(c, directory=""):
+    """Generate webp version of images in output directory"""
+    def is_image(path):
+        suffix = Path(path).suffix.strip('.')
+        return suffix in ('jpg', 'jpeg', 'png')
+
+    logger = logging.getLogger('webp')
+    log_level = logging.DEBUG if CONFIG['debug'] else logging.INFO
+    logger.setLevel(log_level)
+
+    if not directory:
+        directory = CONFIG['deploy_path']
+
+    print(f"Generating webp of image files inside '{directory}'")
+    input_dir = Path(directory)
+
+    for filepath in input_dir.glob('**/*'):
+        if not is_image(filepath):
+            continue
+        output_path = f"{filepath.as_posix()}.webp"
+        logger.debug(f"Writing {output_path}...")
+        try:
+            with Image.open(filepath) as im:
+                im.save(output_path)
+            logger.debug("   Done")
+        except OSError:
+            logger.error(
+                f"Failed to process {filepath.as_posix()}", exc_info=True
+            )
 
 
 @task
@@ -185,7 +219,7 @@ def publish(c):
     pelican_run(cmd.format(**CONFIG))
 
 
-@task(pre=[publish])
+@task(pre=[publish, webp])
 def rsync_upload(c):
     """Publish to production via rsync"""
     rsync_cmd = [
