@@ -350,16 +350,19 @@ p.see-all {
     $navbar-offset: -100px;
     background-image: url(/theme/img/header-bg.svg);
     background-repeat: no-repeat;
-    background-size: 100%;
     background-size: cover;
     height: 100vh;
     min-height: 200px;
-    max-height: calc(35vh + #{$navbar-offset});
+    max-height: calc(25vh - #{$navbar-offset});
     background-position: center bottom;
     margin-top: $navbar-offset;
     margin-bottom: calc((#{$paragraph-margin-bottom} + 100px) * -1);
     @include media-breakpoint-up(lg) {
-        max-height: calc(45vh - #{$navbar-offset});
+        background-size: 100%;
+        max-height: calc(35vh - #{$navbar-offset});
+    }
+    @include media-breakpoint-up(xl) {
+        max-height: calc(50vh - #{$navbar-offset});
     }
 }
 
