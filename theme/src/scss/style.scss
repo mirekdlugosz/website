@@ -367,11 +367,12 @@ p.see-all {
 }
 
 #about {
-    $about-margin-left-lg: -25px;
-    $about-margin-left-xl: -200px;
-    $teal: #0085A1 !default;
     #profile {
         text-align: center;
+        @include media-breakpoint-up(lg) {
+            position: absolute;
+            left: 25px;
+        }
         img {
             width: 200px;
             height: 200px;
@@ -379,22 +380,13 @@ p.see-all {
             border-radius: 50%;
             background-size: cover;
             @include media-breakpoint-up(lg) {
-                margin-left: $about-margin-left-lg;
-            }
-            @include media-breakpoint-up(xl) {
-                margin-left: $about-margin-left-xl;
+                margin-left: 0;
             }
         }
     }
     div[itemprop="description"] {
         background-color: $body-bg;
         border-radius: 1rem 1rem 0 0;
-        @include media-breakpoint-up(lg) {
-            margin-left: $about-margin-left-lg;
-        }
-        @include media-breakpoint-up(xl) {
-            margin-left: $about-margin-left-xl + ( $grid-gutter-width / 2 );
-        }
     }
 }
 
