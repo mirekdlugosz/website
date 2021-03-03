@@ -60,6 +60,7 @@ def thumbnails(c, clean=False):
     cmd = [
         'python3',
         './scripts/generate-thumbnails.py',
+        '--ignore', '/social-thumbs/'
     ]
     if clean:
         cmd.append('--rm')

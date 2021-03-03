@@ -2,24 +2,26 @@
 
 import argparse
 import logging
-import sys
 import math
 from pathlib import Path
 
 from PIL import Image
+from pelican.settings import DEFAULT_CONFIG, get_settings_from_file
+
+pelicanconf = {
+    **DEFAULT_CONFIG,
+    **get_settings_from_file('pelicanconf.py'),
+}
 
 PELICAN_ROOT = Path(__file__).resolve().parent.parent.as_posix()
-sys.path.insert(0, PELICAN_ROOT)
-import pelicanconf
-
-THUMBNAIL_SUFFIX = getattr(pelicanconf, 'THUMBNAIL_SUFFIX', '-min')
-THUMBNAIL_HEIGHT = getattr(pelicanconf, 'THUMBNAIL_HEIGHT', 150)
+THUMBNAIL_SUFFIX = pelicanconf.get('THUMBNAIL_SUFFIX', '-min')
+THUMBNAIL_HEIGHT = pelicanconf.get('THUMBNAIL_HEIGHT', 150)
 # dict of {path: (width, height)}
-THUMBNAIL_SIZES = getattr(pelicanconf, 'THUMBNAIL_SIZES', {})
+THUMBNAIL_SIZES = pelicanconf.get('THUMBNAIL_SIZES', {})
 
 
 def pelican_content_path():
-    content_path = getattr(pelicanconf, 'PATH')
+    content_path = pelicanconf.get('PATH')
     if not Path(content_path).is_absolute():
         content_path = Path(PELICAN_ROOT).joinpath(content_path).as_posix()
     return content_path
@@ -28,6 +30,14 @@ def pelican_content_path():
 def is_image(path):
     suffix = Path(path).suffix.strip('.')
     return suffix in ('jpg', 'png')
+
+
+def is_ignored(path, ignored_list):
+    absolute_path = path.absolute().as_posix()
+    for item in ignored_list:
+        if item in absolute_path:
+            return True
+    return False
 
 
 def is_thumbnail(path):
@@ -75,6 +85,8 @@ def parse_args():
                         help="Generate thumbnail even if one already exists")
     parser.add_argument("-r", "--rm", action="store_true", default=False,
                         help="Only remove thumbnails")
+    parser.add_argument("-i", "--ignore", action="append", dest="ignored",
+                        help="Ignore files with paths containing argument")
     parser.add_argument("-d", "--debug", action="store_true", default=False,
                         help="Print debugging messages")
     parser.add_argument("dir", nargs="?", default=pelican_content_path(),
@@ -104,6 +116,9 @@ if __name__ == '__main__':
             continue
         if not is_image(path):
             logging.debug(f"Skipping non-image file {log_path}")
+            continue
+        if is_ignored(path, args.ignored):
+            logging.debug(f"Skipping file in ignored path {log_path}")
             continue
         if is_thumbnail(path):
             if args.rm:
