@@ -8,6 +8,7 @@ pelican ~= 4.5.0
 ## available on pip
 pelican-neighbors
 pelican-liquid-tags
+pelican-social-cards
 
 ## in process of being ported to pelican-plugins
 https://github.com/mirekdlugosz/pelican-plugins-summary/archive/migrate.zip
