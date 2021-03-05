@@ -1,20 +1,63 @@
 {# Open Graph tags #}
-{% if USE_OPEN_GRAPH %}
+{%- if USE_OPEN_GRAPH -%}
+{%- if article -%}
+    {% set og_title = article.title|striptags|escape %}
+    {% set og_url = article.url %}
+    {% set og_description = article.summary|striptags|escape %}
+    {% if article.author %}
+        {% set og_author = article.author %}
+    {% endif %}
+    {% if article.og_image %}
+        {% set og_image = article.og_image %}
+    {% endif %}
+{%- elif page -%}
+    {% set og_title = page.title|striptags|escape %}
+    {% set og_url =  page.url %}
+    {% set og_description = page.summary|striptags|escape %}
+    {% if page.author %}
+        {% set og_author = page.author %}
+    {% endif %}
+    {% if page.og_image %}
+        {% set og_image = page.og_image %}
+    {% endif %}
+{%- else -%}
+    {% set og_type = "website" %}
+    {% set og_title = SITENAME %}
+    {% set og_description = SITENAME %}
+{%- endif -%}
+
+{%- if not og_image and OPEN_GRAPH_IMAGE -%}
+    {% set og_image = OPEN_GRAPH_IMAGE%}
+{%- endif -%}
+
+{%- if article or page -%}
+    {% set og_type = "article" %}
+    {% if not og_author and AUTHOR %}
+        {% set og_author = AUTHOR %}
+    {% endif %}
+{%- endif -%}
+
+{%- if tag -%}
+    {% set og_url = tag.url %}
+{%- endif -%}
 <!-- Open Graph tags -->
 {% if OPEN_GRAPH_FB_APP_ID %}
 <meta property="fb:app_id" content="{{ OPEN_GRAPH_FB_APP_ID }}"/>
 {% endif %}
 <meta property="og:site_name" content="{{ SITENAME }}" />
-<meta property="og:type" content="website"/>
-<meta property="og:title" content="{{ SITENAME }}"/>
-<meta property="og:url" content="{{ SITEURL }}"/>
-<meta property="og:description" content="{{ SITENAME }}"/>
-{% if OPEN_GRAPH_IMAGE %}
-<meta property="og:image" content="{{ SITEURL }}/{{ OPEN_GRAPH_IMAGE }}"/>
+<meta property="og:type" content="{{ og_type }}"/>
+<meta property="og:title" content="{{ og_title }}"/>
+<meta property="og:url" content="{{ SITEURL }}{% if og_url %}/{{ og_url }}{% endif %}"/>
+<meta property="og:description" content="{{ og_description }}"/>
+{% if og_author %}
+<meta property="article:author" content="{{ og_author }}" />
 {% endif %}
+{% if og_image %}
+<meta property="og:image" content="{{ SITEURL }}/{{ og_image }}"/>
 {% endif %}
+{%- endif -%}
 
-{% if TWITTER_CARDS and USE_OPEN_GRAPH %}
+{%- if TWITTER_CARDS and USE_OPEN_GRAPH -%}
 {# Do not include duplicates tag with og ones. #}
 {# Twitter is able to infer them from og. #}
 <meta name="twitter:card" content="summary">
@@ -35,5 +78,5 @@
 {% elif OPEN_GRAPH_IMAGE %}
 <meta property="twitter:image" content="{{ SITEURL }}/{{ OPEN_GRAPH_IMAGE }}"/>
 {% endif %}
-{% endif %}
-{% endif %}
+{%- endif -%}
+{%- endif -%}
