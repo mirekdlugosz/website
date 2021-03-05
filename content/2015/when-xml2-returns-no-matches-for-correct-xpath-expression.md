@@ -3,6 +3,7 @@ Slug: when-xml2-returns-no-matches-for-correct-xpath-expression
 Tags: R
 Category: Blog
 Date: 2015-10-06 22:22:04
+og_image_text: When xml2 returns\n“No matches”\nfor obviously correct\nXPath expression
 
 The other day I was trying to fetch some data from XML file using R package `xml2`, but `xml_find_one` function kept returning `Error: No matches`. Here's what was wrong, why it was wrong and how to fix it.
 
