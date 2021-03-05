@@ -30,6 +30,7 @@ CONFIG = {
     'settings_base': SETTINGS_FILE_BASE,
     'settings_publish': 'publishconf.py',
     'debug': env_var('DEBUG'),
+    'social_cards_root': Path(SETTINGS['SOCIAL_CARDS_PATH']).relative_to('static').as_posix(),
     # Output path. Can be absolute or relative to tasks.py. Default: 'output'
     'deploy_path': SETTINGS['OUTPUT_PATH'],
     # Remote server configuration
@@ -60,7 +61,7 @@ def thumbnails(c, clean=False):
     cmd = [
         'python3',
         './scripts/generate-thumbnails.py',
-        '--ignore', '/social-thumbs/'
+        '--ignore', SETTINGS['SOCIAL_CARDS_PATH']
     ]
     if clean:
         cmd.append('--rm')
@@ -82,6 +83,9 @@ def webp(c, directory=""):
         suffix = Path(path).suffix.strip('.')
         return suffix in ('jpg', 'jpeg', 'png')
 
+    def is_social_card(path):
+        return CONFIG['social_cards_root'] in path.as_posix()
+
     logger = logging.getLogger('webp')
     log_level = logging.DEBUG if CONFIG['debug'] else logging.INFO
     logger.setLevel(log_level)
@@ -94,6 +98,8 @@ def webp(c, directory=""):
 
     for filepath in input_dir.glob('**/*'):
         if not is_image(filepath):
+            continue
+        if is_social_card(filepath):
             continue
         output_path = f"{filepath.as_posix()}.webp"
         logger.debug(f"Writing {output_path}...")
