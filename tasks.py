@@ -244,7 +244,8 @@ def rsync_upload(c):
         '{ssh_host}',
         "'devil www options {domain} cache purge'",
     ])
-    c.run(purge_remote_cache_cmd.format(**CONFIG))
+    if not env_var('DRY_RUN'):
+        c.run(purge_remote_cache_cmd.format(**CONFIG))
 
 
 def pelican_run(cmd):
