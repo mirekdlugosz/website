@@ -99,6 +99,8 @@ CONTACT = (
 )
 
 USE_OPEN_GRAPH = True
+TWITTER_CARDS = True
+TWITTER_USERNAME = "mirekdlugosz"
 
 BUILD_DATE = datetime.date.today().year
 
