@@ -125,7 +125,7 @@ MARKDOWN = {
 
 TYPOGRIFY = True
 
-SOCIAL_CARDS_TEMPLATE = './theme/src/img/social-card-template.png'
+SOCIAL_CARDS_TEMPLATE = './theme/src/img/social-card-template.jpg'
 SOCIAL_CARDS_PATH = 'static/static/social-cards/'
 SOCIAL_CARDS_FONT_FILENAME = 'DejaVuSans.ttf'
 SOCIAL_CARDS_FONT_FILL = '#ffffff'
@@ -136,6 +136,7 @@ SOCIAL_CARDS_CANVAS_LEFT = 40
 SOCIAL_CARDS_CANVAS_TOP = 248
 SOCIAL_CARDS_LEADING = 15
 SOCIAL_CARDS_CHARS_PER_LINE = 30
+SOCIAL_CARDS_FORMAT_EXTENSION = 'jpg'
 # }}}
 
 # vim: fdm=marker
