@@ -25,6 +25,17 @@ PROJECTS = [
         'starred': False,
     },
     {
+        'name': 'Pelican Social Cards plugin',
+        'href': 'https://github.com/mirekdlugosz/pelican-social-cards',
+        'imagetitle': 'pelican-social-cards',
+        'tags': ['Python', 'Pillow', 'pytest'],
+        'description': """
+            <a href="https://blog.getpelican.com/">Pelican</a> plugin that generates images to make your posts more visually appealing on social media.
+            <a href="https://github.com/mirekdlugosz/pelican-social-cards">GitHub</a>.
+        """,
+        'starred': True,
+    },
+    {
         'name': 'Pelican Metadata Generator',
         'href': 'https://github.com/mirekdlugosz/pelican-metadata-generator',
         'imagetitle': 'pelican',
@@ -33,7 +44,7 @@ PROJECTS = [
             Graphical application to create <a href="https://blog.getpelican.com/">Pelican</a> post metadata.
             <a href="https://github.com/mirekdlugosz/pelican-metadata-generator">GitHub</a>.
         """,
-        'starred': True,
+        'starred': False,
     },
     {
         'name': 'Airgun',
