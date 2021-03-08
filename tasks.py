@@ -5,6 +5,7 @@ import shlex
 import shutil
 import subprocess
 import sys
+from io import BytesIO
 from pathlib import Path
 
 from invoke import task
@@ -101,16 +102,30 @@ def webp(c, directory=""):
             continue
         if is_social_card(filepath):
             continue
+
         output_path = f"{filepath.as_posix()}.webp"
-        logger.debug(f"Writing {output_path}...")
         try:
-            with Image.open(filepath) as im:
-                im.save(output_path)
-            logger.debug("   Done")
+            im = Image.open(filepath)
         except OSError:
             logger.error(
                 f"Failed to process {filepath.as_posix()}", exc_info=True
             )
+            continue
+        logger.debug(f"Writing {output_path}...")
+
+        webp_img = BytesIO()
+        im.save(webp_img, 'webp')
+        webp_size = webp_img.tell()
+        png_size = filepath.stat().st_size
+
+        if webp_size >= png_size:
+            logger.debug("   Webp file larger than PNG file, skipping")
+            continue
+
+        with open(output_path, 'wb') as fh:
+            fh.write(webp_img.getvalue())
+
+        logger.debug("   Done")
 
 
 @task
