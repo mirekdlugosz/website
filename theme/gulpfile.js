@@ -81,6 +81,7 @@ exports.images = images;
 exports.default = gulp.parallel(exports.css, exports.js, exports.fonts, exports.images);
 
 exports.dev = gulp.series(function() {
+    gulp.watch('./src/img/**', { ignoreInitial: false }, exports.images);
     gulp.watch('./src/**/*.scss', { ignoreInitial: false }, exports.css);
     gulp.watch('./src/**/*.js', { ignoreInitial: false }, exports.js);
 });
