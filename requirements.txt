@@ -17,6 +17,3 @@ https://github.com/mirekdlugosz/pelican-plugins-summary/archive/migrate.zip
 ./plugins/figures
 ./plugins/readtime
 ./plugins/rename-to-slug
-
-# scripts requirements
-Pillow ~= 8.0.0
