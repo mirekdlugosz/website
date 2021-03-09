@@ -48,12 +48,36 @@ CONFIG = {
 CONFIG['ssh_path'] = CONFIG['ssh_path'].format(**CONFIG)
 
 
-@task
-def clean(c, path=CONFIG['deploy_path']):
-    """Remove generated files"""
+def remove_directory(path=CONFIG['deploy_path']):
     dir_path = Path(path)
     if dir_path.is_dir():
         shutil.rmtree(dir_path)
+
+
+@task
+def clean(c):
+    """Remove auto-generated files"""
+    clean_output(c)
+    clean_thumbnails(c)
+    clean_social_cards(c)
+
+
+@task
+def clean_output(c):
+    """Remove site built by Pelican"""
+    remove_directory(CONFIG['deploy_path'])
+
+
+@task
+def clean_thumbnails(c):
+    """Remove auto-generated thumbnails"""
+    thumbnails(c, clean=True)
+
+
+@task
+def clean_social_cards(c):
+    """Remove images created by pelican-social-cards"""
+    remove_directory(Path(SETTINGS['PATH']) / SETTINGS['SOCIAL_CARDS_PATH'])
 
 
 @task
@@ -69,12 +93,6 @@ def thumbnails(c, clean=False):
     if CONFIG['debug']:
         cmd.append('--debug')
     c.run(' '.join(cmd))
-
-
-@task
-def clean_thumbnails(c):
-    """Remove generated thumbnails"""
-    thumbnails(c, clean=True)
 
 
 @task
@@ -135,7 +153,7 @@ def theme(c):
         c.run('npx gulp')
 
 
-@task(pre=[clean, thumbnails])
+@task(pre=[clean_output, thumbnails])
 def html(c, extra_settings=None):
     """Build local version of site"""
     cmd = '-s {settings_base}'
@@ -191,7 +209,7 @@ def get_path_settings(paths):
     }
 
 
-@task(pre=[clean, thumbnails], post=[call(clean, path=SETTINGS["CACHE_PATH"])])
+@task(pre=[clean_output, thumbnails])
 def devserver(c, full_rebuild=False):
     """Automatically rebuild site and reload browser tab upon file modification"""
     from livereload import Server
@@ -230,9 +248,10 @@ def devserver(c, full_rebuild=False):
     cached_html()
     server.serve(host=CONFIG['host'], port=CONFIG['port'], root=CONFIG['deploy_path'])
     npm_devserver.terminate()
+    remove_directory(SETTINGS['CACHE_PATH'])
 
 
-@task(pre=[clean, thumbnails, theme])
+@task(pre=[clean_output, thumbnails, theme])
 def publish(c):
     """Build production version of site"""
     cmd = '-s {settings_publish}'
