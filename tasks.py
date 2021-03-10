@@ -164,6 +164,23 @@ def html(c, extra_settings=None):
     pelican_run(cmd.format(**CONFIG))
 
 
+@task(post=[clean_output])
+def generate_social_cards(c):
+    """Force generating social media cards (og:image)"""
+    new_settings = 'socialcardsconf.py'
+    file_content = [
+        "import os",
+        "import sys",
+        "sys.path.append(os.curdir)",
+        "from pelicanconf import *",
+        "SOCIAL_CARDS_FORCE_SAVE = True",
+    ]
+    with open(new_settings, 'w') as fh:
+        fh.write("\n".join(file_content))
+    pelican_run(f'-s {new_settings}')
+    Path(new_settings).unlink()
+
+
 @task
 def serve(c):
     """Serve existing build at http://$HOST:$PORT/ (default is localhost:8000)"""
@@ -260,7 +277,7 @@ def publish(c):
     pelican_run(cmd.format(**CONFIG))
 
 
-@task(pre=[publish, webp])
+@task(pre=[generate_social_cards, publish, webp])
 def rsync_upload(c):
     """Publish to production via rsync"""
     rsync_cmd = [
