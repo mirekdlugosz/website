@@ -33,6 +33,8 @@ def is_image(path):
 
 
 def is_ignored(path, ignored_list):
+    if not ignored_list:
+        return False
     absolute_path = path.absolute().as_posix()
     for item in ignored_list:
         if item in absolute_path:
