@@ -125,6 +125,10 @@ MARKDOWN = {
 
 TYPOGRIFY = True
 
+THUMBNAIL_SIZES = {
+    'content/2021/pelican-social-cards-announcement/sample-card-with-image.png': (342, 300),
+}
+
 SOCIAL_CARDS_TEMPLATE = './theme/src/img/social-card-template.jpg'
 SOCIAL_CARDS_PATH = 'static/static/social-cards/'
 SOCIAL_CARDS_FONT_FILENAME = 'DejaVuSans.ttf'
