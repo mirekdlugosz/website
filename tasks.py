@@ -182,6 +182,13 @@ def generate_social_cards(c):
 
 
 @task
+def purgecss(c):
+    """Minimize CSS files by removing unused classes"""
+    with c.cd('theme/'):
+        c.run('npx purgecss -c purgecss.config.js')
+
+
+@task
 def serve(c):
     """Serve existing build at http://$HOST:$PORT/ (default is localhost:8000)"""
 
@@ -268,7 +275,7 @@ def devserver(c, full_rebuild=False):
     remove_directory(SETTINGS['CACHE_PATH'])
 
 
-@task(pre=[clean_output, thumbnails, theme])
+@task(pre=[clean_output, thumbnails, theme], post=[purgecss])
 def publish(c):
     """Build production version of site"""
     cmd = '-s {settings_publish}'
