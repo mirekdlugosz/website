@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.15.4",
     "bootstrap": "^4.6.0",
+    "bootstrap-icons": "^1.7.1",
     "bootstrap.native": "^3.0.14",
     "popper.js": "^1.16.1",
     "purgecss": "^4.0.3"

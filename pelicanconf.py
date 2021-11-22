@@ -93,9 +93,9 @@ PRELOAD_FONTS_NAMES = (
 )
 
 CONTACT = (
-    ('Email', 'mailto:mirek %at% mirekdlugosz.com', 'envelope fas'),
-    ('Twitter', 'https://twitter.com/mirekdlugosz', 'twitter fab'),
-    ('LinkedIn', 'https://www.linkedin.com/in/mirekdlugosz/en', 'linkedin-in fab'),
+    ('Email', 'mailto:mirek %at% mirekdlugosz.com', 'envelope'),
+    ('Twitter', 'https://twitter.com/mirekdlugosz', 'twitter'),
+    ('LinkedIn', 'https://www.linkedin.com/in/mirekdlugosz/en', 'linkedin'),
 )
 
 USE_OPEN_GRAPH = True

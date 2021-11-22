@@ -11,7 +11,6 @@ function css_compile() {
     return gulp.src([
         './src/scss/variables.scss',
         './src/scss/bootstrap.scss',
-        './src/scss/fontawesome.scss',
         './src/scss/pygments.scss',
         './vendor/Merriweather/style.scss',
         './src/scss/style.scss',
@@ -58,7 +57,6 @@ exports.js = gulp.series(js_minify);
 // copy FontAwesome font files
 function fonts() {
     return gulp.src([
-        './node_modules/@fortawesome/fontawesome-free/webfonts/*',
         './vendor/Merriweather/*',
         '!./vendor/Merriweather/style.scss'
     ])

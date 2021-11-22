@@ -168,6 +168,21 @@ figcaption,
     text-align: center;
 }
 
+svg.bi {
+    height: 1em;
+    vertical-align: text-top;
+
+    &.bi-tags-fill,
+    &.bi-rss {
+        height: 1.2em;
+    }
+    &.bi-chevron-right,
+    &.bi-clock {
+        vertical-align: middle;
+    }
+
+}
+
 ::-moz-selection {
     color: $white;
     background: $primary;
@@ -398,10 +413,8 @@ p.see-all {
 
 #contact .item {
     text-align: center;
-    .far,
-    .fas,
-    .fab {
-        font-size: 3em;
+    svg.bi {
+        height: 3em;
     }
     a:hover {
         text-decoration: none;
