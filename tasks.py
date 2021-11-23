@@ -155,7 +155,7 @@ def theme(c):
 
 @task(pre=[clean_output, thumbnails])
 def html(c, extra_settings=None):
-    """Build local version of site"""
+    """Build site using development configuration"""
     cmd = '-s {settings_base}'
     if CONFIG['debug']:
         cmd = f'{cmd} -D'
@@ -276,15 +276,21 @@ def devserver(c, full_rebuild=False):
 
 
 @task(pre=[clean_output, thumbnails, theme], post=[purgecss])
-def publish(c):
-    """Build production version of site"""
+def html_prod(c):
+    """Build site using production configuration"""
     cmd = '-s {settings_publish}'
     if CONFIG['debug']:
         cmd = f'{cmd} -D'
     pelican_run(cmd.format(**CONFIG))
 
 
-@task(pre=[generate_social_cards, publish, webp])
+@task(pre=[generate_social_cards, html_prod, webp])
+def publish(c):
+    """Build production version of site (including all related tasks)"""
+    pass
+
+
+@task(pre=[publish])
 def rsync_upload(c):
     """Publish to production via rsync"""
     rsync_cmd = [
