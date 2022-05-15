@@ -239,7 +239,7 @@ def devserver(c, full_rebuild=False):
     from livereload import Server
 
     def cached_html(paths=None):
-        extra_settings = 'CACHE_CONTENT=True LOAD_CONTENT_CACHE=True'
+        extra_settings = 'CACHE_CONTENT=true LOAD_CONTENT_CACHE=true'
 
         if paths and not full_rebuild:
             paths_settings = get_path_settings(paths)
