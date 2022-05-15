@@ -14,6 +14,17 @@ PROJECTS = [
         'starred': False,
     },
     {
+        'name': 'Kustosz',
+        'href': 'https://www.kustosz.org/',
+        'imagetitle': 'kustosz',
+        'tags': ['Python', 'Django', 'Vue.JS'],
+        'description': """
+            Focus on the worthwhile content with Kustosz, open source self-hosted web application.
+            <a href="https://github.com/KustoszApp">GitHub</a>.
+        """,
+        'starred': True,
+    },
+    {
         'name': 'createPokémon.team',
         'href': 'https://createpokemon.team/',
         'imagetitle': 'createpokemonteam',
@@ -58,7 +69,7 @@ PROJECTS = [
             I was maintaining it from June 2019 to June 2020.
             <a href="https://github.com/SatelliteQE/airgun">GitHub</a>.
         """,
-        'starred': True,
+        'starred': False,
     },
     {
         'name': 'Civic engagement in Europe',
