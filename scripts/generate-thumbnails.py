@@ -76,7 +76,7 @@ def create_thumbnail(path):
 
     img = Image.open(path)
     width, height = get_thumbnail_dimensions(path, img)
-    img = img.resize((width, height), Image.LANCZOS)
+    img = img.resize((width, height), Image.Resampling.LANCZOS)
     img.save(thumb_path)
     logging.info(f"Created {thumb_path}")
 
