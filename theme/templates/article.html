@@ -1,5 +1,7 @@
 {% extends "_base.html" %}
 
+{% block page_classes %}singular article article-{{ article.slug }}{% endblock %}
+
 {% block title %}{{ article.title|striptags }} - {{ SITENAME }}{% endblock %}
 
 {% block html_lang %}{{ article.lang }}{% endblock %}
@@ -38,7 +40,7 @@
 {% endblock %}
 
 {% block content %}
-<section id="content" class="body article">
+<main id="content">
     <article>
         <header>
             <h1>
@@ -50,29 +52,31 @@
             </h1>
         </header>
         {% include "includes/article_info.html" %}
-        <div class="entry-content">
+        <section class="entry-content">
             {{ article.content }}
-        </div>
+        </section>
         <!-- /.entry-content -->
-        <ul class="pager read-next row no-gutters justify-content-between">
-            <li class="previous col-md-6">
-                {% if article.prev_article %}
-                <a href="{{ SITEURL }}/{{ article.prev_article.url}}">
-                    <p>Previous article</p>
-                    <h3>{{ article.prev_article.title }}</h3>
-                </a>
-                {% endif %}
-            </li>
-            <li class="next col-md-6">
-                {% if article.next_article %}
-                <a href="{{ SITEURL }}/{{ article.next_article.url}}">
-                    <p>Next article</p>
-                    <h3>{{ article.next_article.title }}</h3>
-                </a>
-                {% endif %}
-            </li>
-        </ul>
+        <section id="read-next">
+            <ul>
+                <li class="previous">
+                    {% if article.prev_article %}
+                    <a href="{{ SITEURL }}/{{ article.prev_article.url}}">
+                        <p>Previous article</p>
+                        <h3>{{ article.prev_article.title }}</h3>
+                    </a>
+                    {% endif %}
+                </li>
+                <li class="next">
+                    {% if article.next_article %}
+                    <a href="{{ SITEURL }}/{{ article.next_article.url}}">
+                        <p>Next article</p>
+                        <h3>{{ article.next_article.title }}</h3>
+                    </a>
+                    {% endif %}
+                </li>
+            </ul>
+        </section>
         {% include 'includes/comments.html' %}
     </article>
-</section>
+</main>
 {% endblock %}

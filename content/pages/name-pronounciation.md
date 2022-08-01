@@ -1,4 +1,5 @@
-title: What's in a name?
+title: How to pronounce "Mirek Długosz"?
+slug: how-to-pronounce
 hidden: True
 
 My legal name is Mirosław Długosz-Zalewski, but I go by Mirek Długosz (Dlugosz)

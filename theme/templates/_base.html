@@ -1,18 +1,11 @@
 <!DOCTYPE html>
-<html lang="{% block html_lang %}{{ DEFAULT_LANG }}{% endblock %}" {% if USE_OPEN_GRAPH %}
-      xmlns:og="http://ogp.me/ns#"
-      xmlns:fb="https://www.facebook.com/2008/fbml"{% endif %}>
+<html lang="{% block html_lang %}{{ DEFAULT_LANG }}{% endblock %}"{% if USE_OPEN_GRAPH %} xmlns:og="http://ogp.me/ns#" xmlns:fb="https://www.facebook.com/2008/fbml"{% endif %}>
     <head>
         {% block head %}
         <meta charset="utf-8">
         <title>{% block title %}{{ SITENAME }}{% endblock %}</title>
-        <!-- Using the latest rendering mode for IE -->
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-
         <link rel="stylesheet" href="{{ SITEURL }}/theme/css/style.min.css" type="text/css">
-
         {% for font_name in PRELOAD_FONTS_NAMES %}
         <link rel="preload" href="{{ SITEURL }}/theme/fonts/{{ font_name }}.woff2" as="font" type="font/woff2" crossorigin>
         {% endfor %}
@@ -20,9 +13,6 @@
         {# Favicons are a touchy subject. For reasoning for the following code, see: http://stackoverflow.com/a/23851464/872397 #}
         {% if FAVICON %}
         <link href="{{ SITEURL }}/{{ FAVICON }}" rel="icon">
-        {% endif %}
-        {% if FAVICON_IE %}
-        <!--[if IE]><link rel="shortcut icon" href="{{ SITEURL }}/{{ FAVICON_IE }}"><![endif]-->
         {% endif %}
         {% if TOUCHICON %}
         <link rel="apple-touch-icon" href="{{ SITEURL }}/{{ TOUCHICON }}">
@@ -35,9 +25,9 @@
         {% endblock %}
 
         {# Facebook OpenGraph and Twitter Cards tags #}
-        {% block opengraph %}
+        {%- block opengraph -%}
         {% include 'includes/social_media_tags.html' %}
-        {% endblock %}
+        {%- endblock -%}
 
         {% block feeds %}
         {% if FEED_ALL_ATOM %}
@@ -47,27 +37,18 @@
         <link href="{{ SITEURL }}/{{ FEED_ALL_RSS }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} RSS Feed"/>
         {% endif %}
         {% endblock feeds %}
-        {% include 'includes/ga.html' %}
         {% endblock head %}
     </head>
-    <body>
+    <body class="{% block page_classes %}{% endblock %}">
+        {% include 'includes/header.html' %}
 
         {% block main_body %}
-        {% include 'includes/navbar.html' %}
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-md-10 mx-auto">
-                    {% block content %}{% endblock %}
-                </div>
-            </div>
+        <div class="main-column">
+            {% block content %}{% endblock %}
         </div>
-        {% include 'includes/footer.html' %}
         {% endblock main_body %}
 
-        <script src="{{ SITEURL }}/theme/js/script.min.js"></script>
+        {% include 'includes/footer.html' %}
 
-        {% include 'includes/piwik.html' %}
-
-        {% block scripts %}{% endblock %}
     </body>
 </html>

@@ -2,12 +2,11 @@
 
 # {{{ imports
 import sys
-import os
 import datetime
 from pathlib import Path
-sys.path.insert(0, os.path.dirname(__file__))
+from ruamel.yaml import YAML
+sys.path.insert(0, str(Path(__file__).parent))
 import addins.jinja_filters
-from metadata import PROJECTS
 # }}}
 # {{{ main metadata
 AUTHOR = 'Mirek Długosz'
@@ -16,7 +15,7 @@ SITEURL = ''
 
 PATH = 'content'
 TIMEZONE = 'Europe/Warsaw'
-LOCALE = 'C'
+LOCALE = 'en_US.utf8'
 DEFAULT_LANG = 'en'
 DEFAULT_DATE_FORMAT = '%d %B %Y'
 # }}}
@@ -44,10 +43,8 @@ TAG_SAVE_AS = f"{TAG_URL}index.html"
 STATIC_URL = 'static/{path}'
 STATIC_SAVE_AS = STATIC_URL
 
-DIRECT_TEMPLATES = ['index', 'archives']
+DIRECT_TEMPLATES = ['index']
 INDEX_SAVE_AS = 'blog/index.html'
-ARCHIVES_URL = 'blog/archives.html'
-ARCHIVES_SAVE_AS = ARCHIVES_URL
 
 STATIC_PATHS = ['static',
                 # directories that are not referenced in articles,
@@ -62,15 +59,6 @@ for static_file in static_path_root.glob('**/*'):
     static_file = static_file.relative_to(PATH).as_posix()
     EXTRA_PATH_METADATA[static_file] = {'save_as': target_path}
 del static_path_root
-# }}}
-# {{{ pagination
-INDEX_ARTICLES = 15
-DEFAULT_PAGINATION = False
-# DEFAULT_PAGINATION = 5
-PAGINATION_PATTERNS = (
-    (1, '{base_name}/', '{base_name}/index.html'),
-    (2, '{base_name}/page/{number}/', '{base_name}/page/{number}/index.html'),
-)
 # }}}
 # {{{ ignored files
 READERS = {
@@ -106,7 +94,10 @@ BUILD_DATE = datetime.date.today().year
 
 JINJA_FILTERS = {
     'dict_replace': addins.jinja_filters.dict_replace,
+    'markdown': addins.jinja_filters.from_markdown,
 }
+
+PROJECTS = YAML(typ="safe").load(Path("projects.yaml"))
 # }}}
 # {{{ plugins
 

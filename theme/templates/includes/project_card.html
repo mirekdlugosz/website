@@ -1,20 +1,29 @@
-<div class="project-card">
-    <a href="{{ project.href }}" class="card-image" style="background-image: url('/theme/img/projects-{{ project.imagetitle }}.png')">
-    </a>
-    <div class="card-text">
-        <h2>
-            <a href="{{ project.href }}">{{ project.name }}</a>
-        </h2>
-        <div class="card-description">
-            <p>{{ project.description }}</p>
-            <p class="tags">
-            <span class="sr-only">Tags</span>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-tags-fill" viewBox="0 0 16 16">
-                <path d="M2 2a1 1 0 0 1 1-1h4.586a1 1 0 0 1 .707.293l7 7a1 1 0 0 1 0 1.414l-4.586 4.586a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 2 6.586V2zm3.5 4a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/>
-                <path d="M1.293 7.793A1 1 0 0 1 1 7.086V2a1 1 0 0 0-1 1v4.586a1 1 0 0 0 .293.707l7 7a1 1 0 0 0 1.414 0l.043-.043-7.457-7.457z"/>
-            </svg>
-            {% for tag in project.tags %}{{ tag }}{% if not loop.last %}, {% endif %}{% endfor%}
-            </p>
-        </div>
-    </div>
-</div>
+<section class="single-project">
+    <h2>{{ project.title }}</h2>
+    <section class="thumbnail">
+        <p><a href="/theme/img/projects-{{ project.image_slug }}.png"><img src="/theme/img/projects-{{ project.image_slug }}.png"></a></p>
+    </section>
+    <section class="links">
+        <p>
+        {% if project.url is defined %}
+            <a href="{{ project.url }}">{{ project.url_label }}</a>
+        {% endif %}
+        {% if project.repository is defined %}
+            {%- if "github" in project.repository -%}
+            <a href="{{ project.repository }}">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
+                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                </svg>
+                Github
+            </a>
+            {%- endif -%}
+        {% endif %}
+        </p>
+    </section>
+    <section class="description">
+        {{ project.description | markdown }}
+    </section>
+    {% if not project_loop.last %}
+    <hr>
+    {% endif %}
+</section>

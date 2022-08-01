@@ -1,4 +1,5 @@
 {% extends "_article_list.html" %}
+{% block page_classes %}{{ super() }} tag tag-{{ tag }}{% endblock %}
 {% block title %}{{ tag }} - {{ SITENAME }}{% endblock %}
 {% block meta %}
 <meta name="author" content="{{ AUTHOR }}" />

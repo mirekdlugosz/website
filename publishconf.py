@@ -3,8 +3,22 @@
 # explicitly specify it as your config file.
 
 import os
+import importlib
 import sys
 sys.path.append(os.curdir)
+
+# * Python caches imports
+# * within invoke, this is all single Python process
+# * pelicanconf has been imported by socialcardsconf
+# So if this is our first `inv publish` after `clean`, pelicanconf
+# is cached version executed back when social cards were generated.
+# Back then, `EXTRA_PATH_METADATA` could not include card images,
+# because they were not generated yet. As a result, first `publish`
+# after `clean` would put social card images in the wrong place.
+# importlib.reload() fixes the problem and `publish` becomes
+# idempotent again.
+import pelicanconf
+importlib.reload(pelicanconf)
 from pelicanconf import *
 
 SITEURL = 'https://mirekdlugosz.com'

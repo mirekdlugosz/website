@@ -1,5 +1,14 @@
+:root {
+    --pygment-text-color: #e7e9db;
+    --pygment-bg-color: #2f1e2e;
+}
+pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
 .highlight pre .hll { background-color: #4f424c }
-.highlight pre  { background: #2f1e2e; color: #e7e9db }
+.highlight pre { background: #2f1e2e; color: #e7e9db }
 .highlight pre .c { color: #776e71 } /* Comment */
 .highlight pre .err { color: #ef6155 } /* Error */
 .highlight pre .k { color: #815ba4 } /* Keyword */

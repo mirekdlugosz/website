@@ -1,10 +1,18 @@
 {% extends "_base.html" %}
-{% block title %}{{ page.title }} - {{ SITENAME }}{% endblock %}
+
+{% block page_classes %}singular page page-{{ page.slug }}{% endblock %}
+
+{% block title %}{{ page.title|striptags }} - {{ SITENAME }}{% endblock %}
 
 {% block html_lang %}{{ page.lang }}{% endblock %}
 
 {% block meta %}
-{{ super() }}
+{% if page.author %}
+<meta name="author" content="{{ page.author }}" />
+{% else %}
+<meta name="author" content="{{ AUTHOR }}" />
+{% endif %}
+
 {% if page.summary %}
 <meta name="description" content="{{ page.summary|striptags|escape }}" />
 {% endif %}
@@ -15,25 +23,29 @@
 {% endblock %}
 
 {% block content %}
-<section id="content" class="body page">
-    <header class="page-header">
-        <h1>
-            <a href="{{ SITEURL }}/{{ page.url }}"
-               rel="bookmark"
-               title="Permalink to {{ page.title|striptags }}">
-                {{ page.title }}
-            </a>
-        </h1>
-    </header>
-    <div class="entry-content">
-        {{ page.content }}
-        
-        {% block extra_content %}
-        {% endblock %}
+<main id="content">
+    <article>
+        <header class="page-header">
+            <h1>
+                <a href="{{ SITEURL }}/{{ page.url }}"
+                   rel="bookmark"
+                   title="Permalink to {{ page.title|striptags }}">
+                    {{ page.title }}
+                </a>
+            </h1>
+        </header>
+        <section class="entry-content">
+            {% block pre_page_content %}
+            {% endblock %}
 
+            {{ page.content }}
+
+            {% block post_page_content %}
+            {% endblock %}
+        </section>
         {% if page.comments == 'enabled' %}
             {% include 'includes/comments.html' %}
         {% endif %}
-    </div>
-</section>
+    </article>
+</main>
 {% endblock %}

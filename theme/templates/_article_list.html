@@ -1,34 +1,30 @@
 {% extends "_base.html" %}
+
+{% block page_classes %}archive{% endblock %}
+
 {% block content %}
+<section id="categories">
+    <h2>Categories</h2>
+    <ul class="links-list">
 
-{% set articles_to_loop = INDEX_ARTICLES %}
-{# if we are on tag page, display everything #}
-{% if all_articles %}
-    {% set articles_to_loop = articles | length %}
-{% endif %}
+        {% set filtered_tags = (tags| rejectattr("0.slug", "eq", "planet-python")) %}
+        {% for existing_tag in filtered_tags |sort %}
+        <li class="item category-item category-{{ existing_tag.0.slug }}{% if tag and existing_tag.0.name == tag %} active{% endif %}">
+            <a href="{{ SITEURL }}/{{ existing_tag.0.save_as }}">{{ existing_tag.0.name }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+</section>
 
-{% for article in articles %}
-{% if loop.index <= articles_to_loop %}
-<article class="post-preview">
-    <h2 class="post-title"><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h2>
-    {% include "includes/article_info.html" %}
-    <div class="summary">
-        {% if article.summary %}
-        {{ article.summary }}
-        {% endif %}
-        <p><a class="btn btn-secondary btn-sm" role="button" href="{{ SITEURL }}/{{ article.url }}">Continue reading
-            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
-                <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
-            </svg>
-        </a></p>
+<main id="articles">
+    {% for article in dates %}
+    <div class="article">
+        <p class="timestamp"><time datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time></p>
+        <p class="title">
+            <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a>
+        </p>
     </div>
-</article>
-{% if not loop.index == articles_to_loop %}
-<hr/>
-{% endif %}
-{% endif %}
-{% endfor %}
-
-<p class="see-all">Want to read more? See <a href="{{ SITEURL }}/{{ ARCHIVES_URL }}">Archives</a>.</p>
+    {% endfor %}
+</main>
 
 {% endblock content %}

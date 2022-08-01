@@ -1,0 +1,87 @@
+- title: "Kustosz"
+  url": "https://www.kustosz.org/"
+  url_label: "website"
+  repository: "https://github.com/KustoszApp"
+  image_slug: "kustosz"
+  description: |
+    Kustosz is [feed reader](https://en.wikipedia.org/wiki/News_aggregator)
+    with the goal of helping you to focus on worthwhile content. I
+    wrote separate [announcement post](/blog/2022/announcing-kustosz/)
+    that explores its unique features and my motivation.
+
+    I created backend while a friend of mine created frontend. Later I revamped
+    frontend, too. I also created website and documentation. Everything
+    is plugged into CI pipeline, making new releases almost fully
+    automatic. There's installer and container image.
+
+    Kustosz is now the primary way I read online content.
+
+- title: "createPokémon.team"
+  url: "https://createpokemon.team/"
+  url_label: "deployed app"
+  repository: "https://github.com/mirekdlugosz/create-pokemon-team"
+  image_slug: "createpokemonteam"
+  description: |
+    Web application that helps you build your own Pokémon team in any core
+    series game. There's an [announcement post](/blog/2018/why-i-love-pokemon/)
+    that covers history of the project and my relationship with the franchise.
+
+    It became a little popular among Pokémon fans, attracting around 3000 users
+    each month and spawning a small discussion on reddit.
+
+- title: "Pelican Social Cards plugin"
+  repository: "https://github.com/mirekdlugosz/pelican-social-cards"
+  image_slug: "pelican-social-cards"
+  description: |
+    [Pelican](https://getpelican.com/) plugin that generates images to make
+    your posts more visually appealing on social media. This is the result of
+    scratching my own itch, as I explained in [announcement
+    post](/blog/2021/automatic-offline-twitter-card-images-og-image-generator-for-static-sites/).
+    I still believe there's a space for similar project that could be 
+    distributed as a single binary.
+
+- title: "Pelican Metadata Generator"
+  repository: "https://github.com/mirekdlugosz/pelican-metadata-generator"
+  image_slug: "pelican"
+  description: |
+    Graphical application that creates [Pelican](https://getpelican.com/) post
+    metadata. I like static website generators for many reasons, but I also
+    like safety net provided by CMS. I'm irrationally anxious about creating
+    spurious categories through typos, and I created this tool to make sure it
+    never happens.
+
+- title: "Civic engagement in Europe"
+  url: "https://mzalewski.shinyapps.io/ESS-civic-engagement"
+  url_label: "deployed app"
+  repository: "https://github.com/mirekdlugosz/ESS-civic-engagement"
+  image_slug: "ess"
+  description: |
+    R Shiny application to explore changes in civic engagement index in various
+    European countries over time. It embodies my whole self, existing on
+    intersection of software engineering, data analysis and sociology. It was
+    created back when when everyone talked about data science and I considered
+    a career in the field.
+
+- title: "ansible-dotfiles"
+  repository: "https://github.com/mirekdlugosz/ansible-dotfiles"
+  image_slug: "ansible"
+  description: |
+    Ansible playbook to deploy some of my configuration files and install
+    utilities that are rarely packaged by distributions. I appreciate the new
+    generation of command-line utilities, but I routinely work on two-three
+    machines and I can't afford to wonder if tool is available and up-to-date.
+    Thanks to this project, I don't have to.
+
+    It was created during Red Hat Day of Learning, which is a day that I get paid
+    to learn something new, not necessarily related to my daily work. It's a great
+    benefit.
+
+- title: "Przepis na LibreOffice"
+  url: "https://przepis-na-lo.pl/"
+  url_label: "website"
+  image_slug: "przepis-na-lo"
+  description: |
+    My first thematic blog, focused on LibreOffice tips and tricks. Now
+    discontinued, but I keep it online. It was relatively popular in Polish
+    open source and academic communities, attracting about 20 000 unique
+    visitors in peak months.

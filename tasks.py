@@ -57,6 +57,7 @@ def remove_directory(path=CONFIG['deploy_path']):
 @task
 def clean(c):
     """Remove auto-generated files"""
+    clean_cache(c)
     clean_output(c)
     clean_thumbnails(c)
     clean_social_cards(c)
@@ -78,6 +79,23 @@ def clean_thumbnails(c):
 def clean_social_cards(c):
     """Remove images created by pelican-social-cards"""
     remove_directory(Path(SETTINGS['PATH']) / SETTINGS['SOCIAL_CARDS_PATH'])
+
+
+@task
+def clean_cache(c):
+    """Remove Pelican cache directory"""
+    remove_directory(Path(SETTINGS['CACHE_PATH']))
+
+
+@task
+def pygments_styles(c):
+    """Generate Pygments CSS files"""
+    cmd = [
+        'python3',
+        './scripts/generate-pygments-styles.py',
+        '-d ', SETTINGS["THEME"] + "vendor/pygments/"
+    ]
+    c.run(' '.join(cmd))
 
 
 @task
@@ -169,10 +187,12 @@ def generate_social_cards(c):
     """Force generating social media cards (og:image)"""
     new_settings = 'socialcardsconf.py'
     file_content = [
+        "import logging",
         "import os",
         "import sys",
         "sys.path.append(os.curdir)",
         "from pelicanconf import *",
+        "LOG_FILTER = [(logging.WARN, 'Cannot get modification stamp for %s\\n\\t%s')]",
         "SOCIAL_CARDS_FORCE_SAVE = True",
     ]
     with open(new_settings, 'w') as fh:

@@ -1,18 +1,12 @@
 {% extends "page.html" %}
 
 {% block title %}{{ SITENAME }}{% endblock %}
-{% block content%}
+{% block content %}
 
 
-<section id="top-image" class="full-width">
-</section>
-
-<section id="about" class="full-width" itemscope itemtype="http://schema.org/Person">
+<section>
     <div class="container">
         <div class="row" itemprop="author" itemscope itemtype="http://schema.org/Person">
-            <div id="profile" class="col-12 col-md-4">
-                <img itemprop="image" src="/theme/img/main-photo.jpg">
-            </div>
             <div class="col-12 col-md-8 offset-lg-4 mx-xl-auto" itemprop="description">
                 {{ page.content }}
             </div>
@@ -34,33 +28,12 @@
         {% endif %}
         {% endfor %}
     </ul>
-    <p class="see-all"><a class="btn btn-secondary btn-sm" role="button" href="{{ SITEURL }}/{{ ARCHIVES_URL }}">Full archive
-        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
-            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
-        </svg>
-    </a></p>
-</section>
-
-<section id="projects">
-    <h1>Projects</h1>
-    <div class="row">
-        {% for project in PROJECTS if project.starred %}
-        <div class="col-sm-6">
-            {% include 'includes/project_card.html' %}
-        </div>
-        {% endfor %}
-    </div>
-    {% for page in pages if page.slug == 'projects' %}
-    <p class="see-all"><a class="btn btn-secondary btn-sm" role="button" href="{{ SITEURL }}/{{ page.url }}">See all 
-        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
-            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
-        </svg>
-    </a></p>
-    {% endfor %}
 </section>
 
 <section id="contact">
     <h1>Contact</h1>
+    <p>I'm always happy to talk about testing, open source, software engineering and related topics.</p>
+    <p>Feel free to reach me through one of following channels:</p>
     <div class="row">
         {% include 'includes/contact_items.html' %}
     </div>

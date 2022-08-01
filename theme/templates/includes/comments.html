@@ -3,9 +3,9 @@
 <section class="comments" id="comments">
     <h2>Comments</h2>
 
-    <div class="row justify-content-center">
-        <button id="load-comments" type="button" class="btn btn-secondary col-6 col-md-4 col-xl-3">Load comments</button>
-    </div>
+    <section class="load-comments-section">
+        <button id="load-comments" type="button">Load comments</button>
+    </section>
 
     <div id="disqus_thread"></div>
     <script type="text/javascript">
@@ -28,7 +28,6 @@
         {% endif %}
 
         var loadCommentsBtn = document.getElementById('load-comments');
-        loadCommentsBtn.style.display = 'block';
 
         loadCommentsBtn.addEventListener('click', function() {
                     var d = document, s = d.createElement('script');

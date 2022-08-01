@@ -2,7 +2,7 @@ Title: Setting up Protractor on Debian GNU/Linux
 Slug: setting-up-protractor-on-debian-gnu-linux
 Date: 2017-04-18 12:45:12
 Category: Blog
-Tags: Linux, Protractor, tutorial, JavaScript
+Tags: Linux, tutorial, JavaScript
 
 [Protractor](http://www.protractortest.org/) is test framework for web applications written on top of [Angular](https://angular.io/). Unfortunately, installing it on Debian is non-obvious, as it has not yet found its way into repository and existing documentation is catered to needs of Mac OS users. This guide will help you to get through this process without messing up your entire system.
 

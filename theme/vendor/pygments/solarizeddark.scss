@@ -1,5 +1,14 @@
+:root {
+    --pygment-text-color: #839496;
+    --pygment-bg-color: #002b36;
+}
+pre { line-height: 125%; }
+td.linenos .normal { color: #586e75; background-color: #073642; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: #586e75; background-color: #073642; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
 .highlight pre .hll { background-color: #073642 }
-.highlight pre  { background: #002b36; color: #839496 }
+.highlight pre { background: #002b36; color: #839496 }
 .highlight pre .c { color: #586e75; font-style: italic } /* Comment */
 .highlight pre .err { color: #839496; background-color: #dc322f } /* Error */
 .highlight pre .esc { color: #839496 } /* Escape */
@@ -22,7 +31,7 @@
 .highlight pre .gh { color: #839496; font-weight: bold } /* Generic.Heading */
 .highlight pre .gi { color: #859900 } /* Generic.Inserted */
 .highlight pre .go { color: #839496 } /* Generic.Output */
-.highlight pre .gp { color: #839496 } /* Generic.Prompt */
+.highlight pre .gp { color: #268bd2; font-weight: bold } /* Generic.Prompt */
 .highlight pre .gs { color: #839496; font-weight: bold } /* Generic.Strong */
 .highlight pre .gu { color: #839496; text-decoration: underline } /* Generic.Subheading */
 .highlight pre .gt { color: #268bd2 } /* Generic.Traceback */
