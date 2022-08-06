@@ -7,7 +7,11 @@
     <h2>Categories</h2>
     <ul class="links-list">
 
-        {% set filtered_tags = (tags| rejectattr("0.slug", "eq", "planet-python")) %}
+        {% set filtered_tags = (
+            tags |
+            rejectattr("0.slug", "eq", "planet-python") |
+            rejectattr("0.slug", "eq", "planet-ast")
+        ) %}
         {% for existing_tag in filtered_tags |sort %}
         <li class="item category-item category-{{ existing_tag.0.slug }}{% if tag and existing_tag.0.name == tag %} active{% endif %}">
             <a href="{{ SITEURL }}/{{ existing_tag.0.save_as }}">{{ existing_tag.0.name }}</a>

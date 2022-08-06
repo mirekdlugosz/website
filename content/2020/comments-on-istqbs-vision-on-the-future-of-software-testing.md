@@ -2,7 +2,7 @@ Title: Comments on ISTQB's "Vision on the Future of Software Testing"
 Slug: comments-on-istqbs-vision-on-the-future-of-software-testing
 Date: 2020-02-27 10:34:23
 Category: Blog
-Tags: testing
+Tags: testing, planet AST
 og_image_text: Comments on ISTQB’s\n“Vision on the Future \nof Software Testing”
 
 ISTQB's "Vision on the Future of Software Testing" made rounds on social media recently. I'm hopping on to this train with my own commentary.
