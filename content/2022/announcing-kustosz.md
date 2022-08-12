@@ -2,7 +2,7 @@ Title: Announcing Kustosz
 Slug: announcing-kustosz
 Date: 2022-05-15 14:06:01
 Category: Blog
-Tags: planet Python, projects, Python
+Tags: planet Python, projects, Python, planet MoT
 
 I'm happy to announce [Kustosz](https://www.kustosz.org/), a new [feed reader](https://en.wikipedia.org/wiki/News_aggregator) that aims to help you focus on worthwhile content.
 

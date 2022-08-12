@@ -10,7 +10,8 @@
         {% set filtered_tags = (
             tags |
             rejectattr("0.slug", "eq", "planet-python") |
-            rejectattr("0.slug", "eq", "planet-ast")
+            rejectattr("0.slug", "eq", "planet-ast") |
+            rejectattr("0.slug", "eq", "planet-mot")
         ) %}
         {% for existing_tag in filtered_tags |sort %}
         <li class="item category-item category-{{ existing_tag.0.slug }}{% if tag and existing_tag.0.name == tag %} active{% endif %}">

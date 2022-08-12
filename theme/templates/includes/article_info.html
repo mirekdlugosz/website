@@ -51,7 +51,8 @@
         {% set filtered_tags = (
             article.tags |
             rejectattr("slug", "eq", "planet-python") |
-            rejectattr("slug", "eq", "planet-ast")
+            rejectattr("slug", "eq", "planet-ast") |
+            rejectattr("slug", "eq", "planet-mot")
         ) %}
         {% for tag in filtered_tags |sort %}
         <a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>
