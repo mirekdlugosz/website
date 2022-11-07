@@ -89,6 +89,9 @@ CONTACT = (
 USE_OPEN_GRAPH = True
 TWITTER_CARDS = True
 TWITTER_USERNAME = "mirekdlugosz"
+MASTODON_HANDLES = [
+    "https://fosstodon.org/@mirekdlugosz",
+]
 
 BUILD_DATE = datetime.date.today().year
 

@@ -1,3 +1,9 @@
+{% if MASTODON_HANDLES %}
+{% for handle in MASTODON_HANDLES %}
+<link rel="me" href="{{ handle }}">
+{% endfor %}
+{% endif %}
+
 {# Open Graph tags #}
 {%- if USE_OPEN_GRAPH -%}
 {%- if article -%}
