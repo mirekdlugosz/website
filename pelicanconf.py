@@ -82,6 +82,7 @@ PRELOAD_FONTS_NAMES = (
 
 CONTACT = (
     ('Email', 'mailto:mirek %at% mirekdlugosz.com', 'envelope'),
+    ('Mastodon', 'https://fosstodon.org/@mirekdlugosz', 'mastodon'),
     ('Twitter', 'https://twitter.com/mirekdlugosz', 'twitter'),
     ('LinkedIn', 'https://www.linkedin.com/in/mirekdlugosz/en', 'linkedin'),
 )
