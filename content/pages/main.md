@@ -1,6 +1,7 @@
 title: Mirek Długosz personal website
 slug: main
 save_as: index.html
+url:
 template: page-main
 hidden: True
 
