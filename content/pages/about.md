@@ -2,7 +2,7 @@ title: About
 slug: about
 template: page-contact
 
-I'm Mirek Długosz ([pronounciation]({filename}/pages/name-pronounciation.md)). I'm a software engineer and I specialize in testing.
+I'm Mirek Długosz ([pronunciation]({filename}/pages/name-pronunciation.md)). I'm a software engineer and I specialize in testing.
 
 My work primarily revolves around automation, web (both frontend and backend) and data processing. My language of choice is Python, but I'm also comfortable in JavaScript, PHP, R and bash.
 
