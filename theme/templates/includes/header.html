@@ -7,35 +7,34 @@
     </section>
 
     <nav id="navbar" role="navigation">
-            <a href="{{ SITEURL }}/" class="navbar-brand">
-                {{ AUTHOR }}
-            </a>
+        <a href="{{ SITEURL }}/" class="navbar-brand">
+            {{ AUTHOR }}
+        </a>
 
-            <div id="main-menu">
-                <ul class="links-list">
-                    <li class="item nav-item{% if output_file | trim == 'index.html' %} active{% endif %}">
-                        <a class="nav-link" href="{{ SITEURL }}/">home</a>
-                    </li>
-                    <li class="item nav-item{% if 'blog' in output_file %} active{% endif %}">
-                        <a class="nav-link" href="{{ SITEURL }}/blog/">writing</a>
-                    </li>
-                    {% for page in pages if page.slug == 'projects' %}
-                    <li class="item nav-item{% if output_file == 'projects.html' %} active{% endif %}">
-                        <a class="nav-link" href="{{ SITEURL }}/{{ page.url }}">{{ page.title | lower }}</a>
-                    </li>
-                    {% endfor %}
-                    {% for page in pages if page.slug == 'about' %}
-                    <li class="item nav-item{% if output_file == 'about.html' %} active{% endif %}">
-                        <a class="nav-link" href="{{ SITEURL }}/{{ page.url }}">{{ page.title | lower }}</a>
-                    </li>
-                    {% endfor %}
-                    {% for page in pages if page.slug == 'contact' %}
-                    <li class="item nav-item{% if output_file == 'contact.html' %} active{% endif %}">
-                        <a class="nav-link" href="{{ SITEURL }}/{{ page.url }}">{{ page.title | lower }}</a>
-                    </li>
-                    {% endfor %}
-                </ul>
-            </div>
+        <div id="main-menu">
+            <ul class="links-list">
+                <li class="item nav-item{% if output_file | trim == 'index.html' %} active{% endif %}">
+                    <a class="nav-link" href="{{ SITEURL }}/">home</a>
+                </li>
+                <li class="item nav-item{% if 'blog' in output_file %} active{% endif %}">
+                    <a class="nav-link" href="{{ SITEURL }}/blog/">writing</a>
+                </li>
+                {% for page in pages if page.slug == 'projects' %}
+                <li class="item nav-item{% if output_file == 'projects.html' %} active{% endif %}">
+                    <a class="nav-link" href="{{ SITEURL }}/{{ page.url }}">{{ page.title | lower }}</a>
+                </li>
+                {% endfor %}
+                {% for page in pages if page.slug == 'about' %}
+                <li class="item nav-item{% if output_file == 'about.html' %} active{% endif %}">
+                    <a class="nav-link" href="{{ SITEURL }}/{{ page.url }}">{{ page.title | lower }}</a>
+                </li>
+                {% endfor %}
+                {% for page in pages if page.slug == 'contact' %}
+                <li class="item nav-item{% if output_file == 'contact.html' %} active{% endif %}">
+                    <a class="nav-link" href="{{ SITEURL }}/{{ page.url }}">{{ page.title | lower }}</a>
+                </li>
+                {% endfor %}
+            </ul>
         </div>
     </nav>
 </header>
