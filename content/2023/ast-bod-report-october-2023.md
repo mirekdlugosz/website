@@ -5,7 +5,7 @@ Category: Blog
 Tags: AST, planet AST, planet MoT
 
 
-In my [Association for Software Testing 2023 elections proceedings](https://associationforsoftwaretesting.org/about-the-ast-a-professional-body-for-testers/board-of-directors/election-proceedings/2023-election/2023-election-mirek-dlugosz/) I advocated for trasparency. In the spirit of practising what I preach, this blog post summarizes my work for AST in October 2023.
+In my [Association for Software Testing 2023 elections proceedings](https://associationforsoftwaretesting.org/about-the-ast-a-professional-body-for-testers/board-of-directors/election-proceedings/2023-election/2023-election-mirek-dlugosz/) I advocated for transparency. In the spirit of practising what I preach, this blog post summarizes my work for AST in October 2023.
 
 * Configured Google reCAPTCHA for contact plugin on the website. We use [Contact Form 7](https://contactform7.com/), and since version 5.8.1 it complains about "unsafe emails without protection" in specific configurations. Adding reCAPTCHA silences the complaint.
 * Finished runbook for asking for CAST presentation slides. This is internal only and I can't link to this, sorry. This wraps up a project to build [a database of all the presentations and slide decks used at AST events](https://github.com/associationforsoftwaretesting/presentations), something I started back in February.
