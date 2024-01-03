@@ -2,6 +2,7 @@ Title: Playwright - accessing <code>page</code> object in event handler
 Slug: playwright-accessing-page-object-in-event-handler
 Date: 2024-01-03 18:37:03
 Category: Blog
+og_image_text: Playwright - accessing\npage object in event handler
 Tags: planet AST, planet MoT, planet Python, Python, testing, tutorial
 
 Playwright [exposes a number of browser events](https://playwright.dev/python/docs/api/class-page#events) and provides a mechanism to respond to them. Since many of these events signal errors and problems, most of the time you want to log them, halt program execution, or ignore and move on. Logging is also shown in [Playwright documentation about network](https://playwright.dev/python/docs/network#network-events), which I will use as a base for examples in this article.
