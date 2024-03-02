@@ -2,7 +2,7 @@ Title: Playing with Rust
 Slug: playing-with-rust
 Date: 2023-07-04 11:18:55
 Category: Blog
-Tags: Linux, planet AST, planet MoT
+Tags: Linux, planet AST, planet MoT, Rust
 
 
 Recently I saw a post on LinkedIn with two samples of Python code, allegedly written by junior and senior programmers.
