@@ -413,8 +413,21 @@ body > footer {
     }
 }
 
-.singular article header a:hover {
-    text-decoration: none;
+.singular article {
+    table {
+        width: 100%;
+        @include for-tablet-portrait-up {
+            table-layout: fixed;
+        }
+
+        thead th {
+            text-align: left;
+        }
+    }
+
+    header a:hover {
+        text-decoration: none;
+    }
 }
 
 #read-next {
