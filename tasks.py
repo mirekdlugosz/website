@@ -8,8 +8,7 @@ import sys
 from io import BytesIO
 from pathlib import Path
 
-from invoke import task
-from invoke.tasks import call
+from invoke.tasks import task
 from invoke.main import program
 from pelican import main as pelican_main
 from pelican.server import ComplexHTTPRequestHandler, RootedHTTPServer
