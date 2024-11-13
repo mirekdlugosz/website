@@ -5,7 +5,7 @@ Category: Blog
 Tags: Linux, planet AST, planet MoT, planet Python
 
 
-I find Linux virtualization stack confusing. KVM? ibvirt? QEMU? Xen? What does that even mean?
+I find Linux virtualization stack confusing. KVM? libvirt? QEMU? Xen? What does that even mean?
 
 This post is my attempt at making sense of that all. I don't claim it to be correct, but that's the way I understand it. If I badly missed a mark somewhere, please [reach out and tell me how wrong I am]({filename}/pages/contact.md).
 
