@@ -2,7 +2,6 @@
 
 # {{{ imports
 import sys
-import datetime
 from pathlib import Path
 from ruamel.yaml import YAML
 sys.path.insert(0, str(Path(__file__).parent))
@@ -92,8 +91,6 @@ TWITTER_USERNAME = "mirekdlugosz"
 MASTODON_HANDLES = [
     "https://fosstodon.org/@mirekdlugosz",
 ]
-
-BUILD_DATE = datetime.date.today().year
 
 JINJA_FILTERS = {
     'dict_replace': addins.jinja_filters.dict_replace,
