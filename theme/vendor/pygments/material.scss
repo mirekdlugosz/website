@@ -1,5 +1,5 @@
 :root {
-    --pygment-text-color: #EEFFFF;
+    --pygment-text-color: #EFF;
     --pygment-bg-color: #263238;
 }
 pre { line-height: 125%; }
@@ -8,14 +8,14 @@ span.linenos { color: #37474F; background-color: #263238; padding-left: 5px; pad
 td.linenos .special { color: #607A86; background-color: #263238; padding-left: 5px; padding-right: 5px; }
 span.linenos.special { color: #607A86; background-color: #263238; padding-left: 5px; padding-right: 5px; }
 .highlight pre .hll { background-color: #2C3B41 }
-.highlight pre { background: #263238; color: #EEFFFF }
+.highlight pre { background: #263238; color: #EFF }
 .highlight pre .c { color: #546E7A; font-style: italic } /* Comment */
 .highlight pre .err { color: #FF5370 } /* Error */
 .highlight pre .esc { color: #89DDFF } /* Escape */
-.highlight pre .g { color: #EEFFFF } /* Generic */
+.highlight pre .g { color: #EFF } /* Generic */
 .highlight pre .k { color: #BB80B3 } /* Keyword */
 .highlight pre .l { color: #C3E88D } /* Literal */
-.highlight pre .n { color: #EEFFFF } /* Name */
+.highlight pre .n { color: #EFF } /* Name */
 .highlight pre .o { color: #89DDFF } /* Operator */
 .highlight pre .p { color: #89DDFF } /* Punctuation */
 .highlight pre .ch { color: #546E7A; font-style: italic } /* Comment.Hashbang */
@@ -26,6 +26,7 @@ span.linenos.special { color: #607A86; background-color: #263238; padding-left: 
 .highlight pre .cs { color: #546E7A; font-style: italic } /* Comment.Special */
 .highlight pre .gd { color: #FF5370 } /* Generic.Deleted */
 .highlight pre .ge { color: #89DDFF } /* Generic.Emph */
+.highlight pre .ges { color: #FFCB6B } /* Generic.EmphStrong */
 .highlight pre .gr { color: #FF5370 } /* Generic.Error */
 .highlight pre .gh { color: #C3E88D } /* Generic.Heading */
 .highlight pre .gi { color: #C3E88D } /* Generic.Inserted */
@@ -46,19 +47,20 @@ span.linenos.special { color: #607A86; background-color: #263238; padding-left: 
 .highlight pre .na { color: #BB80B3 } /* Name.Attribute */
 .highlight pre .nb { color: #82AAFF } /* Name.Builtin */
 .highlight pre .nc { color: #FFCB6B } /* Name.Class */
-.highlight pre .no { color: #EEFFFF } /* Name.Constant */
+.highlight pre .no { color: #EFF } /* Name.Constant */
 .highlight pre .nd { color: #82AAFF } /* Name.Decorator */
 .highlight pre .ni { color: #89DDFF } /* Name.Entity */
 .highlight pre .ne { color: #FFCB6B } /* Name.Exception */
 .highlight pre .nf { color: #82AAFF } /* Name.Function */
 .highlight pre .nl { color: #82AAFF } /* Name.Label */
 .highlight pre .nn { color: #FFCB6B } /* Name.Namespace */
-.highlight pre .nx { color: #EEFFFF } /* Name.Other */
+.highlight pre .nx { color: #EFF } /* Name.Other */
 .highlight pre .py { color: #FFCB6B } /* Name.Property */
 .highlight pre .nt { color: #FF5370 } /* Name.Tag */
 .highlight pre .nv { color: #89DDFF } /* Name.Variable */
 .highlight pre .ow { color: #89DDFF; font-style: italic } /* Operator.Word */
-.highlight pre .w { color: #EEFFFF } /* Text.Whitespace */
+.highlight pre .pm { color: #89DDFF } /* Punctuation.Marker */
+.highlight pre .w { color: #EFF } /* Text.Whitespace */
 .highlight pre .mb { color: #F78C6C } /* Literal.Number.Bin */
 .highlight pre .mf { color: #F78C6C } /* Literal.Number.Float */
 .highlight pre .mh { color: #F78C6C } /* Literal.Number.Hex */
@@ -67,10 +69,10 @@ span.linenos.special { color: #607A86; background-color: #263238; padding-left: 
 .highlight pre .sa { color: #BB80B3 } /* Literal.String.Affix */
 .highlight pre .sb { color: #C3E88D } /* Literal.String.Backtick */
 .highlight pre .sc { color: #C3E88D } /* Literal.String.Char */
-.highlight pre .dl { color: #EEFFFF } /* Literal.String.Delimiter */
+.highlight pre .dl { color: #EFF } /* Literal.String.Delimiter */
 .highlight pre .sd { color: #546E7A; font-style: italic } /* Literal.String.Doc */
 .highlight pre .s2 { color: #C3E88D } /* Literal.String.Double */
-.highlight pre .se { color: #EEFFFF } /* Literal.String.Escape */
+.highlight pre .se { color: #EFF } /* Literal.String.Escape */
 .highlight pre .sh { color: #C3E88D } /* Literal.String.Heredoc */
 .highlight pre .si { color: #89DDFF } /* Literal.String.Interpol */
 .highlight pre .sx { color: #C3E88D } /* Literal.String.Other */

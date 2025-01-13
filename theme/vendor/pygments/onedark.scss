@@ -27,6 +27,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight pre .cs { color: #7F848E } /* Comment.Special */
 .highlight pre .gd { color: #ABB2BF } /* Generic.Deleted */
 .highlight pre .ge { color: #ABB2BF } /* Generic.Emph */
+.highlight pre .ges { color: #ABB2BF } /* Generic.EmphStrong */
 .highlight pre .gr { color: #ABB2BF } /* Generic.Error */
 .highlight pre .gh { color: #ABB2BF } /* Generic.Heading */
 .highlight pre .gi { color: #ABB2BF } /* Generic.Inserted */
@@ -59,7 +60,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight pre .nt { color: #E06C75 } /* Name.Tag */
 .highlight pre .nv { color: #E06C75 } /* Name.Variable */
 .highlight pre .ow { color: #56B6C2 } /* Operator.Word */
-.highlight pre .p-Marker { color: #ABB2BF } /* Punctuation.Marker */
+.highlight pre .pm { color: #ABB2BF } /* Punctuation.Marker */
 .highlight pre .w { color: #ABB2BF } /* Text.Whitespace */
 .highlight pre .mb { color: #D19A66 } /* Literal.Number.Bin */
 .highlight pre .mf { color: #D19A66 } /* Literal.Number.Float */
