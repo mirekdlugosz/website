@@ -71,8 +71,9 @@ def subset_stats(name, df: pl.DataFrame):
     return rv
 
 
-def get_report_data(df: pl.DataFrame):
-    report_data = []
+def get_reports_data(df: pl.DataFrame):
+    categories_data = []
+    years_data = []
     cats_column = pl.col("categories")
     years_column = pl.col("date")
     categories = (
@@ -92,14 +93,14 @@ def get_report_data(df: pl.DataFrame):
 
     for category in categories:
         category_df = df.filter(pl.col("categories").list.contains(category))
-        report_data.append(subset_stats(category, category_df))
+        categories_data.append(subset_stats(category, category_df))
 
     for year in years:
         year_df = df.filter(pl.col("date").dt.year() == year)
-        report_data.append(subset_stats(str(year), year_df))
+        years_data.append(subset_stats(str(year), year_df))
 
-    report_data.append(subset_stats("Total", df))
-    return pl.DataFrame(report_data)
+    years_data.append(subset_stats("Total", df))
+    return [pl.DataFrame(data) for data in (categories_data, years_data)]
 
 
 def parse_args():
@@ -142,7 +143,7 @@ if __name__ == "__main__":
         all_post_data.append(post_data)
 
     df = pl.DataFrame(all_post_data)
-    report_data = get_report_data(df)
+    reports_data = get_reports_data(df)
 
     polars_config = {
         "float_precision": 2,
@@ -153,4 +154,5 @@ if __name__ == "__main__":
         "thousands_separator": " ",
     }
     with pl.Config(**polars_config):
-        print(report_data)
+        for report_data in reports_data:
+            print(report_data)
