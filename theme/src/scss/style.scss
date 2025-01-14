@@ -14,6 +14,10 @@ $main-color: #212529 !default;
 $main-color-lighter: #8b948e !default;
 $primary-color: #0085a1 !default;
 
+$header-image-menu-gap: 6vw;
+$header-image-size: 200px;
+$header-image-left-margin: 40px;
+
 @mixin for-phone-only {
   @media (max-width: 599px) { @content; }
 }
@@ -30,6 +34,10 @@ $primary-color: #0085a1 !default;
   @media (min-width: 1200px) { @content; }
 }
 
+@mixin for-wide-to-fit-image-gap-on-left {
+  @media (min-width: calc($max-content-width + ($header-image-size + $header-image-left-margin) * 2 + $header-image-menu-gap)) { @content; }
+}
+
 @mixin link-inherit-color() {
     a,
     a:focus,
@@ -41,7 +49,7 @@ $primary-color: #0085a1 !default;
 html {
     color: $main-color;
     font-family: $main-font-family;
-    font-size: clamp(16px, 4vw, 18px);
+    font-size: clamp(16px, 4vw, 22px);
     line-height: clamp(1.75em, 4vw, 1.9em);
     overflow-x: hidden;
     text-rendering: optimizeLegibility;
@@ -285,7 +293,7 @@ ul.links-list {
     margin: 0;
     @include for-tablet-landscape-up {
         background-size: 100%;
-        max-height: 50vh;
+        max-height: min(45vh, calc(241px * 100vw / 614px));
     }
 }
 
@@ -295,22 +303,26 @@ ul.links-list {
 
     @include for-tablet-portrait-up {
         flex-direction: row;
-        gap: 6vw;
+        gap: $header-image-menu-gap;
+    }
+    @include for-wide-to-fit-image-gap-on-left {
+      gap: 0;
     }
 
     #photo {
+        flex-shrink: 0;
         img {
-            width: 200px;
-            height: 200px;
+            width: $header-image-size;
+            height: $header-image-size;
             margin: $main-vertical-gap auto 0 auto;
             border-radius: 50%;
             background-size: cover;
             @include for-tablet-portrait-up {
-                margin-top: -100px;
+                margin-top: calc($header-image-size / 2 * -1);
                 margin-left: 10px;
             }
             @include for-tablet-landscape-up {
-                margin-left: 40px;
+                margin-left: $header-image-left-margin;
             }
         }
     }
@@ -331,10 +343,8 @@ ul.links-list {
         #main-menu {
             font-size: 1.2rem;
         }
-        // $content-width + ($photo-img + $photo-img-margin-left) * 2
-        @media (min-width: calc($max-content-width + (200px + 40px) * 2)) {
-            position: absolute;
-            left: calc((100% - $max-content-width) / 2);
+        @include for-wide-to-fit-image-gap-on-left {
+            margin-left: calc(((100% - $max-content-width) / 2) - $header-image-size - $header-image-left-margin);
         }
     }
 }
