@@ -3,6 +3,11 @@
 <link rel="me" href="{{ handle }}">
 {% endfor %}
 {% endif %}
+{% if FEDIVERSE_CREATORS %}
+{% for handle in FEDIVERSE_CREATORS %}
+<meta name="fediverse:creator" content="{{ handle }}">
+{% endfor %}
+{% endif %}
 
 {# Open Graph tags #}
 {%- if USE_OPEN_GRAPH -%}
@@ -48,18 +53,18 @@
 {%- endif -%}
 <!-- Open Graph tags -->
 {% if OPEN_GRAPH_FB_APP_ID %}
-<meta property="fb:app_id" content="{{ OPEN_GRAPH_FB_APP_ID }}"/>
+<meta property="fb:app_id" content="{{ OPEN_GRAPH_FB_APP_ID }}">
 {% endif %}
-<meta property="og:site_name" content="{{ SITENAME }}" />
-<meta property="og:type" content="{{ og_type }}"/>
-<meta property="og:title" content="{{ og_title }}"/>
-<meta property="og:url" content="{{ SITEURL }}{% if og_url %}/{{ og_url }}{% endif %}"/>
-<meta property="og:description" content="{{ og_description }}"/>
+<meta property="og:site_name" content="{{ SITENAME }}" >
+<meta property="og:type" content="{{ og_type }}">
+<meta property="og:title" content="{{ og_title }}">
+<meta property="og:url" content="{{ SITEURL }}{% if og_url %}/{{ og_url }}{% endif %}">
+<meta property="og:description" content="{{ og_description }}">
 {% if og_author %}
-<meta property="article:author" content="{{ og_author }}" />
+<meta property="article:author" content="{{ og_author }}">
 {% endif %}
 {% if og_image %}
-<meta property="og:image" content="{{ SITEURL }}/{{ og_image }}"/>
+<meta property="og:image" content="{{ SITEURL }}/{{ og_image }}">
 {% endif %}
 {%- endif -%}
 

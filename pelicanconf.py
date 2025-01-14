@@ -91,6 +91,9 @@ TWITTER_USERNAME = "mirekdlugosz"
 MASTODON_HANDLES = [
     "https://fosstodon.org/@mirekdlugosz",
 ]
+FEDIVERSE_CREATORS = [
+    "@mirekdlugosz@fosstodon.org",
+]
 
 JINJA_FILTERS = {
     'dict_replace': addins.jinja_filters.dict_replace,
