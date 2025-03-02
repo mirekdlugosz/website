@@ -122,6 +122,8 @@ TYPOGRIFY = True
 THUMBNAIL_SIZES = {
     'content/2021/pelican-social-cards-announcement/sample-card-with-image.png': (342, 300),
     'content/2024/30-days-of-ai-in-testing-experience-report/responses-plot.png': (800, 502),
+    'content/2025/customizing-fonts-look-with-opentype-features/font-feature-tester-example.png': (783, 406),
+    'content/2025/customizing-fonts-look-with-opentype-features/font-feature-tester-ui.png': (506, 391),
 }
 
 SOCIAL_CARDS_TEMPLATE = './theme/src/img/social-card-template.jpg'
