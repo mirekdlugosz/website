@@ -124,6 +124,9 @@ THUMBNAIL_SIZES = {
     'content/2024/30-days-of-ai-in-testing-experience-report/responses-plot.png': (800, 502),
     'content/2025/customizing-fonts-look-with-opentype-features/font-feature-tester-example.png': (783, 406),
     'content/2025/customizing-fonts-look-with-opentype-features/font-feature-tester-ui.png': (506, 391),
+    'content/2025/interesting-bugs-peculiar-intermittent-failure-in-testing-pipeline/infrastructure-diagram.png': (500, 320),
+    'content/2025/interesting-bugs-peculiar-intermittent-failure-in-testing-pipeline/more-readable-log.png': (500, 242),
+    'content/2025/interesting-bugs-peculiar-intermittent-failure-in-testing-pipeline/failures-spreadsheet.png': (500, 305),
 }
 
 SOCIAL_CARDS_TEMPLATE = './theme/src/img/social-card-template.jpg'
