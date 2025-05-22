@@ -127,6 +127,7 @@ THUMBNAIL_SIZES = {
     'content/2025/interesting-bugs-peculiar-intermittent-failure-in-testing-pipeline/infrastructure-diagram.png': (500, 320),
     'content/2025/interesting-bugs-peculiar-intermittent-failure-in-testing-pipeline/more-readable-log.png': (500, 242),
     'content/2025/interesting-bugs-peculiar-intermittent-failure-in-testing-pipeline/failures-spreadsheet.png': (500, 305),
+    'content/2025/understanding-python-web-deployment/main-model.png': (650, 232),
 }
 
 SOCIAL_CARDS_TEMPLATE = './theme/src/img/social-card-template.jpg'
