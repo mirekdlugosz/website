@@ -128,6 +128,8 @@ THUMBNAIL_SIZES = {
     'content/2025/interesting-bugs-peculiar-intermittent-failure-in-testing-pipeline/more-readable-log.png': (500, 242),
     'content/2025/interesting-bugs-peculiar-intermittent-failure-in-testing-pipeline/failures-spreadsheet.png': (500, 305),
     'content/2025/understanding-python-web-deployment/main-model.png': (650, 232),
+    'content/2025/interesting-bugs-artifact-building-failure-caused-by-github-api-rate-limits/process-wrappers.png': (500, 312),
+    'content/2025/interesting-bugs-artifact-building-failure-caused-by-github-api-rate-limits/errors-tracking-spreadsheet.png': (200, 211),
 }
 
 SOCIAL_CARDS_TEMPLATE = './theme/src/img/social-card-template.jpg'
