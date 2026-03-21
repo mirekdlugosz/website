@@ -16,19 +16,6 @@
 
     Kustosz is now the primary way I read online content.
 
-- title: "createPokémon.team"
-  url: "https://createpokemonteam.mirekdlugosz.com/"
-  url_label: "deployed app"
-  repository: "https://github.com/mirekdlugosz/create-pokemon-team"
-  image_slug: "createpokemonteam"
-  description: |
-    Web application that helps you build your own Pokémon team in any core
-    series game. There's an [announcement post](/blog/2018/why-i-love-pokemon/)
-    that covers history of the project and my relationship with the franchise.
-
-    It became a little popular among Pokémon fans, attracting around 3000 users
-    each month and spawning a small discussion on reddit.
-
 - title: "Pelican Social Cards plugin"
   repository: "https://github.com/mirekdlugosz/pelican-social-cards"
   image_slug: "pelican-social-cards"
@@ -75,6 +62,19 @@
     It was created during Red Hat Day of Learning, which is a day that I get paid
     to learn something new, not necessarily related to my daily work. It's a great
     benefit.
+
+- title: "createPokémon.team"
+  url: "https://createpokemonteam.mirekdlugosz.com/"
+  url_label: "deployed app"
+  repository: "https://github.com/mirekdlugosz/create-pokemon-team"
+  image_slug: "createpokemonteam"
+  description: |
+    Web application that helps you build your own Pokémon team in any core
+    series game. There's an [announcement post](/blog/2018/why-i-love-pokemon/)
+    that covers history of the project and my relationship with the franchise.
+
+    It became a little popular among Pokémon fans, attracting around 3000 users
+    each month and spawning a small discussion on reddit.
 
 - title: "Przepis na LibreOffice"
   url: "https://przepis-na-lo.pl/"
