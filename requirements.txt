@@ -1,9 +1,9 @@
 invoke
 livereload
 ruamel.yaml
-typogrify ~= 2.0.7
+typogrify ~= 2.1.0
 Markdown ~= 3.7
-pelican ~= 4.10.1
+pelican ~= 4.12.0
 
 # plugins
 ## available on pip
